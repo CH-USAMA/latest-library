@@ -9,9 +9,11 @@ Route::get('/', function () {
 
 Auth::routes();
 
-Route::get('/home', action: [App\Http\Controllers\HomeController::class, 'index'])->name('home');
-Route::get('/users', action: [StudentController::class, 'index'])->name('users');
-Route::get('/student_form', action: [StudentController::class, 'create'])->name('student_form');
-Route::post('/store_student', action: [StudentController::class, 'store'])->name('store_student');
-Route::get('/deleteUser/{id}',[StudentController::class, 'Delete'])->name('deleteUser');
+//Route::get('/home', action: [App\Http\Controllers\HomeController::class, 'index'])->name('home');
 
+Route::controller(StudentController::class)->group(function (){
+    Route::get('/users','index',)->name('users');
+    Route::get('/form','create')->name('form');
+    Route::get('/store','store')->name('store');
+    Route::get('/delete/{id}','delete')->name('delete');
+});

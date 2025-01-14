@@ -16,7 +16,7 @@ class StudentController extends Controller
         //return view(view: 'layouts.students');
         $data = User::all();
         //dd($data);
-        return view('viewList',['viewList'=>$data]);
+        return view('users.list',['userslist'=>$data]);
     }
 
     /**
@@ -24,7 +24,7 @@ class StudentController extends Controller
      */
     public function create()
     {
-        return view(view: 'creation_forms.form');
+        return view(view: 'users.form');
     }
 
     /**
@@ -39,7 +39,7 @@ class StudentController extends Controller
         $user->date_of_birth = $request->date_of_birth;
         $user->role = $request->role;
         $user->save();
-        return view(view: 'viewList');
+        return view(view: 'users.list');
     }
 
     /**
@@ -50,9 +50,9 @@ class StudentController extends Controller
         //
     }
 
-    public function delete(Student $student)
+    public function delete(Student $student,Request $request)
     {
-        return view(view: 'viewList');
+        return view(view: 'users.list');
     }
     /**
      * Show the form for editing the specified resource.

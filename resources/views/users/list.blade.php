@@ -24,7 +24,7 @@
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
-                                    @foreach ($viewList as $user)
+                                    @foreach ($userslist as $user)
                                     <tbody>
                                     <tr>
                                         <td class="align-middle ps-3">
@@ -54,14 +54,6 @@
                                                 data-bs-toggle="tooltip" title="Create Date">20-05-1998</span>
                                         </td>
                                     
-                                        <td class="align-middle">
-                                            <label class="form-check form-switch form-switch-sm form-check-solid p-0"
-                                                data-bs-toggle="modal"
-                                                data-bs-target="#reason_active">
-                                                <input class="active-check-input form-check-input ms-0" type="checkbox"
-                                                    value="" checked data-bs-toggle="tooltip" data-bs-placement="top" title="Active" />
-                                            </label>
-                                        </td>
                                         
                                         <td class="align-middle text-end pe-3">
                                             <a href="company-view.html"
@@ -70,12 +62,12 @@
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 title="Profile View"></i>
                                             </a>
-                                            <a href="{{route('deleteUser',['id'=>$user['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
-                                                    class=" btn btn-light-danger btn-icon h-35px w-35px"
-                                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                                    title="Delete">
-                                                <i class="fa-duotone fa-trash fs-4 h-35px w-35px align-items-center justify-content-center"></i>
-                                            </a>
+                                            <a href="{{route('delete',['id'=>$user['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
+                                                                    class=" btn btn-light-danger btn-icon h-35px w-35px"
+                                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    title="Delete">
+                                                                <i class="fa-duotone fa-trash fs-4 h-35px w-35px align-items-center justify-content-center"></i>
+                                                            </a>
                                         </td>
                                     </tr>
                                     </tbody>

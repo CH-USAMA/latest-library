@@ -360,53 +360,7 @@ if (document.documentElement) {
             <!--begin::Main-->
             <div class="app-main flex-column flex-row-fluid" id="kt_app_main">
                 <!--begin::Content wrapper-->
-                <div class="kt-app-main-content d-flex flex-column app-container container-fluid">
-                    <!--begin::Toolbar-->
-                    <div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
-                        <!--begin::Toolbar container-->
-                        <div id="kt_app_toolbar_container" class="d-flex flex-stack w-100">
-                            <!--begin::Page title-->
-                            <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
-                                <!--begin::Title-->
-                                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Students</h1>
-                                <!--end::Title-->
-                                <!--begin::Breadcrumb-->
-                                <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
-                                    <!--begin::Item-->
-                                    <li class="breadcrumb-item text-muted">
-                                        <a href="index.html" class="text-muted text-hover-primary">Home</a>
-                                    </li>
-                                    <!--end::Item-->
-                                    <!--begin::Item-->
-                                    <li class="breadcrumb-item">
-                                        <span class="bullet bg-gray-400 w-5px h-2px"></span>
-                                    </li>
-                                    <!--end::Item-->
-                                    <!--begin::Item-->
-                                    <li class="breadcrumb-item text-muted">Students</li>
-                                    <!--end::Item-->
-                                </ul>
-                                <!--end::Breadcrumb-->
-                            </div>
-                            <!--end::Page title-->
-
-                       
-                        </div>
-                        <!--end::Toolbar container-->
-
-                    </div>
-                    <!--end::Toolbar-->
-                    <!--begin::Content-->
-                    <div id="kt_app_content" class="app-content flex-column-fluid">
-                        <!--begin::Content container-->
-                        <div id="kt_app_content_container" class="">
-                        @yield('content')
-                            
-                        </div>
-                        <!--end::Content container-->
-                    </div>
-                    <!--end::Content-->
-                </div>
+                @yield("content")
                 <!--end::Content wrapper-->
                 <!--begin::Footer-->
                 <div id="kt_app_footer" class="app-footer">
