@@ -1,0 +1,315 @@
+/* =====================================
+    Theme Custom CSS / style.bundle.css
+   ===================================== */
+
+[data-bs-theme=light]{
+    --bs-app-bg-color: #eaedef;
+}
+
+[data-bs-theme=dark]{
+    --bs-app-bg-color: #151521;
+}
+
+.app-default, body{
+    background-color: var(--bs-app-bg-color);
+}
+
+@media (min-width: 992px) {
+    .app-header.call-header,
+    .app-header.call-header {
+        left: 0 !important;
+    }
+}
+
+[data-bs-theme="dark"] .app-header.call-header .light-img {
+    display: none !important;
+}
+
+[data-bs-theme="light"] .app-header.call-header .dark-img {
+    display: none !important;
+}
+
+/* Theme Custom Btn */
+.btn.btn-info {
+    color: var(--bs-info-inverse);
+    border-color: #00d5f7;
+    background-color: #00d5f7
+}
+
+.btn.btn-info .svg-icon, .btn.btn-info i {
+    color: var(--bs-info-inverse)
+}
+
+.btn.btn-info.dropdown-toggle:after {
+    color: var(--bs-info-inverse)
+}
+
+.btn-check:active + .btn.btn-info,
+.btn-check:checked + .btn.btn-info,
+.btn.btn-info.active, .btn.btn-info.show,
+.btn.btn-info:active:not(.btn-active),
+.btn.btn-info:focus:not(.btn-active),
+.btn.btn-info:hover:not(.btn-active),
+.show > .btn.btn-info {
+    color: var(--bs-info-inverse);
+    border-color: #00b8d5;
+    background-color: #00b8d5 !important
+}
+
+.btn-check:active + .btn.btn-info .svg-icon, .btn-check:active + .btn.btn-info i,
+.btn-check:checked + .btn.btn-info .svg-icon, .btn-check:checked + .btn.btn-info i,
+.btn.btn-info.active .svg-icon, .btn.btn-info.active i, .btn.btn-info.show .svg-icon,
+.btn.btn-info.show i, .btn.btn-info:active:not(.btn-active) .svg-icon,
+.btn.btn-info:active:not(.btn-active) i,
+.btn.btn-info:focus:not(.btn-active) .svg-icon,
+.btn.btn-info:focus:not(.btn-active) i,
+.btn.btn-info:hover:not(.btn-active) .svg-icon,
+.btn.btn-info:hover:not(.btn-active) i,
+.show > .btn.btn-info .svg-icon,
+.show > .btn.btn-info i {
+    color: var(--bs-info-inverse)
+}
+
+.btn-check:active + .btn.btn-info.dropdown-toggle:after,
+.btn-check:checked + .btn.btn-info.dropdown-toggle:after,
+.btn.btn-info.active.dropdown-toggle:after,
+.btn.btn-info.show.dropdown-toggle:after,
+.btn.btn-info:active:not(.btn-active).dropdown-toggle:after,
+.btn.btn-info:focus:not(.btn-active).dropdown-toggle:after,
+.btn.btn-info:hover:not(.btn-active).dropdown-toggle:after,
+.show > .btn.btn-info.dropdown-toggle:after {
+    color: var(--bs-info-inverse);
+}
+
+/* theme Custom Badge */
+.badge-info{
+    color:var(--bs-info-inverse);
+    background-color: #00d5f7;
+}
+
+.badge-info.badge-outline{
+    border:1px solid #00d5f7;
+    color: #00d5f7;
+    background-color:transparent
+}
+
+.badge-light-info{
+    color: #00d5f7;
+    background-color: #dffbff;
+}
+
+/* theme Custom Button */
+/*.btn.btn-info{
+    color:var(--bs-info-inverse);
+    border-color:#00d5f7;
+    background-color:#00d5f7
+}
+.btn.btn-info .svg-icon,.btn.btn-info i{
+    color:var(--bs-info-inverse)
+}
+.btn.btn-info.dropdown-toggle:after{
+    color:var(--bs-info-inverse)
+}
+.btn-check:active+.btn.btn-info,
+.btn-check:checked+.btn.btn-info,
+.btn.btn-info.active,.btn.btn-info.show,
+.btn.btn-info:active:not(.btn-active),
+.btn.btn-info:focus:not(.btn-active),
+.btn.btn-info:hover:not(.btn-active),
+.show>.btn.btn-info{
+    color:var(--bs-info-inverse);
+    border-color:var(--bs-info-active);
+    background-color:var(--bs-info-active)!important
+}
+.btn-check:active+.btn.btn-info .svg-icon,
+.btn-check:active+.btn.btn-info i,
+.btn-check:checked+.btn.btn-info .svg-icon,
+.btn-check:checked+.btn.btn-info i,
+.btn.btn-info.active .svg-icon,.btn.btn-info.active i,
+.btn.btn-info.show .svg-icon,.btn.btn-info.show i,
+.btn.btn-info:active:not(.btn-active) .svg-icon,
+.btn.btn-info:active:not(.btn-active) i,
+.btn.btn-info:focus:not(.btn-active) .svg-icon,
+.btn.btn-info:focus:not(.btn-active) i,
+.btn.btn-info:hover:not(.btn-active) .svg-icon,
+.btn.btn-info:hover:not(.btn-active) i,
+.show>.btn.btn-info .svg-icon,
+.show>.btn.btn-info i{
+    color:var(--bs-info-inverse)
+}
+.btn-check:active+.btn.btn-info.dropdown-toggle:after,
+.btn-check:checked+.btn.btn-info.dropdown-toggle:after,
+.btn.btn-info.active.dropdown-toggle:after,
+.btn.btn-info.show.dropdown-toggle:after,
+.btn.btn-info:active:not(.btn-active).dropdown-toggle:after,
+.btn.btn-info:focus:not(.btn-active).dropdown-toggle:after,
+.btn.btn-info:hover:not(.btn-active).dropdown-toggle:after,
+.show>.btn.btn-info.dropdown-toggle:after{
+    color:var(--bs-info-inverse)
+}*/
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    /* display: none; <- Crashes Chrome on hover */
+    -webkit-appearance: none;
+    margin: 0;
+    /* <-- Apparently some margin are still there even though it's hidden */
+}
+
+input[type="number"] {
+    -moz-appearance: textfield;
+}
+
+.dropdown-toggle::after{
+    display: none;
+}
+
+/* =====================================
+    Custom CSS
+   ===================================== */
+
+.content-width {
+    width: calc(100% - 140px);
+    float: left;
+}
+
+.call-active-width {
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    width: 140px;
+    float: right;
+    height: calc(100% - 70px);
+    padding: 20px;
+}
+
+.kt-app-main-content{
+    min-height: calc(100vh - 130px);
+}
+
+.call-num {
+    position: relative;
+    display: block;
+    width: 45px;
+    height: 45px;
+    line-height: 45px;
+    text-align: center;
+    border-radius: 50%;
+    margin: 0 auto 10px;
+    font-size: 17px;
+    color: #fff;
+}
+
+.call-active .call-num:before{
+    content: "";
+    position: absolute;
+    width: 61px;
+    height: 61px;
+    left: -8px;
+    top: -8px;
+    z-index: -1;
+    border-radius: 50%;
+    border: 15px solid #55b9ff;
+    animation: pulsate 1.6s ease-out;
+    animation-iteration-count: infinite;
+    opacity: 0.0;
+}
+
+@keyframes pulsate {
+    0% {transform: scale(0.6, 0.6); opacity: 0.0;}
+    50% {opacity: 1.0;}
+    100% {transform: scale(1, 1); opacity: 0.0;}
+}
+
+.call-txt {
+    display: block;
+    text-align: center;
+    font-weight: 500;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.calling-icon i {
+    font-size: 1.8em;
+}
+
+.calling-icon.rotate i {
+    transform: rotate(-35deg)
+}
+
+.call-graph .card-header {
+    min-height: auto;
+}
+
+.call-card {
+    border-right: 1px solid #f2f2f2;
+}
+
+.call-tab-btn {
+    position: absolute;
+    top: 22px;
+    right: 18px;
+}
+
+.bg-theme{
+    background-color: #15163F
+}
+
+@media (max-width: 768px) {
+    .call-num {
+        width: 37px;
+        height: 37px;
+        line-height: 37px;
+        font-size: 16px;
+    }
+}
+
+@media (max-width: 991.98px) {
+  /*  .call-active-width {
+        width: 10%;
+        height: calc(100% - 60px);
+    }*/
+
+    .call-tab-btn {
+        position: relative;
+        top: auto;
+        right: auto;
+    }
+
+}
+
+@media (max-width: 1199px) {
+    .call-card {
+        border-right: none;
+    }
+}
+
+.stepper-nav-sticky{
+    position: sticky;
+    top: 90px;
+    height: 52vh;
+}
+
+.table-responsive .dataTables_scrollHeadInner{
+    width:100% !important;
+}
+
+.active-check-input.form-check-input:checked {
+    background-color: #50cd89;
+    border-color: #50cd89;
+}
+
+.inactive-check-input.form-check-input:checked {
+    background-color: #ffc700;
+    border-color: #ffc700;
+}
+
+.block-check-input.form-check-input:checked {
+    background-color: #f1416c;
+    border-color: #f1416c;
+}
+
+.unblock-check-input.form-check-input:checked {
+    background-color: #181c32;
+    border-color: #181c32;
+}
