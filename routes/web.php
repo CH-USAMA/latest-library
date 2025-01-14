@@ -14,6 +14,6 @@ Auth::routes();
 Route::controller(StudentController::class)->group(function (){
     Route::get('/users','index',)->name('users');
     Route::get('/form','create')->name('form');
-    Route::get('/store','store')->name('store');
+    Route::post('/store','store')->name('store');
     Route::get('/delete/{id}','delete')->name('delete');
 });

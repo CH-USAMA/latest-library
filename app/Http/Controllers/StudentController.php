@@ -39,7 +39,7 @@ class StudentController extends Controller
         $user->date_of_birth = $request->date_of_birth;
         $user->role = $request->role;
         $user->save();
-        return view(view: 'users.list');
+        return redirect()->route('users');
     }
 
     /**
@@ -50,9 +50,13 @@ class StudentController extends Controller
         //
     }
 
-    public function delete(Student $student,Request $request)
+    public function delete($id)
     {
-        return view(view: 'users.list');
+        //$book = Book::find($id);
+        //$book->delete();
+        User::destroy($id);
+        return redirect()->route('users');
+
     }
     /**
      * Show the form for editing the specified resource.
