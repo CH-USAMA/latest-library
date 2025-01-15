@@ -61,17 +61,22 @@ class StudentController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Student $student)
+    public function edit($id)
     {
-        //
+        $user = User::find($id);
+        return view('users.form',['user'=>$user]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, Student $student)
+    public function update(Request $request)
     {
-        //
+        $id = $request->id;
+        $user = User::find($id);
+        $user->update($request);
+        //User::where($id)->update($request->User);
+        return redirect()->route('users');
     }
 
     /**

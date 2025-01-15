@@ -62,6 +62,7 @@
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 title="Profile View"></i>
                                             </a>
+                                            <a href="{{route('edit',['id'=>$user['id']])}}">Edit</a>
                                             <a href="{{route('delete',['id'=>$user['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
                                                                     class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                                     data-bs-toggle="tooltip" data-bs-placement="top"
