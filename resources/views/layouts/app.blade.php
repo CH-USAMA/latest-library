@@ -2,6 +2,7 @@
 <html lang="en">
 <!--begin::Head-->
 <head>
+    <base href="{{ url('/') }}/">
     <title>Library FYP Project</title>
     <meta charset="utf-8"/>
     <meta name="description" content=""/>
@@ -18,6 +19,9 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Inter:300,400,500,600,700"/>
     <!--end::Fonts-->
     <!--begin::Vendor Stylesheets(used for this page only)-->
+    
+    <!--<link href="{{ asset('assets/css/style.css') }}" rel="stylesheet">-->
+    
     <link href="assets/plugins/custom/datatables/datatables.bundle.css" rel="stylesheet" type="text/css"/>
     <link href="assets/plugins/custom/vis-timeline/vis-timeline.bundle.css" rel="stylesheet" type="text/css"/>
     <!--end::Vendor Stylesheets-->
@@ -158,55 +162,22 @@ if (document.documentElement) {
                                         <!--end::Avatar-->
                                         <!--begin::Username-->
                                         <div class="d-flex flex-column">
-                                            <div class="fw-bold d-flex align-items-center fs-5">Max Smith
+                                            <div class="fw-bold d-flex align-items-center fs-5"> {{ Auth::user()->name }}
                                             </div>
-                                            <a href="#" class="fw-semibold text-muted text-hover-primary fs-7">max@kt.com</a>
+                                            <a href="#" class="fw-semibold text-muted text-hover-primary fs-7"> {{ Auth::user()->email }}</a>
                                         </div>
                                         <!--end::Username-->
                                     </div>
                                 </div>
                                 <!--end::Menu item-->
-                                <!--begin::Menu separator-->
-                                <div class="separator my-2"></div>
-                                <!--end::Menu separator-->
                                 <!--begin::Menu item-->
                                 <div class="menu-item px-5">
-                                    <a href="#" class="menu-link px-5">My Profile</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="#" class="menu-link px-5">
-                                        <span class="menu-text">My Students</span>
-                                        <span class="menu-badge">
-													<span class="badge badge-light-danger badge-circle fw-bold fs-7">3</span>
-												</span>
-                                    </a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5" data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
-                                     data-kt-menu-placement="left-start" data-kt-menu-offset="-15px, 0">
-                                    <a href="#" class="menu-link px-5">
-                                        <span class="menu-title">My Teachers</span>
-                                        <span class="menu-arrow"></span>
-                                    </a>
-                                
-                                </div>
-                                <!--end::Menu item-->
-                              
-                                <!--begin::Menu separator-->
-                                <div class="separator my-2"></div>
-                                <!--end::Menu separator-->
-                           
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5 my-1">
-                                    <a href="#" class="menu-link px-5">Account Settings</a>
-                                </div>
-                                <!--end::Menu item-->
-                                <!--begin::Menu item-->
-                                <div class="menu-item px-5">
-                                    <a href="sign-in.html" class="menu-link px-5">Sign Out</a>
+                                    <a class="menu-link px-5" href="{{ route('logout') }}"
+                                       onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">Logout</a>
+                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        @csrf
+                                    </form>
                                 </div>
                                 <!--end::Menu item-->
                             </div>
