@@ -31,6 +31,11 @@ class StudentController extends Controller
         return view(view: 'users.form');
     }
 
+    public function studentCreate()
+    {
+        return view(view: 'teachers.form');
+    }
+
     /**
      * Store a newly created resource in storage.
      */
@@ -42,6 +47,11 @@ class StudentController extends Controller
         $user->password = $request->password;
         $user->date_of_birth = $request->date_of_birth;
         $user->role = $request->role;
+        $user->or_level = $request->or_level;
+        $user->current_book_name = $request->current_book_name;
+        $user->topic = $request->topic;
+        $user->class = $request->class;
+        $user->interests = $request->interests;
         $user->save();
         return redirect()->route('users');
     }

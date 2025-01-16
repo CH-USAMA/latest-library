@@ -11,6 +11,7 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 Route::get('/dashboard', action: [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
+Route::get('/studentcreation', action: [App\Http\Controllers\StudentController::class, 'studentCreate'])->name('studentcreation');
 
 
 Route::controller(StudentController::class)->group(function (){

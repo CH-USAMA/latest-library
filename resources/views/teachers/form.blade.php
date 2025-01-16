@@ -40,7 +40,7 @@
 	<div id="kt_app_content" class="app-content flex-column-fluid">
 		<!--begin::Content container-->
 		<div id="kt_app_content_container" class="">
-			@if (empty($user));
+			@if (empty($user))
 				<form action="{{route('store')}}" method="POST">
 			@else
 				<form action="{{route('update')}}" method="POST">
@@ -54,7 +54,7 @@
 												<div class="col-xl-12">
 													<div class="card ">
 														<div class="card-header align-items-center px-3 min-h-50px">
-															<h3 class=" mb-0">Create User</h3>
+															<h3 class=" mb-0">Create Student</h3>
 														</div>
 														<div class="card-body p-3 pt-0">
 															<div class="row">
@@ -79,17 +79,44 @@
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-9 fv-row mb-5">
-																	<label class="form-label">Date Of Birth</label>
-																	<input type="date" name="dateOfBirth" id="inputDateOfBirth" class="form-control form-control-solid">
+																	<label class="form-label">OR Level</label>
+																	<input type="text" name="or_level" id="inputOrLevel" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-sm-9 fv-row mb-5">
-																	<label class="form-label">Role</label>
-																	<select name="role" class="form-select form-select-solid">
+																<div class="col-md-9 fv-row mb-5">
+																	<label class="form-label">Current Book Name</label>
+																	<input type="text" name="current_book_name" id="inputCurrentBookName" class="form-control form-control-solid">
+																</div>
+																<!--end::Col-->
+																<!--begin::Col-->
+																<div class="col-md-9 fv-row mb-5">
+																	<label class="form-label">Topic</label>
+																	<input type="text" name="topic" id="inputTopic" class="form-control form-control-solid">
+																</div>
+																<!--end::Col-->
+																<!--begin::Col-->
+																<div class="col-md-9 fv-row mb-5">
+																	<label class="form-label">Class</label>
+																	<input type="text" name="class" id="inputClass" class="form-control form-control-solid">
+																</div>
+																<!--end::Col-->
+																<!--begin::Col-->
+																<div class="col-md-9 fv-row mb-5">
+																	<label class="form-label">Interests</label>
+																	<input type="text" name="interests" id="inputInterests" class="form-control form-control-solid">
+																</div>
+																<!--end::Col-->
+																<!--begin::Col-->
+																<div class="col-md-9 fv-row mb-5">
+																	<label class="form-label">Date Of Birth</label>
+																	<input type="date" name="date_of_birth" id="inputDateOfBirth" class="form-control form-control-solid">
+																</div>
+																<!--end::Col-->
+																<!--begin::Col-->
+																	<select hidden name="role" class="form-select form-select-solid">
 																		<option value="student" selected="selected">Student</option>
 																	</select>
-																</div>
 																<!--end::Col-->
 															</div>
 															<div class="mb-0 mt-1">

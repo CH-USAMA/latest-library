@@ -40,7 +40,7 @@
 	<div id="kt_app_content" class="app-content flex-column-fluid">
 		<!--begin::Content container-->
 		<div id="kt_app_content_container" class="">
-			@if (empty($user));
+			@if (empty($user))
 				<form action="{{route('store')}}" method="POST">
 			@else
 				<form action="{{route('update')}}" method="POST">
@@ -80,7 +80,7 @@
 																<!--begin::Col-->
 																<div class="col-md-9 fv-row mb-5">
 																	<label class="form-label">Date Of Birth</label>
-																	<input type="date" name="dateOfBirth" id="inputDateOfBirth" class="form-control form-control-solid">
+																	<input type="date" name="date_of_birth" id="inputDateOfBirth" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
