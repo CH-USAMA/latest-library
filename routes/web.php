@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 
@@ -21,4 +22,13 @@ Route::controller(StudentController::class)->group(function (){
     Route::get('/delete/{id}','delete')->name('delete');
     Route::get('/edit/{id}','edit')->name('edit');
     Route::post('/update','store')->name('update');
+});
+
+Route::controller(NoteController::class)->group(function (){
+    Route::get('/notes','index',)->name('notes');
+    Route::get('/form','create')->name('form');
+    //Route::post('/store','store')->name('store');
+    //Route::get('/delete/{id}','delete')->name('delete');
+    //Route::get('/edit/{id}','edit')->name('edit');
+    //Route::post('/update','store')->name('update');
 });
