@@ -12,21 +12,23 @@ Route::get('/', function () {
     return redirect()->route('login');
 });
 Route::get('/dashboard', action: [App\Http\Controllers\DashboardController::class, 'index'])->name('dashboard');
-Route::get('/studentcreation', action: [App\Http\Controllers\StudentController::class, 'studentCreate'])->name('studentcreation');
-
 
 Route::controller(StudentController::class)->group(function (){
-    Route::get('/users','index',)->name('users');
-    Route::get('/form','create')->name('form');
+    Route::get('/studentslist','index',)->name('users');
+    Route::get('/studentregister','studentCreate')->name('form');
+    Route::get('/teacherregister','teacherCreate')->name('tform');
+    Route::get('/teacherslist','teacherindex',)->name('teacherusers');
+    Route::get('/profile','profile',)->name('profile');
+
     Route::post('/store','store')->name('store');
     Route::get('/delete/{id}','delete')->name('delete');
     Route::get('/edit/{id}','edit')->name('edit');
-    Route::post('/update','store')->name('update');
+    Route::post('/update','store')->name(name: 'update');
 });
 
 Route::controller(NoteController::class)->group(function (){
-    Route::get('/notes','index',)->name('notes');
-    Route::get('/form','create')->name('form');
+    Route::get('/noteslist','index',)->name('notes');
+    Route::get('/createnote','create')->name('nform');
     //Route::post('/store','store')->name('store');
     //Route::get('/delete/{id}','delete')->name('delete');
     //Route::get('/edit/{id}','edit')->name('edit');

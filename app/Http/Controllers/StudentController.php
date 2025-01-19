@@ -15,25 +15,36 @@ class StudentController extends Controller
     /**
      * Display a listing of the resource.
      */
-    public function index(User $user)
+    public function index()
     {
-        //return view(view: 'layouts.students');
         $data = User::all();
-        //dd($data);
-        return view('users.list',['userslist'=>$data]);
+        return view('students.list',['userslist'=>$data]);
+    }
+
+    public function profile()
+    {
+        $data = User::all();
+        //return view('students.list',['userslist'=>$data]);
+        return view('users.profile');
+    }
+
+    public function teacherindex()
+    {
+        $data = User::all();
+        return view('teachers.list',['userslist'=>$data]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function create()
-    {
-        return view(view: 'users.form');
-    }
-
     public function studentCreate()
     {
-        return view(view: 'teachers.form');
+        return view(view: 'students.form');
+    }
+
+    public function teacherCreate()
+    {
+        return view(view: 'students.form');
     }
 
     /**
@@ -78,7 +89,7 @@ class StudentController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('users.form',['user'=>$user]);
+        return view('students.form',['user'=>$user]);
     }
 
     /**

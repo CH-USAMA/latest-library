@@ -242,7 +242,7 @@ if (document.documentElement) {
                                     </a>
                                     <!--end:Menu link-->
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="index.html">
+                                    <a class="menu-link" href="{{route("users")}}">
 											<span class="menu-icon">
 												<i class="fa-duotone fa-clipboard-check fs-3"></i>
 											</span>
@@ -250,7 +250,7 @@ if (document.documentElement) {
                                     </a>
                                     <!--end:Menu link-->
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="index.html">
+                                    <a class="menu-link" href="{{route(name: "teacherusers")}}">
 											<span class="menu-icon">
 												<i class="fa-duotone fa-user fs-3"></i>
 											</span>

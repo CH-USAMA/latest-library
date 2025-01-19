@@ -23,7 +23,7 @@
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Teachers</li>
+					<li class="breadcrumb-item text-muted">Students</li>
 					<!--end::Item-->
 					<!--begin::Item-->
 					<li class="breadcrumb-item">
@@ -65,7 +65,7 @@
 												<div class="col-xl-12">
 													<div class="card ">
 														<div class="card-header align-items-center px-3 min-h-50px">
-															<h3 class=" mb-0">Create Teacher</h3>
+															<h3 class=" mb-0">Create Student</h3>
 														</div>
 														<div class="card-body p-3 pt-0">
 															<div class="row">
@@ -90,6 +90,24 @@
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-9 fv-row mb-5">
+																	<label class="form-label">OR Level</label>
+																	<input type="text" name="or_level" id="inputOrLevel" class="form-control form-control-solid">
+																</div>
+																<!--end::Col-->
+																<!--begin::Col-->
+																<div class="col-md-9 fv-row mb-5">
+																	<label class="form-label">Current Book Name</label>
+																	<input type="text" name="current_book_name" id="inputCurrentBookName" class="form-control form-control-solid">
+																</div>
+																<!--end::Col-->
+																<!--begin::Col-->
+																<div class="col-md-9 fv-row mb-5">
+																	<label class="form-label">Topic</label>
+																	<input type="text" name="topic" id="inputTopic" class="form-control form-control-solid">
+																</div>
+																<!--end::Col-->
+																<!--begin::Col-->
+																<div class="col-md-9 fv-row mb-5">
 																	<label class="form-label">Class</label>
 																	<input type="text" name="class" id="inputClass" class="form-control form-control-solid">
 																</div>
@@ -108,7 +126,7 @@
 																<!--end::Col-->
 																<!--begin::Col-->
 																	<select hidden name="role" class="form-select form-select-solid">
-																		<option value="teacher" selected="selected">Teacher</option>
+																		<option value="student" selected="selected">Student</option>
 																	</select>
 																<!--end::Col-->
 															</div>

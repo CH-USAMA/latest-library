@@ -14,7 +14,7 @@
 				<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
 					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">
-						<a href="index.html" class="text-muted text-hover-primary">Home</a>
+						<a href={{route("dashboard")}} class="text-muted text-hover-primary">Home</a>
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
@@ -24,6 +24,14 @@
 					<!--end::Item-->
 					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">Students</li>
+					<!--end::Item-->
+					<!--begin::Item-->
+					<li class="breadcrumb-item">
+						<span class="bullet bg-gray-400 w-5px h-2px"></span>
+					</li>
+					<!--end::Item-->
+					<!--begin::Item-->
+					<li class="breadcrumb-item text-muted">Form</li>
 					<!--end::Item-->
 				</ul>
 				<!--end::Breadcrumb-->
