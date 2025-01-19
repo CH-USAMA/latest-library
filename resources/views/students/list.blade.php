@@ -110,7 +110,7 @@
                                         
                                             
                                             <td class="align-middle text-end pe-3">
-                                                <a href="company-view.html"
+                                                <a href="{{route('profile',['id'=>$user['id']])}}"
                                                 class="btn btn-light-success btn-icon h-35px w-35px">
                                                     <i class="fa-duotone fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"

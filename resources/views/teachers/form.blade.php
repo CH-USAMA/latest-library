@@ -90,8 +90,8 @@
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-9 fv-row mb-5">
-																	<label class="form-label">Class</label>
-																	<input type="text" name="class" id="inputClass" class="form-control form-control-solid">
+																	<label class="form-label">Current Book Name</label>
+																	<input type="text" name="current_book_name" id="inputCurrentBookName" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->

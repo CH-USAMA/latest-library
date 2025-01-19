@@ -23,7 +23,7 @@
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Teachers</li>
+					<li class="breadcrumb-item text-muted">Students</li>
 					<!--end::Item-->
 					<!--begin::Item-->
 					<li class="breadcrumb-item">
@@ -31,7 +31,7 @@
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">List</li>
+					<li class="breadcrumb-item text-muted">Profile</li>
 					<!--end::Item-->
 				</ul>
 				<!--end::Breadcrumb-->
@@ -81,7 +81,7 @@
                                             <!--begin::Name-->
                                             <div class="d-flex align-items-center">
                                                 <a href="#"
-                                                   class="text-gray-900 text-hover-primary fs-2 fw-bold me-2">Usama's Personal Detail</a>
+                                                   class="text-gray-900 text-hover-primary fs-2 fw-bold me-2">{{$user['name']}}</a>
                                                 <div class="fs-2" data-bs-toggle="tooltip" data-bs-placement="top" title="Active">
                                                     <span class="fa-layers fa-fw">
                                                         <i class="fa-duotone fa-badge text-success"></i>
@@ -92,14 +92,14 @@
                                             <!--end::Name-->
                                             <!--begin::Info-->
                                             <div class="d-flex flex-wrap fw-semibold fs-6 mb-4 pe-2">
-                                                <div class="d-flex align-items-center text-gray-400 mb-2 me-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Username">
+                                                <div class="d-flex align-items-center text-gray-400 mb-2 me-5" data-bs-toggle="tooltip" data-bs-placement="top" title="Email">
                                                     <i class="fa-duotone fa-circle-user fs-6 me-2"></i>
-                                                    usama@gmail.com
+                                                    {{$user['email']}}
                                                 </div>
                                              
-                                                <a href="#" class="d-flex align-items-center mb-2 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Bundle Expire">
+                                                <a class="d-flex align-items-center mb-2 text-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Date Of Birth">
                                                     <i class="fa-duotone fa-calendar fs-6 me-2"></i>
-                                                    25-06-2023
+                                                    {{$user['date_of_birth']}}
                                                 </a>
                                             </div>
                                             <!--end::Info-->
@@ -137,14 +137,14 @@
                                                     <div class="d-flex align-items-center">
                                                         <i class="fa-duotone fa-phone-arrow-down-left fs-4 text-success me-2"></i>
                                                         <div class="fs-2 fw-bold" data-kt-countup="true"
-                                                             data-kt-countup-value="150"
-                                                             data-kt-countup-suffix=" Min">0
+                                                             data-kt-countup-value="1"
+                                                             data-kt-countup-suffix=" Review">0
                                                         </div>
                                                     </div>
                                                     <!--end::Number-->
                                                     <!--begin::Label-->
                                                     <div class="fw-semibold fs-6 text-gray-400">
-                                                        Onnet Rem
+                                                        Reviews
                                                     </div>
                                                     <!--end::Label-->
                                                 </div>
@@ -155,14 +155,14 @@
                                                     <div class="d-flex align-items-center">
                                                         <i class="fa-duotone fa-phone-arrow-up-right fs-4 text-danger me-2"></i>
                                                         <div class="fs-2 fw-bold" data-kt-countup="true"
-                                                             data-kt-countup-value="200"
-                                                             data-kt-countup-suffix=" Min">0
+                                                             data-kt-countup-value="{{$user['or_level']}}"
+                                                             data-kt-countup-suffix="">0
                                                         </div>
                                                     </div>
                                                     <!--end::Number-->
                                                     <!--begin::Label-->
                                                     <div class="fw-semibold fs-6 text-gray-400">
-                                                        Offnet Rem
+                                                        OR Level
                                                     </div>
                                                     <!--end::Label-->
                                                 </div>
@@ -200,7 +200,7 @@
                                         <!--end::Label-->
                                         <!--begin::Col-->
                                         <div class="col-lg-8 d-flex align-items-center">
-                                            <span class="fw-bold fs-6 text-gray-800 me-2">Usama</span>
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{$user['name']}}</span>
                                         </div>
                                         <!--end::Col-->
                                     </div>
@@ -212,7 +212,7 @@
                                         <!--end::Label-->
                                         <!--begin::Col-->
                                         <div class="col-lg-8 d-flex align-items-center">
-                                            <span class="fw-bold fs-6 text-gray-800 me-2">17-09-1998</span>
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{$user['date_of_birth']}}</span>
                                         </div>
                                         <!--end::Col-->
                                     </div>
@@ -224,7 +224,7 @@
                                         <!--end::Label-->
                                         <!--begin::Col-->
                                         <div class="col-lg-8 d-flex align-items-center">
-                                            <span class="fw-bold fs-6 text-gray-800 me-2">Reading,reading,reading</span>
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{$user['interests']}}</span>
                                         </div>
                                         <!--end::Col-->
                                     </div>
@@ -232,7 +232,7 @@
                                     <!--begin::Input group-->
                                     <div class="row mb-7">
                                         <!--begin::Label-->
-                                        <label class="col-lg-4 fw-semibold text-muted">Username
+                                        <label class="col-lg-4 fw-semibold text-muted">ID
                                             <span class="ms-1" data-bs-toggle="tooltip"
                                                   title="it should be unique">
                                                         <i class="fa-duotone fa-circle-exclamation fs-7"></i>
@@ -241,7 +241,7 @@
                                         <!--end::Label-->
                                         <!--begin::Col-->
                                         <div class="col-lg-8 d-flex align-items-center">
-                                            <span class="fw-bold fs-6 text-gray-800 me-2">Usama</span>
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{$user['id']}}</span>
                                             <span class="badge badge-light-success">Verified</span>
                                         </div>
                                         <!--end::Col-->

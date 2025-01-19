@@ -1,8 +1,8 @@
 @extends('layouts.app')
 @section('content')
 
-<h1>Dashboard Dashboard Controller</h1>
+<h1>Dashboard</h1>
 
-<a href ={{route("studentcreation")}}>Create student</a>
+<a href ={{route("dashboard")}}>Dashboard Page</a>
 
 @endsection

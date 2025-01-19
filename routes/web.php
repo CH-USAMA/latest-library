@@ -18,7 +18,7 @@ Route::controller(StudentController::class)->group(function (){
     Route::get('/studentregister','studentCreate')->name('form');
     Route::get('/teacherregister','teacherCreate')->name('tform');
     Route::get('/teacherslist','teacherindex',)->name('teacherusers');
-    Route::get('/profile','profile',)->name('profile');
+    Route::get('/profile/{id}','profile',)->name('profile');
 
     Route::post('/store','store')->name('store');
     Route::get('/delete/{id}','delete')->name('delete');

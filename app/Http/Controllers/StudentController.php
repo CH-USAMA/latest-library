@@ -21,11 +21,11 @@ class StudentController extends Controller
         return view('students.list',['userslist'=>$data]);
     }
 
-    public function profile()
+    public function profile($id)
     {
-        $data = User::all();
+        $user = User::find($id);
         //return view('students.list',['userslist'=>$data]);
-        return view('users.profile');
+        return view('students.profile',['user'=>$user]);
     }
 
     public function teacherindex()
@@ -44,7 +44,7 @@ class StudentController extends Controller
 
     public function teacherCreate()
     {
-        return view(view: 'students.form');
+        return view(view: 'teachers.form');
     }
 
     /**
