@@ -71,7 +71,6 @@
                                     <tr class="fw-bold text-muted">
                                         <th class="ps-3">User Name</th>
                                         <th class="">Email</th>
-                                        <th class="">OR Level</th>
                                         <th class="">Interest</th>
                                         <th class="">Date Of Birth</th>
                                         <th class="">Status</th>
@@ -99,9 +98,6 @@
                                             </td>
                                             <td class="align-middle">
                                                 <div class="text-dark fw-bold d-block">{{$user['email']}}</div>
-                                            </td>
-                                            <td class="align-middle">
-                                                <div class="text-dark fw-bold d-block">{{$user['or_level']}}</div>
                                             </td>
                                             <td class="align-middle">
                                                 <div class="text-dark fw-bold d-block">{{$user['interests']}}</div>
