@@ -171,6 +171,11 @@ if (document.documentElement) {
                                 </div>
                                 <!--end::Menu item-->
                                 <!--begin::Menu item-->
+                                <div class="menu-item px-5 my-1">
+                                    <a href="{{route('profile',['id'=>Auth::id()])}}" class="menu-link px-5">My profile</a>
+                                </div>
+                                <!--end::Menu item-->
+                                <!--begin::Menu item-->
                                 <div class="menu-item px-5">
                                     <a class="menu-link px-5" href="{{ route('logout') }}"
                                        onclick="event.preventDefault();
@@ -234,7 +239,7 @@ if (document.documentElement) {
                                 <!--begin:Menu item-->
                                 <div class="menu-item">
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="index.html">
+                                    <a class="menu-link" href="{{route("dashboard")}}">
 											<span class="menu-icon">
 												<i class="fa-duotone fa-gauge-high fs-3"></i>
 											</span>
@@ -258,11 +263,35 @@ if (document.documentElement) {
                                     </a>
                                     <!--end:Menu link-->
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="index.html">
+                                    <a class="menu-link" href="{{route("dashboard")}}">
 											<span class="menu-icon">
 												<i class="fa-duotone fa-box-open-full fs-3"></i>
 											</span>
                                         <span class="menu-title">Admins</span>
+                                    </a>
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu link-->
+                                    <a class="menu-link" href="{{route("dashboard")}}">
+											<span class="menu-icon">
+												<i class="fa-duotone fa-box-open-full fs-3"></i>
+											</span>
+                                        <span class="menu-title">Books</span>
+                                    </a>
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu link-->
+                                    <a class="menu-link" href="{{route(name: "notes")}}">
+											<span class="menu-icon">
+												<i class="fa-duotone fa-box-open-full fs-3"></i>
+											</span>
+                                        <span class="menu-title">Notes</span>
+                                    </a>
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu link-->
+                                    <a class="menu-link" href="{{route("dashboard")}}">
+											<span class="menu-icon">
+												<i class="fa-duotone fa-box-open-full fs-3"></i>
+											</span>
+                                        <span class="menu-title">Reviews</span>
                                     </a>
                                     <!--end:Menu link-->
                                 </div>
