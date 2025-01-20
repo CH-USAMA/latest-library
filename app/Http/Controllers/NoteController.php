@@ -12,7 +12,8 @@ class NoteController extends Controller
      */
     public function index()
     {
-        return view(view: 'note.list');
+        $data = Note::all();
+        return view( 'note.list',['noteslist'=>$data]);
     }
 
     /**

@@ -52,7 +52,66 @@
 	</div>
 
 
-<h1>Notes form</h1>
+                    <!--begin::Content-->
+                    <div id="kt_app_content" class="app-content flex-column-fluid">
+                        <!--begin::Content container-->
+                        <div id="kt_app_content_container" class="">
+                            <!--begin::Row-->
+                            <div class="row g-5 g-xl-10">
+                                <div class="col-xl-12">
+                                    <div class="card ">
+										<div class="card-header align-items-center px-3 min-h-50px">
+											<h3 class=" mb-0">Create Tickets</h3>
+										</div>
+										<div class="card-body p-3 pt-0">
+											<div class="row">
+												<!--begin::Col-->
+												<div class="col-md-12 fv-row mb-5">
+													<label class="form-label">Subject</label>
+													<input type="text" class="form-control form-control-solid">
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col-md-6 fv-row mb-5">
+													<label class="form-label">Assign To</label>
+													<select class="form-select form-select-solid">
+														<option value="1" selected="selected">Karina Clark</option>
+														<option value="2">Robert Doe</option>
+														<option value="3">Niel Owen</option>
+														<option value="4">Olivia Wild</option>
+														<option value="5">Sean Bean</option>
+													</select>
+												</div>
+												<!--end::Col-->
+												<!--begin::Col-->
+												<div class="col-sm-6 fv-row mb-5">
+													<label class="form-label">Priority</label>
+													<select class="form-select form-select-solid">
+														<option value="1" selected="selected">Low</option>
+														<option value="2">Medium</option>
+														<option value="3">High</option>
+														<option value="3">Urgent</option>
+													</select>
+												</div>
+												<!--end::Col-->
+											</div>
+											<div class="mb-0 mt-1">
+												<label class="form-label">Message</label>
+												<textarea class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" rows="6" name="message"></textarea>
+												<!--begin::Submit-->
+												<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
+												<!--end::Submit-->
+											</div>
+										</div>
+									</div>
+                                </div>
+                            </div>
+                            <!--end::Row-->
+
+                        </div>
+                        <!--end::Content container-->
+                    </div>
+                    <!--end::Content-->
 
 
 @endsection
