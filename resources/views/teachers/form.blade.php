@@ -70,38 +70,38 @@
 														<div class="card-body p-3 pt-0">
 															<div class="row">
 																<!--begin::Col-->
-																
-																<div class="col-md-9 fv-row mb-5">
+																<<input hidden type="text" name="id" value="{{$user->id}}" id="inputName" class="form-control form-control-solid">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">User Name</label>
 																	<input type="text" name="name" id="inputName" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Password</label>
 																	<input type="password" name="password" id="inputPassword"class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Email</label>
 																	<input type="text" name="email" id="inputEmail" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Current Book Name</label>
 																	<input type="text" name="current_book_name" id="inputCurrentBookName" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Interests</label>
 																	<input type="text" name="interests" id="inputInterests" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Date Of Birth</label>
 																	<input type="date" name="date_of_birth" id="inputDateOfBirth" class="form-control form-control-solid">
 																</div>

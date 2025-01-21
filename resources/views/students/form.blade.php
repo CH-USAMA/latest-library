@@ -25,14 +25,6 @@
 					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">Students</li>
 					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-400 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Form</li>
-					<!--end::Item-->
 				</ul>
 				<!--end::Breadcrumb-->
 			</div>
@@ -70,58 +62,46 @@
 														<div class="card-body p-3 pt-0">
 															<div class="row">
 																<!--begin::Col-->
-																
+																<input hidden type="text" name="id" value="{{$user->id}}" class="form-control form-control-solid">
 																<div class="col-md-9 fv-row mb-5">
 																	<label class="form-label">User Name</label>
-																	<input type="text" name="name" id="inputName" class="form-control form-control-solid">
-																</div>
-																<!--end::Col-->
-																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
-																	<label class="form-label">Password</label>
-																	<input type="password" name="password" id="inputPassword"class="form-control form-control-solid">
-																</div>
-																<!--end::Col-->
-																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
-																	<label class="form-label">Email</label>
-																	<input type="text" name="email" id="inputEmail" class="form-control form-control-solid">
+																	<input type="text" name="name" value="{{$user->name}}" id="inputName" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-9 fv-row mb-5">
 																	<label class="form-label">OR Level</label>
-																	<input type="text" name="or_level" id="inputOrLevel" class="form-control form-control-solid">
+																	<input type="text" name="or_level" value="{{$user->or_level}}"  id="inputOrLevel" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-9 fv-row mb-5">
 																	<label class="form-label">Current Book Name</label>
-																	<input type="text" name="current_book_name" id="inputCurrentBookName" class="form-control form-control-solid">
+																	<input type="text" name="current_book_name" value="{{$user->current_book_name}}"  id="inputCurrentBookName" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-9 fv-row mb-5">
 																	<label class="form-label">Topic</label>
-																	<input type="text" name="topic" id="inputTopic" class="form-control form-control-solid">
+																	<input type="text" name="topic" value="{{$user->topic}}"  id="inputTopic" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-9 fv-row mb-5">
 																	<label class="form-label">Class</label>
-																	<input type="text" name="class" id="inputClass" class="form-control form-control-solid">
+																	<input type="text" name="class" value="{{$user->class}}"  id="inputClass" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-9 fv-row mb-5">
 																	<label class="form-label">Interests</label>
-																	<input type="text" name="interests" id="inputInterests" class="form-control form-control-solid">
+																	<input type="text" name="interests" value="{{$user->interests}}" id="inputInterests" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-9 fv-row mb-5">
 																	<label class="form-label">Date Of Birth</label>
-																	<input type="date" name="date_of_birth" id="inputDateOfBirth" class="form-control form-control-solid">
+																	<input type="date" name="date_of_birth" value="{{$user->date_of_birth}}"  id="inputDateOfBirth" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->

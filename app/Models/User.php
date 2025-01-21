@@ -22,7 +22,12 @@ class User extends Authenticatable
         'email',
         'password',
         'date_of_birth',
-        'role'
+        'role',
+        'or_level',
+        'current_book_name',
+        'interests',
+        'topic',
+        'class'
     ];
 
     /**

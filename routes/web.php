@@ -23,7 +23,7 @@ Route::controller(StudentController::class)->group(function (){
     Route::post('/store','store')->name('store');
     Route::get('/delete/{id}','delete')->name('delete');
     Route::get('/edit/{id}','edit')->name('edit');
-    Route::post('/update','store')->name(name: 'update');
+    Route::post('/update','update')->name(name: 'update');
 });
 
 Route::controller(NoteController::class)->group(function (){
