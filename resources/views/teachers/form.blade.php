@@ -14,7 +14,7 @@
 				<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
 					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">
-						<a href="index.html" class="text-muted text-hover-primary">Home</a>
+						<a href={{route("dashboard")}} class="text-muted text-hover-primary">Home</a>
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
@@ -24,14 +24,6 @@
 					<!--end::Item-->
 					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">Teachers</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-400 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Form</li>
 					<!--end::Item-->
 				</ul>
 				<!--end::Breadcrumb-->
@@ -52,9 +44,11 @@
 		<!--begin::Content container-->
 		<div id="kt_app_content_container" class="">
 			@if (empty($user))
-				<form action="{{route('store')}}" method="POST">
+				<form action="{{route(name: 'tstore')}}" method="POST">
+					<dd($user);>
 			@else
 				<form action="{{route('update')}}" method="POST">
+					
 			@endif
 					<div id="kt_app_content" class="app-content flex-column-fluid">
 						@csrf
@@ -65,45 +59,74 @@
 												<div class="col-xl-12">
 													<div class="card ">
 														<div class="card-header align-items-center px-3 min-h-50px">
-															<h3 class=" mb-0">Create Teacher</h3>
+															<h3 class=" mb-0">Create Teachers</h3>
 														</div>
 														<div class="card-body p-3 pt-0">
 															<div class="row">
 																<!--begin::Col-->
-																<<input hidden type="text" name="id" value="{{$user->id}}" id="inputName" class="form-control form-control-solid">
+																<input hidden type="text" name="id" value="{{$user->id ?? ''}}" class="form-control form-control-solid">
 																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">User Name</label>
-																	<input type="text" name="name" id="inputName" class="form-control form-control-solid">
+																	<input type="text" name="name" value="{{$user->name ?? ''}}" id="inputName" class="form-control form-control-solid @error('name') is-invalid @enderror">
+																	@error('name')
+																	<span class="invalid-feedback" role="alert">
+																		<strong>{{ $message }}</strong>
+																	</span>
+																@enderror
 																</div>
 																<!--end::Col-->
-																<!--begin::Col-->
-																<div class="col-md-6 fv-row mb-5">
-																	<label class="form-label">Password</label>
-																	<input type="password" name="password" id="inputPassword"class="form-control form-control-solid">
-																</div>
-																<!--end::Col-->
-																<!--begin::Col-->
-																<div class="col-md-6 fv-row mb-5">
-																	<label class="form-label">Email</label>
-																	<input type="text" name="email" id="inputEmail" class="form-control form-control-solid">
-																</div>
-																<!--end::Col-->
+																@if (empty($user))
+																	<div class="col-md-6 fv-row mb-5">
+																		<label class="form-label">Email</label>
+																		<input type="text" name="email"  id="inputEmail" class="form-control form-control-solid @error('email') is-invalid @enderror">
+																		@error('email')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																		@enderror
+																	</div>
+																	<div class="col-md-6 fv-row mb-5">
+																		<label class="form-label">Password</label>
+																		<input type="text" name="password"  id="inputPassword" class="form-control form-control-solid @error('password') is-invalid @enderror">
+																		@error('password')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																		@enderror
+																	</div>
+																@endif
+
 																<!--begin::Col-->
 																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Current Book Name</label>
-																	<input type="text" name="current_book_name" id="inputCurrentBookName" class="form-control form-control-solid">
+																	<input type="text" name="current_book_name" value="{{$user->current_book_name ?? ''}}"  id="inputCurrentBookName" class="form-control form-control-solid @error('current_book_name') is-invalid @enderror">
+																	@error('current_book_name')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																	@enderror
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Interests</label>
-																	<input type="text" name="interests" id="inputInterests" class="form-control form-control-solid">
+																	<input type="text" name="interests" value="{{$user->interests ?? ''}}" id="inputInterests" class="form-control form-control-solid @error('interests') is-invalid @enderror">
+																	@error('interests')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																	@enderror
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Date Of Birth</label>
-																	<input type="date" name="date_of_birth" id="inputDateOfBirth" class="form-control form-control-solid">
+																	<input type="date" name="date_of_birth" value="{{$user->date_of_birth ?? ''}}"  id="inputDateOfBirth" class="form-control form-control-solid @error('date_of_birth') is-invalid @enderror">
+																	@error('date_of_birth')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																	@enderror
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
@@ -115,7 +138,7 @@
 															<div class="mb-0 mt-1">
 																<!--begin::Submit-->
 																<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
-																<a href="{{route('users')}}" class="btn btn-warning">Cancel</a>
+																<a href="{{route('teacherusers')}}" class="btn btn-warning">Cancel</a>
 																<!--end::Submit-->
 															</div>
 														</div>

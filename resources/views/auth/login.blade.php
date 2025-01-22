@@ -123,7 +123,7 @@
 				<div class="d-flex flex-column flex-center py-7 py-lg-15 px-5 px-md-15 w-100">
 					<!--begin::Logo-->
 					<a href="index.html" class="mb-0 mb-lg-12">
-						<img alt="Logo" src="assets/media/logos/logo-light.svg" class="h-40px h-lg-40px" />
+						<img alt="Logo" src="assets/media/logos/library.png" class="h-40px h-lg-40px" />
 					</a>
 					<!--end::Logo-->
 					<!--begin::Image-->
@@ -134,8 +134,8 @@
 					<!--end::Title-->
 					<!--begin::Text-->
 					<div class="d-none d-lg-block text-white fs-base text-center">
-						A <b class="opacity-75-hover text-warning">call centre</b> is a centralised division that responds to incoming and outgoing <br> calls from clients,
-						both present and potential. Call centres can be found <br> inside an organisation or are outsourced to another business that <br> focuses on taking calls.
+						A <b class="opacity-75-hover text-warning">Library</b>  software system designed to simplify and enhance the management of library resources and services <br> 
+						for young students to learn and reach their reading potential easily and efficiently.
 					</div>
 					<!--end::Text-->
 				</div>

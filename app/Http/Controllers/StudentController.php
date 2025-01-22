@@ -53,6 +53,16 @@ class StudentController extends Controller
      */
     public function store(Request $request)
     {
+        $request->validate([
+                 'name' => ['required'],
+                 'email' => ['required'],
+                 'password' => ['required'],
+                 'date_of_birth'=> ['required'],
+                 'or_level' => ['required'],
+                 'topic' => ['required'],
+                 'class' => ['required'],
+                 'interests' => ['required']
+             ]);
         $user = new User();
         $user->name = $request->name;
         $user->email = $request->email;
@@ -66,6 +76,30 @@ class StudentController extends Controller
         $user->interests = $request->interests;
         $user->save();
         return redirect()->route('users');
+    }
+
+    public function teacherstore(Request $request)
+    {
+        $request->validate([
+                 'name' => ['required'],
+                 'email' => ['required'],
+                 'password' => ['required'],
+                 'date_of_birth'=> ['required'],
+                 'interests' => ['required']
+             ]);
+        $user = new User();
+        $user->name = $request->name;
+        $user->email = $request->email;
+        $user->password = $request->password;
+        $user->date_of_birth = $request->date_of_birth;
+        $user->role = $request->role;
+        $user->or_level = $request->or_level;
+        $user->current_book_name = $request->current_book_name;
+        $user->topic = $request->topic;
+        $user->class = $request->class;
+        $user->interests = $request->interests;
+        $user->save();
+        return redirect()->route('teacherusers');
     }
 
     /**
@@ -98,6 +132,9 @@ class StudentController extends Controller
      */
     public function update(Request $request)
     {
+        $request->validate([
+                'name' => ['required'],
+            ]);
         $id = $request->id;
         $user = User::find(id: $id);
         $user->update($request->all());

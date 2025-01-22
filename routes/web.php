@@ -21,6 +21,7 @@ Route::controller(StudentController::class)->group(function (){
     Route::get('/profile/{id}','profile',)->name('profile');
 
     Route::post('/store','store')->name('store');
+    Route::post('/tstore','teacherstore')->name('tstore');
     Route::get('/delete/{id}','delete')->name('delete');
     Route::get('/edit/{id}','edit')->name('edit');
     Route::post('/update','update')->name(name: 'update');

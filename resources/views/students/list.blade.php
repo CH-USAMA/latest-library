@@ -23,15 +23,9 @@
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Students</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-400 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">List</li>
+                    <li class="breadcrumb-item text-muted">
+					    <a href={{route("users")}} class="text-muted text-hover-primary">Students</a>
+                    </li>
 					<!--end::Item-->
 				</ul>
 				<!--end::Breadcrumb-->
@@ -74,7 +68,7 @@
                                         <th class="">OR Level</th>
                                         <th class="">Interest</th>
                                         <th class="">Date Of Birth</th>
-                                        <th class="pe-3 text-end"> Set text in middle Actions</th>
+                                        <th class="pe-3 text-end">Actions</th>
                                     </tr>
                                     
                                     </thead>

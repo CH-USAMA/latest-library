@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-	<div class="kt-app-main-content d-flex flex-column app-container container-fluid">
+<div class="kt-app-main-content d-flex flex-column app-container container-fluid">
 	<!--begin::Toolbar-->
 	<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
 		<!--begin::Toolbar container-->
@@ -14,7 +14,7 @@
 				<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
 					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">
-						<a href="index.html" class="text-muted text-hover-primary">Home</a>
+						<a href={{route("dashboard")}} class="text-muted text-hover-primary">Home</a>
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
@@ -23,19 +23,28 @@
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Students</li>
+                    <li class="breadcrumb-item text-muted">
+					    <a href={{route("teacherusers")}} class="text-muted text-hover-primary">Teachers</a>
+                    </li>
 					<!--end::Item-->
 				</ul>
 				<!--end::Breadcrumb-->
 			</div>
 			<!--end::Page title-->
+            <div class="d-flex align-items-center gap-2 gap-lg-3">
+                <!--begin:: Add New-->
+                <a href={{route("form")}} class="btn btn-sm fw-bold btn-success" data-bs-toggle="modal" data-bs-target={{route("form")}}><i class="fa-solid fa-plus me-1 fs-4"></i>Add New</a>
+                <!--end::Primary button-->
 
+                <!--begin:: Export-->
+                <a href="#" class="btn btn-sm fw-bold btn-info"><i class="fa-duotone fa-download me-1 fs-4"></i>Export</a>
+                <!--end:: Export-->
+            </div>
 	   
 		</div>
 		<!--end::Toolbar container-->
 
 	</div>
-	<!--end::Toolbar-->
 
 
 	
@@ -62,46 +71,101 @@
 														<div class="card-body p-3 pt-0">
 															<div class="row">
 																<!--begin::Col-->
-																<input hidden type="text" name="id" value="{{$user->id}}" class="form-control form-control-solid">
-																<div class="col-md-9 fv-row mb-5">
+																<input hidden type="text" name="id" value="{{$user->id ?? ''}}" class="form-control form-control-solid">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">User Name</label>
-																	<input type="text" name="name" value="{{$user->name}}" id="inputName" class="form-control form-control-solid">
+																	<input type="text" name="name" value="{{$user->name ?? ''}}" id="inputName" class="form-control form-control-solid @error('name') is-invalid @enderror">
+																	@error('name')
+																	<span class="invalid-feedback" role="alert">
+																		<strong>{{ $message }}</strong>
+																	</span>
+																@enderror
 																</div>
 																<!--end::Col-->
+																@if (empty($user))
+																	<div class="col-md-6 fv-row mb-5">
+																		<label class="form-label">Email</label>
+																		<input type="text" name="email"  id="inputEmail" class="form-control form-control-solid @error('email') is-invalid @enderror">
+																		@error('email')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																		@enderror
+																	</div>
+																	<div class="col-md-6 fv-row mb-5">
+																		<label class="form-label">Password</label>
+																		<input type="text" name="password"  id="inputPassword" class="form-control form-control-solid @error('password') is-invalid @enderror">
+																		@error('password')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																		@enderror
+																	</div>
+																@endif
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">OR Level</label>
-																	<input type="text" name="or_level" value="{{$user->or_level}}"  id="inputOrLevel" class="form-control form-control-solid">
+																	<input type="text" name="or_level" value="{{$user->or_level ?? ''}}"  id="inputOrLevel" class="form-control form-control-solid @error('or_level') is-invalid @enderror">
+																	@error('or_level')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																	@enderror
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Current Book Name</label>
-																	<input type="text" name="current_book_name" value="{{$user->current_book_name}}"  id="inputCurrentBookName" class="form-control form-control-solid">
+																	<input type="text" name="current_book_name" value="{{$user->current_book_name ?? ''}}"  id="inputCurrentBookName" class="form-control form-control-solid @error('current_book_name') is-invalid @enderror">
+																	@error('current_book_name')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																	@enderror
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Topic</label>
-																	<input type="text" name="topic" value="{{$user->topic}}"  id="inputTopic" class="form-control form-control-solid">
+																	<input type="text" name="topic" value="{{$user->topic ?? ''}}"  id="inputTopic" class="form-control form-control-solid @error('topic') is-invalid @enderror">
+																	@error('topic')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																	@enderror
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Class</label>
-																	<input type="text" name="class" value="{{$user->class}}"  id="inputClass" class="form-control form-control-solid">
+																	<input type="text" name="class" value="{{$user->class ?? ''}}"  id="inputClass" class="form-control form-control-solid @error('class') is-invalid @enderror">
+																	@error('class')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																	@enderror
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Interests</label>
-																	<input type="text" name="interests" value="{{$user->interests}}" id="inputInterests" class="form-control form-control-solid">
+																	<input type="text" name="interests" value="{{$user->interests ?? ''}}" id="inputInterests" class="form-control form-control-solid @error('interests') is-invalid @enderror">
+																	@error('interests')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																	@enderror
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																<div class="col-md-9 fv-row mb-5">
+																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Date Of Birth</label>
-																	<input type="date" name="date_of_birth" value="{{$user->date_of_birth}}"  id="inputDateOfBirth" class="form-control form-control-solid">
+																	<input type="date" name="date_of_birth" value="{{$user->date_of_birth ?? ''}}"  id="inputDateOfBirth" class="form-control form-control-solid @error('date_of_birth') is-invalid @enderror">
+																	@error('date_of_birth')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																	@enderror
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
