@@ -30,7 +30,7 @@ Route::controller(StudentController::class)->group(function (){
 Route::controller(NoteController::class)->group(function (){
     Route::get('/noteslist','index',)->name('notes');
     Route::get('/createnote','notecreate')->name('nform');
-    //Route::post('/store','store')->name('store');
+    Route::post('/notestore','notestore')->name('notestore');
     //Route::get('/delete/{id}','delete')->name('delete');
     //Route::get('/edit/{id}','edit')->name('edit');
     //Route::post('/update','store')->name('update');

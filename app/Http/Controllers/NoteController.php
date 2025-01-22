@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Note;
+use App\Models\user;
 use Illuminate\Http\Request;
 
 class NoteController extends Controller
@@ -21,18 +22,22 @@ class NoteController extends Controller
      */
     public function notecreate()
     {
-        return view(view: 'note.form');
+        $data = User::all();
+        return view( 'note.form',['userslist'=>$data]);
     }
 
     /**
      * Store a newly created resource in storage.
      */
-    public function store(Request $request)
+    public function notestore(Request $request)
     {
+        //dd(vars: $request);
         $note = new Note();
         $note->title = $request->title;
         $note->date = $request->date;
         $note->content = $request->content;
+        $note->teacherid = $request->teacherid;
+        $note->studentid = $request->studentid;
         $note->save();
         return redirect()->route('notes');
     }

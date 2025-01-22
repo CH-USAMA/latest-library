@@ -110,6 +110,8 @@
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Profile View"></i>
                                                 </a>
+                                                <a href="{{route('notes',['id'=>$user['id']])}}">View notes</a>
+                                                <a href="{{route('nform',['id'=>$user['id']])}}">Add note</a>
                                                 <a href="{{route('edit',['id'=>$user['id']])}}">Edit gen055</a>
                                                 <a href="{{route('delete',['id'=>$user['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
                                                                         class=" btn btn-light-danger btn-icon h-35px w-35px"

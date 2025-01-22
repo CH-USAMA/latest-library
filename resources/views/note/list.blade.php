@@ -8,7 +8,7 @@
 			<!--begin::Page title-->
 			<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 				<!--begin::Title-->
-				<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Students</h1>
+				<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Notes</h1>
 				<!--end::Title-->
 				<!--begin::Breadcrumb-->
 				<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -23,24 +23,9 @@
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Students</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-400 w-5px h-2px"></span>
+					<li class="breadcrumb-item text-muted">
+						<a href={{route("notes")}} class="text-muted text-hover-primary">Notes</a>
 					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Notes</li>
-					<!--end::Item-->
-                    <!--begin::Item-->
-					<li class="breadcrumb-item">
-						<span class="bullet bg-gray-400 w-5px h-2px"></span>
-					</li>
-					<!--end::Item-->
-					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">List</li>
-					<!--end::Item-->
 				</ul>
 				<!--end::Breadcrumb-->
 			</div>
@@ -107,7 +92,7 @@
                                                 <div class="text-dark fw-bold d-block">{{$note['content']}}</div>
                                             </td>
                                             <td class="align-middle text-end pe-3">
-                                                <!--<a href="{{route('profile',['id'=>$note['id']])}}"--->
+                                                <a href="{{route('profile',['id'=>$note['id']])}}"
                                                 class="btn btn-light-success btn-icon h-35px w-35px">
                                                     <i class="fa-duotone fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
