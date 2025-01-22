@@ -1,6 +1,6 @@
 @extends('layouts.app')
 @section('content')
-	<div class="kt-app-main-content d-flex flex-column app-container container-fluid">
+<div class="kt-app-main-content d-flex flex-column app-container container-fluid">
 	<!--begin::Toolbar-->
 	<div id="kt_app_toolbar" class="app-toolbar py-3 py-lg-6">
 		<!--begin::Toolbar container-->
@@ -8,7 +8,7 @@
 			<!--begin::Page title-->
 			<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 				<!--begin::Title-->
-				<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Students</h1>
+				<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Teacher Information</h1>
 				<!--end::Title-->
 				<!--begin::Breadcrumb-->
 				<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -23,19 +23,27 @@
 					</li>
 					<!--end::Item-->
 					<!--begin::Item-->
-					<li class="breadcrumb-item text-muted">Teachers</li>
-					<!--end::Item-->
+					<li class="breadcrumb-item text-muted">
+						<a href={{route("teacherusers")}} class="text-muted text-hover-primary">Teachers</a>
+					</li>
 				</ul>
 				<!--end::Breadcrumb-->
 			</div>
 			<!--end::Page title-->
+            <div class="d-flex align-items-center gap-2 gap-lg-3">
+                <!--begin:: Add New-->
+                <a href={{route("tform")}} class="btn btn-sm fw-bold btn-success" data-bs-toggle="modal" data-bs-target={{route("form")}}><i class="fa-solid fa-plus me-1 fs-4"></i>Add New</a>
+                <!--end::Primary button-->
 
+                <!--begin:: Export-->
+                <a href="#" class="btn btn-sm fw-bold btn-info"><i class="fa-duotone fa-download me-1 fs-4"></i>Export</a>
+                <!--end:: Export-->
+            </div>
 	   
 		</div>
 		<!--end::Toolbar container-->
 
 	</div>
-	<!--end::Toolbar-->
 
 
 	
