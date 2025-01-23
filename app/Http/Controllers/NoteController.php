@@ -17,6 +17,12 @@ class NoteController extends Controller
         return view( 'note.list',['noteslist'=>$data]);
     }
 
+    public function viewstudentnotes($id)
+    {
+        $data = Note::all();
+        return view( 'note.list',['noteslist'=>$data,'selectedid'=>$id]);
+    }
+
     /**
      * Show the form for creating a new resource.
      */

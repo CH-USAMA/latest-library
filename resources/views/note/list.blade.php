@@ -65,12 +65,13 @@
                                         <th class="ps-3">Title</th>
                                         <th class="">Date</th>
                                         <th class="">Content</th>
-                                        <th class="pe-3 text-end"> Set text in middle Actions</th>
+                                        <th class="pe-3 text-end">Actions</th>
                                     </tr>
                                     
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
+                                    @if (empty($selectedid))
                                     @foreach ($noteslist as $note)
                                         <tbody>
                                         <tr>
@@ -109,7 +110,48 @@
                                         </tr>
                                         </tbody>
                                     @endforeach
-                                    
+                                    @else
+                                    @foreach ($noteslist as $note)
+                                    @if($note->studentId == $selectedid)
+                                    <tbody>
+                                    <tr>
+                                        <td class="align-middle ps-3">
+                                            <div class="d-flex align-items-center">
+                                                <div class="symbol symbol-50px me-3 bg-light">
+                                                    <img src="assets/media/svg/avatars/001-boy.svg"
+                                                        class="" alt=""/>
+                                                </div>
+                                                <div class="d-flex justify-content-start flex-column">
+                                                    <div class="text-dark fw-bold d-block">{{$note['title']}}</div>
+                                                </div>
+                                            </div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="text-dark fw-bold d-block">{{$note['date']}}</div>
+                                        </td>
+                                        <td class="align-middle">
+                                            <div class="text-dark fw-bold d-block">{{$note['content']}}</div>
+                                        </td>
+                                        <td class="align-middle text-end pe-3">
+                                            <a href="{{route('profile',['id'=>$note['id']])}}"
+                                            class="btn btn-light-success btn-icon h-35px w-35px">
+                                                <i class="fa-duotone fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                title="Profile View"></i>
+                                            </a>
+                                            <a href="{{route('editnote',['id'=>$note['id']])}}"> Edit Note </a>
+                                            <a href="{{route('deletenote',['id'=>$note['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
+                                                                    class=" btn btn-light-danger btn-icon h-35px w-35px"
+                                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                                    title="Delete">
+                                                                <i class="fa-duotone fa-trash fs-4 h-35px w-35px align-items-center justify-content-center"></i>
+                                                            </a>
+                                        </td>
+                                    </tr>
+                                    </tbody>
+                                    @endif
+                                    @endforeach
+                                    @endif
                                     <!--end::Table body-->
                                 </table>
                             </div>

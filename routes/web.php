@@ -29,6 +29,7 @@ Route::controller(StudentController::class)->group(function (){
 
 Route::controller(NoteController::class)->group(function (){
     Route::get('/noteslist','index',)->name('notes');
+    Route::get('/viewstudentnotes/{id}','viewstudentnotes',)->name('viewstudentnotes');
     Route::get('/createnote','notecreate')->name('nform');
     Route::post('/notestore','notestore')->name('notestore');
     Route::get('/deletenote/{id}','deletenote')->name('deletenote');
