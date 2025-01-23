@@ -98,8 +98,8 @@
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Profile View"></i>
                                                 </a>
-                                                <a href="{{route('edit',['id'=>$note['id']])}}">Edit gen055</a>
-                                                <a href="{{route('delete',['id'=>$note['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
+                                                <a href="{{route('editnote',['id'=>$note['id']])}}"> Edit Note </a>
+                                                <a href="{{route('deletenote',['id'=>$note['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
                                                                         class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                                         title="Delete">

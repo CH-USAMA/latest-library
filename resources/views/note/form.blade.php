@@ -40,7 +40,11 @@
                     <div id="kt_app_content" class="app-content flex-column-fluid">
                         <!--begin::Content container-->
                         <div id="kt_app_content_container" class="">
+							@if (empty($note))
 							<form action="{{route('notestore')}}" method="POST">
+							@else
+							<form action="{{route('updatenote')}}" method="POST">
+							@endif
 								@csrf
                             <!--begin::Row-->
                             <div class="row g-5 g-xl-10">
@@ -50,6 +54,7 @@
 											<h3 class=" mb-0">Create Note</h3>
 										</div>
 										<div class="card-body p-3 pt-0">
+											<input hidden type="text" name="id" value="{{$note->id ?? ''}}" class="form-control form-control-solid">
 											<div class="row">
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
@@ -66,6 +71,7 @@
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
 													<label class="form-label">Assign To</label>
+													@if (empty($note))
 													<select name="studentid"class="form-select form-select-solid">
 														<option value="1" selected="selected">Student Name</option>
 														@foreach($userslist as $user)
@@ -74,6 +80,11 @@
 														@endif
 														@endforeach
 													</select>
+													@else
+													<select name="studentid"class="form-select form-select-solid">
+														<option value="{{$studentid = $note->id}}" selected="selected">Student ID</option>
+													</select>
+													@endif
 												</div>
 												<!--end::Col-->
 												<!--begin::Col-->
@@ -97,6 +108,6 @@
                         <!--end::Content container-->
                     </div>
                     <!--end::Content-->
-
+					
 
 @endsection

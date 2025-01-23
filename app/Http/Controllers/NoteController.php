@@ -53,24 +53,39 @@ class NoteController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Note $note)
+    public function editnote($id)
     {
-        //
+        $note = Note::find($id);
+        return view('note.form',['note'=>$note]);
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update(Request $request, note $note)
+    public function updateNote(Request $request)
     {
-        //
+        $request->validate([
+            'content' => ['nullable']
+        ]);
+        $id = $request->id;
+        $note = Note::find(id: $id);
+        //$note->update($request->all());
+        //dd($note);
+        //$note->update($request->all());
+        $note->update($request->only('title', 'content'));
+        //$note->update($request->all()->except(['title', 'content']));
+        //$note->update($request->title);
+        //$note->update($request->all());
+        //User::where($id)->update($request->User);
+        return redirect()->route('notes');
     }
 
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy(note $note)
+    public function destroy($id)
     {
-        //
+        Note::destroy($id);
+        return redirect()->route('notes');
     }
 }

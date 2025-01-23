@@ -24,14 +24,14 @@ Route::controller(StudentController::class)->group(function (){
     Route::post('/tstore','teacherstore')->name('tstore');
     Route::get('/delete/{id}','delete')->name('delete');
     Route::get('/edit/{id}','edit')->name('edit');
-    Route::post('/update','update')->name(name: 'update');
+    Route::post('/update','update')->name( 'update');
 });
 
 Route::controller(NoteController::class)->group(function (){
     Route::get('/noteslist','index',)->name('notes');
     Route::get('/createnote','notecreate')->name('nform');
     Route::post('/notestore','notestore')->name('notestore');
-    //Route::get('/delete/{id}','delete')->name('delete');
-    //Route::get('/edit/{id}','edit')->name('edit');
-    //Route::post('/update','store')->name('update');
+    Route::get('/deletenote/{id}','deletenote')->name('deletenote');
+    Route::get('/editnote/{id}','editnote')->name('editnote');
+    Route::post('/updatenote','updatenote')->name('updatenote');
 });
