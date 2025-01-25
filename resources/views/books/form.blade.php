@@ -151,7 +151,7 @@
 																</div>
 																<div class="col-md-12 fv-row mb-5">
 																	<label class="form-label">Content</label>
-																	<input type="text" name="content" value="{{$book->content ?? ''}}"  id="inputContent" class="form-control form-control-solid @error('content') is-invalid @enderror">
+																	<textarea type="text" rows=6 name="content" value="{{$book->content ?? ''}}"  id="inputContent" class="form-control form-control-solid @error('content') is-invalid @enderror"></textarea>
 																	@error('content')
 																		<span class="invalid-feedback" role="alert">
 																			<strong>{{ $message }}</strong>
