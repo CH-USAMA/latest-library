@@ -19,7 +19,7 @@ class NoteController extends Controller
 
     public function viewstudentnotes($id)
     {
-        $data = Note::all();
+        $data = Note::all(); //change query with id
         return view( 'note.list',['noteslist'=>$data,'selectedid'=>$id]);
     }
 

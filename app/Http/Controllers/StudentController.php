@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Models\User;
+use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
 

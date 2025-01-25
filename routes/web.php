@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\BookController;
 use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
@@ -35,4 +36,14 @@ Route::controller(NoteController::class)->group(function (){
     Route::get('/deletenote/{id}','deletenote')->name('deletenote');
     Route::get('/editnote/{id}','editnote')->name('editnote');
     Route::post('/updatenote','updatenote')->name('updatenote');
+});
+
+Route::controller(BookController::class)->group(function (){
+    Route::get('/bookslist','index',)->name('books');
+    //Route::get('/viewstudentnotes/{id}','viewstudentnotes',)->name('viewstudentnotes');
+    Route::get('/createbook','createbook')->name('createbook');
+    Route::post('/bookstore','bookstore')->name('bookstore');
+    //Route::get('/deletenote/{id}','deletenote')->name('deletenote');
+    //Route::get('/editnote/{id}','editnote')->name('editnote');
+    //Route::post('/updatebook','updatenote')->name('updatebook');
 });

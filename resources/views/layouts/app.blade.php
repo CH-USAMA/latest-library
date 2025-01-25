@@ -254,6 +254,7 @@ if (document.documentElement) {
                                         <span class="menu-title">Students</span>
                                     </a>
                                     <!--end:Menu link-->
+                                   @if(Auth::user()->role == 'teacher' OR 'admin')
                                     <!--begin:Menu link-->
                                     <a class="menu-link" href="{{route(name: "teacherusers")}}">
 											<span class="menu-icon">
@@ -262,6 +263,7 @@ if (document.documentElement) {
                                         <span class="menu-title">Teachers</span>
                                     </a>
                                     <!--end:Menu link-->
+                                    @endif
                                     <!--begin:Menu link-->
                                     <a class="menu-link" href="{{route("dashboard")}}">
 											<span class="menu-icon">
@@ -271,7 +273,7 @@ if (document.documentElement) {
                                     </a>
                                     <!--end:Menu link-->
                                     <!--begin:Menu link-->
-                                    <a class="menu-link" href="{{route("dashboard")}}">
+                                    <a class="menu-link" href="{{route("books")}}">
 											<span class="menu-icon">
 												<i class="fa-duotone fa-box-open-full fs-3"></i>
 											</span>
