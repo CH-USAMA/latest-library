@@ -84,7 +84,7 @@
                                                     <!--begin::Title-->
                                                     <div class="flex-shrink-0 me-5">
                                                         
-                                                        <span class="text-gray-800 fs-1 fw-bold">{{$book['title']}}</span>
+                                                        <span class="text-gray-800 fs-1 fw-bold">{{Str::limit($book['title'],24)}}</span>
                                                     </div>
                                                     <!--end::Title-->
                                                     <span class="badge badge-light-primary flex-shrink-0 align-self-center py-3 px-4 fs-7">Edit</span>
