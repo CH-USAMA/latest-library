@@ -55,7 +55,7 @@
 			@if (empty($book))
 				<form action="{{route('bookstore')}}" method="POST">
 			@else
-				<form action="{{route('update')}}" method="POST">
+				<form action="{{route('updatebook')}}" method="POST">
 			@endif
 					<div id="kt_app_content" class="app-content flex-column-fluid">
 						@csrf

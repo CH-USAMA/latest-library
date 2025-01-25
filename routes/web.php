@@ -45,6 +45,6 @@ Route::controller(BookController::class)->group(function (){
     Route::get('/createbook','createbook')->name('createbook');
     Route::post('/bookstore','bookstore')->name('bookstore');
     Route::get('/deletebook/{id}','deletebook')->name('deletebook');
-    //Route::get('/editnote/{id}','editnote')->name('editnote');
-    //Route::post('/updatebook','updatenote')->name('updatebook');
+    Route::get('/editbook/{id}','editbook')->name('editbook');
+    Route::post('/updatebook','updatebook')->name('updatebook');
 });

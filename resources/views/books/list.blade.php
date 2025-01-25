@@ -87,7 +87,13 @@
                                                         <span class="text-gray-800 fs-1 fw-bold">{{Str::limit($book['title'],24)}}</span>
                                                     </div>
                                                     <!--end::Title-->
-                                                    <span class="badge badge-light-primary flex-shrink-0 align-self-center py-3 px-4 fs-7">Edit</span>
+                                                    <a href="{{route('editbook',['id'=>$book['id']])}}" button type="button" 
+                                                        class=" btn  btn-icon h-35px w-35px"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="Edit">
+                                                    <i class="badge badge-light-primary flex-shrink-0 align-self-center py-3 px-4 fs-7">Edit</i>
+                                                </a>
+                                                    <!--<span class="badge badge-light-primary flex-shrink-0 align-self-center py-3 px-4 fs-7">Edit</span>-->
                                                 </div>
                                                 <!--end::Heading-->
                                                 <!--begin::Items-->
