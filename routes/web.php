@@ -44,7 +44,7 @@ Route::controller(BookController::class)->group(function (){
     //Route::get('/viewstudentnotes/{id}','viewstudentnotes',)->name('viewstudentnotes');
     Route::get('/createbook','createbook')->name('createbook');
     Route::post('/bookstore','bookstore')->name('bookstore');
-    //Route::get('/deletenote/{id}','deletenote')->name('deletenote');
+    Route::get('/deletebook/{id}','deletebook')->name('deletebook');
     //Route::get('/editnote/{id}','editnote')->name('editnote');
     //Route::post('/updatebook','updatenote')->name('updatebook');
 });

@@ -8,7 +8,7 @@
 			<!--begin::Page title-->
 			<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 				<!--begin::Title-->
-				<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Students</h1>
+				<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">View Library</h1>
 				<!--end::Title-->
 				<!--begin::Breadcrumb-->
 				<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -24,7 +24,7 @@
 					<!--end::Item-->
 					<!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-					    <a href={{route("users")}} class="text-muted text-hover-primary">Students</a>
+					    <a href={{route("books")}} class="text-muted text-hover-primary">Books</a>
                     </li>
 					<!--end::Item-->
 				</ul>
@@ -172,6 +172,12 @@
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
                                                 </i></a>
+                                                <a href="{{route('deletebook',['id'=>$book['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
+                                                    class=" btn btn-light-danger btn-icon h-35px w-35px"
+                                                    data-bs-toggle="tooltip" data-bs-placement="top"
+                                                    title="Delete">
+                                                <i class="fa-duotone fa-trash fs-4 h-35px w-35px align-items-center justify-content-center"></i>
+                                            </a>
                                                 <!--end::Actions-->
                                             </div>
                                             <!--end::Footer-->
