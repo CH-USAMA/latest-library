@@ -18,6 +18,12 @@ class BookController extends Controller
         return view( 'books.list',['bookslist'=>$data]);
     }
 
+    public function tindex()
+    {
+        $data = Book::all();
+        return view( 'books.workinglist');
+    }
+
     /**
      * Show the form for creating a new resource.
      */
@@ -63,7 +69,7 @@ class BookController extends Controller
     /**
      * Update the specified resource in storage.
      */
-    public function update(UpdateBooksRequest $request,  $book)
+    public function update(Request $request)
     {
         //
     }

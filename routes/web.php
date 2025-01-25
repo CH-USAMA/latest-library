@@ -40,6 +40,7 @@ Route::controller(NoteController::class)->group(function (){
 
 Route::controller(BookController::class)->group(function (){
     Route::get('/bookslist','index',)->name('books');
+    Route::get('/tempbookslist','tindex',)->name('tbooks');
     //Route::get('/viewstudentnotes/{id}','viewstudentnotes',)->name('viewstudentnotes');
     Route::get('/createbook','createbook')->name('createbook');
     Route::post('/bookstore','bookstore')->name('bookstore');
