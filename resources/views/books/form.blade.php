@@ -149,6 +149,15 @@
 																		</span>
 																	@enderror
 																</div>
+																<div class="col-md-12 fv-row mb-5">
+																	<label class="form-label">Content</label>
+																	<input type="text" name="content" value="{{$book->content ?? ''}}"  id="inputContent" class="form-control form-control-solid @error('content') is-invalid @enderror">
+																	@error('content')
+																		<span class="invalid-feedback" role="alert">
+																			<strong>{{ $message }}</strong>
+																		</span>
+																	@enderror
+																</div>
 																<!--end::Col-->
 															<div class="mb-0 mt-1">
 																<!--begin::Submit-->
