@@ -70,7 +70,8 @@
                                     <div class="col-sm-6 mb-10 mb-sm-0">
                                         <!--begin::Image-->
                                         <div class="bgi-no-repeat bgi-position-center bgi-size-cover card-rounded min-h-400px min-h-sm-100 h-100" 
-                                        style="background-size: 100% 100%;background-image:url('{{asset('/assets/book-images')}}/{{$book['image']}})"></div>
+                                        style="background-size: 100% 100%;background-image:url('assets/book-images/{{$book['image']}}')"></div>
+
                                         <!--end::Image-->
                                     </div>
                                     <!--end::Col-->
@@ -84,7 +85,6 @@
                                                 <div class="d-flex flex-stack mb-6">
                                                     <!--begin::Title-->
                                                     <div class="flex-shrink-0 me-5">
-                                                        
                                                         <span class="text-gray-800 fs-1 fw-bold">{{Str::limit($book['title'],24)}}</span>
                                                     </div>
                                                     <!--end::Title-->
