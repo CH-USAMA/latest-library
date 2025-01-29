@@ -18,5 +18,6 @@ class Book extends Model
         'category',
         'description',
         'or_level',
+        'image'
     ];
 }

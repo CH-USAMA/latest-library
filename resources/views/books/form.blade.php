@@ -53,9 +53,9 @@
 		<!--begin::Content container-->
 		<div id="kt_app_content_container" class="">
 			@if (empty($book))
-				<form action="{{route('bookstore')}}" method="POST">
+				<form action="{{route('bookstore')}}" method="POST" enctype="multipart/form-data">
 			@else
-				<form action="{{route('updatebook')}}" method="POST">
+				<form action="{{route('updatebook')}}" method="POST"enctype="multipart/form-data">
 			@endif
 					<div id="kt_app_content" class="app-content flex-column-fluid">
 						@csrf
@@ -157,6 +157,10 @@
 																			<strong>{{ $message }}</strong>
 																		</span>
 																	@enderror
+																</div>
+																<div class="col-md-12 fv-row mb-5">
+																	<label class="form-label">Image</label>
+																	<input name="image" type="file" name="image" class="form-control form-control-solid">
 																</div>
 																<!--end::Col-->
 															<div class="mb-0 mt-1">
