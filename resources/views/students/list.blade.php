@@ -32,6 +32,11 @@
 			</div>
 			<!--end::Page title-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
+                
+                <!--begin:: Assign-->
+                <a href={{route("form")}} class="btn btn-sm fw-bold btn-success" data-bs-toggle="modal" data-bs-target={{route("form")}}><i class="fa-solid fa-plus me-1 fs-4"></i>Auto Assign</a>
+                <!--end:: Assign-->
+
                 <!--begin:: Add New-->
                 <a href={{route("form")}} class="btn btn-sm fw-bold btn-success" data-bs-toggle="modal" data-bs-target={{route("form")}}><i class="fa-solid fa-plus me-1 fs-4"></i>Add New</a>
                 <!--end::Primary button-->
@@ -39,6 +44,7 @@
                 <!--begin:: Export-->
                 <a href="#" class="btn btn-sm fw-bold btn-info"><i class="fa-duotone fa-download me-1 fs-4"></i>Export</a>
                 <!--end:: Export-->
+
             </div>
 	   
 		</div>
@@ -68,6 +74,7 @@
                                         <th class="">OR Level</th>
                                         <th class="">Interest</th>
                                         <th class="">Date Of Birth</th>
+                                        <th class="">Current Book Name</th>
                                         <th class="pe-3 text-end">Actions</th>
                                     </tr>
                                     
@@ -100,6 +107,9 @@
                                             </td>
                                             <td class="align-middle">
                                                 <div class="text-dark fw-bold">{{$user['date_of_birth']}}</div>
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="text-dark fw-bold">{{$user['current_book_name']}}</div>
                                             </td>
                                         
                                             
