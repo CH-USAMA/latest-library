@@ -30,13 +30,9 @@
 				<!--end::Breadcrumb-->
 			</div>
 			<!--end::Page title-->
-	   
 		</div>
 		<!--end::Toolbar container-->
-
 	</div>
-
-
 	
 	<!--begin::Content-->
 	<div id="kt_app_content" class="app-content flex-column-fluid">

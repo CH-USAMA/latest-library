@@ -241,7 +241,7 @@ if (document.documentElement) {
                                     <!--begin:Menu link-->
                                     <a class="menu-link" href="{{route("dashboard")}}">
 											<span class="menu-icon">
-												<i class="fa-duotone fa-gauge-high fs-3"></i>
+												<i class="fa-solid fa-house fs-3"></i>
 											</span>
                                         <span class="menu-title">Dashboard</span>
                                     </a>
@@ -250,7 +250,7 @@ if (document.documentElement) {
                                     @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
                                         <a class="menu-link" href="{{route("users")}}">
                                                 <span class="menu-icon">
-                                                    <i class="fa-duotone fa-clipboard-check fs-3"></i>
+                                                    <i class="fa-duotone fa-user fs-3"></i>
                                                 </span>
                                             <span class="menu-title">Students</span>
                                         </a>
@@ -260,7 +260,7 @@ if (document.documentElement) {
                                     @if(Auth::user()->role =='admin')
                                     <a class="menu-link" href="{{route(name: "teacherusers")}}">
 											<span class="menu-icon">
-												<i class="fa-duotone fa-user fs-3"></i>
+                                                <i class="fa-solid fa-person-chalkboard fs-3"></i>
 											</span>
                                         <span class="menu-title">Teachers</span>
                                     </a>
@@ -270,7 +270,7 @@ if (document.documentElement) {
                                     @if(Auth::user()->role =='admin')
                                     <a class="menu-link" href="{{route("dashboard")}}">
 											<span class="menu-icon">
-												<i class="fa-duotone fa-box-open-full fs-3"></i>
+												<i class="fa-solid fa-user-gear fs-3"></i>
 											</span>
                                         <span class="menu-title">Admins</span>
                                     </a>
@@ -279,7 +279,7 @@ if (document.documentElement) {
                                     <!--begin:Menu link-->
                                     <a class="menu-link" href="{{route("books")}}">
 											<span class="menu-icon">
-												<i class="fa-duotone fa-box-open-full fs-3"></i>
+												<i class="fa-solid fa-book fs-3"></i>
 											</span>
                                         <span class="menu-title">Books</span>
                                     </a>
@@ -288,7 +288,7 @@ if (document.documentElement) {
                                     @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
                                     <a class="menu-link" href="{{route(name: "notes")}}">
 											<span class="menu-icon">
-												<i class="fa-duotone fa-box-open-full fs-3"></i>
+												<i class="fa-regular fa-note-sticky fs-3"></i>
 											</span>
                                         <span class="menu-title">Notes</span>
                                     </a>
@@ -298,7 +298,7 @@ if (document.documentElement) {
                                     @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
                                     <a class="menu-link" href="{{route("dashboard")}}">
 											<span class="menu-icon">
-												<i class="fa-duotone fa-box-open-full fs-3"></i>
+												<i class="fa-regular fa-star fs-3"></i>
 											</span>
                                         <span class="menu-title">Reviews</span>
                                     </a>

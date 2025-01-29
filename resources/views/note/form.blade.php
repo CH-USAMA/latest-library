@@ -29,10 +29,8 @@
 				</ul>
 				<!--end::Breadcrumb-->
 			</div>
-	   
 		</div>
 		<!--end::Toolbar container-->
-
 	</div>
 
 
