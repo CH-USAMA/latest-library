@@ -49,8 +49,8 @@ class BookController extends Controller
         
         if ($request->hasFile('image'))
             $imagename = $request->file('image');
-            $filename = 'image-' . time() . '.' . $imagename . '.' . $request->image->extension();
-            $path = $request->file('image')->move(public_path('/assets/book-images'), $filename);
+            $filename = time() . '.' . $imagename->getClientOriginalExtension();
+            $path = $request->file('image')->move(public_path('/assets/book-images/'), $filename);
             $book->image = $filename;
         $book->save();
         return redirect()->route('books');
