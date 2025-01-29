@@ -33,9 +33,7 @@
 			<!--end::Page title-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
                 
-                <!--begin:: Assign-->
-                <a href={{route("form")}} class="btn btn-sm fw-bold btn-success" data-bs-toggle="modal" data-bs-target={{route("form")}}><i class="fa-solid fa-plus me-1 fs-4"></i>Auto Assign</a>
-                <!--end:: Assign-->
+
 
                 <!--begin:: Add New-->
                 <a href={{route("form")}} class="btn btn-sm fw-bold btn-success" data-bs-toggle="modal" data-bs-target={{route("form")}}><i class="fa-solid fa-plus me-1 fs-4"></i>Add New</a>
@@ -119,6 +117,8 @@
                                                     <i class="fa-duotone fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Profile View"></i>
+                                                </a>
+                                                <a href="{{route('assign',['id'=>$user['id']])}}"><i class="fa-duotone fa-user fs-4 h-35px w-35px align-items-center justify-content-center"></i>
                                                 </a>
                                                 <a href="{{route('viewstudentnotes',['id'=>$user['id']])}}">View notes</a>
                                                 <!--<a href="{{route('nform',['id'=>$user['id']])}}">Add note</a>-->

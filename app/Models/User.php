@@ -52,4 +52,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+
+
+    public function book()
+    {
+        return $this->hasOne(Book::class);
+    }
 }

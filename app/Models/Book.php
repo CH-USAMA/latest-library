@@ -20,4 +20,9 @@ class Book extends Model
         'or_level',
         'image'
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

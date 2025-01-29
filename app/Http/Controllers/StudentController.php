@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Student;
 use App\Models\User;
+use App\Models\Book;
 use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
@@ -142,6 +143,17 @@ class StudentController extends Controller
         //User::where($id)->update($request->User);
         return redirect()->route('users');
     }
+
+    public function assign($id)
+    {
+        $user = User::find($id);
+        $studentInterest = $user->interests;
+        $book = Book::where('category',$studentInterest)->first();
+        $user->book_id = $book->id;
+        $user->save();
+        return redirect()->back();
+    }
+
 
     /**
      * Remove the specified resource from storage.

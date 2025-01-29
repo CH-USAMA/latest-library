@@ -26,6 +26,7 @@ Route::controller(StudentController::class)->group(function (){
     Route::get('/delete/{id}','delete')->name('delete');
     Route::get('/edit/{id}','edit')->name('edit');
     Route::post('/update','update')->name( 'update');
+    Route::get('/assign/{id}','assign',)->name('assign');
 });
 
 Route::controller(NoteController::class)->group(function (){

@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Book;
+use App\Models\User;
 //use App\Http\Requests\StoreBooksRequest;
 use Illuminate\Http\Request;
 //use App\Http\Requests\UpdateBooksRequest;
