@@ -302,8 +302,19 @@ if (document.documentElement) {
 											</span>
                                         <span class="menu-title">Reviews</span>
                                     </a>
-                                    <!--end:Menu link-->
                                     @endif
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu link-->
+                                    @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
+                                    <a class="menu-link" href="{{route("genres")}}">
+											<span class="menu-icon">
+												<i class="fa-regular fa-star fs-3"></i>
+											</span>
+                                        <span class="menu-title">Genre</span>
+                                    </a>
+                                    @endif
+                                    <!--end:Menu link-->
+                                    
                                 </div>
                                 <!--end:Menu item-->
                                

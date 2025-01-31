@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\GenreController;
 use App\Http\Controllers\NoteController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
@@ -48,4 +49,13 @@ Route::controller(BookController::class)->group(function (){
     Route::get('/deletebook/{id}','deletebook')->name('deletebook');
     Route::get('/editbook/{id}','editbook')->name('editbook');
     Route::post('/updatebook','updatebook')->name('updatebook');
+});
+
+Route::controller(GenreController::class)->group(function (){
+    Route::get('/genrelist','index',)->name('genres');
+    Route::get('/creategenre','creategenre')->name('genreform');
+    Route::post('/genrestore','genrestore')->name('genrestore');
+    Route::get('/deletegenre/{id}','deletegenre')->name('deletegenre');
+    Route::get('/editgenre/{id}','editgenre')->name('editgenre');
+    Route::post('/updategenre','updategenre')->name('updategenre');
 });

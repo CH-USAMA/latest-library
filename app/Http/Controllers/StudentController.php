@@ -148,7 +148,7 @@ class StudentController extends Controller
     {
         $user = User::find($id);
         $studentInterest = $user->interests;
-        $book = Book::where('category',$studentInterest)->first();
+        $book = Book::where('genre',$studentInterest)->first();
         $user->book_id = $book->id;
         $user->save();
         return redirect()->back();
