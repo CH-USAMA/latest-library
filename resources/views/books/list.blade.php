@@ -33,7 +33,7 @@
 			<!--end::Page title-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
                 <!--begin:: Add New-->
-                <a href={{route("createbook")}} class="btn btn-sm fw-bold btn-success" data-bs-toggle="modal" data-bs-target={{route("form")}}><i class="fa-solid fa-plus me-1 fs-4"></i>Add New</a>
+                <a href={{route("createbook")}} class="btn btn-sm fw-bold btn-success" ><i class="fa-solid fa-plus me-1 fs-4"></i>Add New</a>
                 <!--end::Primary button-->
 
                 <!--begin:: Export-->

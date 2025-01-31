@@ -98,13 +98,14 @@
 																<!--begin::Col-->
 																<div class="col-md-6 fv-row mb-5">
 																	<label class="form-label">Genre</label>
-																	<input type="text" name="genre" value="{{$book->genre ?? ''}}" id="inputGenre" class="form-control form-control-solid @error('genre') is-invalid @enderror">
-																	@error('genre')
-																	<span class="invalid-feedback" role="alert">
-																		<strong>{{ $message }}</strong>
-																	</span>
-																@enderror
+																	<select name="genre[]"class="form-select form-select-solid" data-control="select2" multiple size="4">
+																		<option value="1" disabled >Select Genre</option>
+																		@foreach($genrelist as $genre)
+																		<option value="{{$genre->id}}">{{ $genre->genre_name}}</option>
+																		@endforeach
+																	</select>
 																</div>
+				
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-6 fv-row mb-5">

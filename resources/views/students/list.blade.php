@@ -121,14 +121,13 @@
                                                 <a href="{{route('assign',['id'=>$user['id']])}}"><i class="fa-duotone fa-user fs-4 h-35px w-35px align-items-center justify-content-center"></i>
                                                 </a>
                                                 <a href="{{route('viewstudentnotes',['id'=>$user['id']])}}">View notes</a>
-                                                <!--<a href="{{route('nform',['id'=>$user['id']])}}">Add note</a>-->
                                                 <a href="{{route('edit',['id'=>$user['id']])}}">Edit</a>
-                                                <a href="{{route('delete',['id'=>$user['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
+                                                <a href="{{route('delete',['id'=>$user['id']])}}" button type="button"
                                                                         class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                                         title="Delete">
                                                                     <i class="fa-duotone fa-trash fs-4 h-35px w-35px align-items-center justify-content-center"></i>
-                                                                </a>
+                                                </a>
                                             </td>
                                         </tr>
                                         </tbody>

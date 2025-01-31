@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use App\Models\User;
+use App\Models\Genre;
 //use App\Http\Requests\StoreBooksRequest;
 use Illuminate\Http\Request;
 //use App\Http\Requests\UpdateBooksRequest;
@@ -30,7 +31,8 @@ class BookController extends Controller
      */
     public function createbook()
     {
-        return view( 'books.form');
+        $allgenres = Genre::all();
+        return view( 'books.form',['genrelist'=>$allgenres]);
     }
 
     /**
@@ -70,8 +72,9 @@ class BookController extends Controller
      */
     public function editbook( $id)
     {
+        $allgenres = Genre::all();
         $book = Book::find($id);
-        return view('books.form',['book'=>$book]);
+        return view('books.form',['book'=>$book,'genrelist'=>$allgenres]);
     }
 
     /**

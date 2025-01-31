@@ -21,6 +21,11 @@ class Book extends Model
         'image'
     ];
 
+    public function genre()
+    {
+        return $this->belongsToMany(Genre::class);
+    }
+
     public function user()
     {
         return $this->belongsTo(User::class);
