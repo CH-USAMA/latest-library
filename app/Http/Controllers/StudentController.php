@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Student;
 use App\Models\User;
 use App\Models\Book;
+use App\Models\Genre;
 use App\Http\Controllers\Auth;
 use Illuminate\Http\Request;
 use Illuminate\Database\Eloquent\Model;
@@ -42,7 +43,8 @@ class StudentController extends Controller
      */
     public function studentCreate()
     {
-        return view(view: 'students.form');
+        $allgenres = Genre::all();
+        return view( 'students.form',['genrelist'=>$allgenres]);
     }
 
     public function teacherCreate()
@@ -63,7 +65,6 @@ class StudentController extends Controller
                  'or_level' => ['required'],
                  'topic' => ['required'],
                  'class' => ['required'],
-                 'interests' => ['required']
              ]);
         $user = new User();
         $user->name = $request->name;
@@ -75,8 +76,9 @@ class StudentController extends Controller
         $user->current_book_name = $request->current_book_name;
         $user->topic = $request->topic;
         $user->class = $request->class;
-        $user->interests = $request->interests;
+        //$user->interests = $request->interests;
         $user->save();
+        $user->genre()->attach($request->genre);
         return redirect()->route('users');
     }
 
@@ -99,8 +101,9 @@ class StudentController extends Controller
         $user->current_book_name = $request->current_book_name;
         $user->topic = $request->topic;
         $user->class = $request->class;
-        $user->interests = $request->interests;
+        //$user->interests = $request->interests;
         $user->save();
+        $user->genre()->attach($request->interests);
         return redirect()->route('teacherusers');
     }
 
