@@ -45,17 +45,18 @@ class BookController extends Controller
         $book->publisher = $request->publisher;
         $book->author = $request->author;
         $book->title = $request->title;
-        $book->genre = $request->genre;
+        //$book->genre = $request->genre;
         $book->category = $request->category;
         $book->description = $request->description;
         $book->or_level = $request->or_level;
-        
         if ($request->hasFile('image'))
             $imagename = $request->file('image');
             $filename = time() . '.' . $imagename->getClientOriginalExtension();
             $path = $request->file('image')->move(public_path('/assets/book-images/'), $filename);
             $book->image = $filename;
+    
         $book->save();
+        $book->genre()->attach($request->genre);
         return redirect()->route('books');
     }
 
