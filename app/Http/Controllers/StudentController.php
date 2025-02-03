@@ -147,16 +147,44 @@ class StudentController extends Controller
         return redirect()->route('users');
     }
 
+    // public function assign($id)
+    // {
+    //     $user = User::find($id);
+    //     $studentInterest = $user->interests;
+    //     $book = Book::where('genre',$studentInterest)->first();
+    //     $user->book_id = $book->id;
+    //     $user->save();
+    //     return redirect()->back();
+    // }
+
+
     public function assign($id)
     {
         $user = User::find($id);
-        $studentInterest = $user->interests;
-        $book = Book::where('genre',$studentInterest)->first();
-        $user->book_id = $book->id;
-        $user->save();
-        return redirect()->back();
+        $usergenre = $user->genre->pluck('id');
+        //dd($usergenre); // 4 and 6
+        $book = Book::whereHas('genre',function ($query) use ($usergenre){
+            $query->whereIn('genre_id',$usergenre);
+        }) -> first();
+        //dd($book);
+        if (empty($book)){
+            $user->current_book_name = "no book found";
+            $user->save();
+            return redirect()->back();
+        }
+        else {
+            $user->book_id = $book->id;
+            $user->current_book_name = $book->title;
+            $user->save();
+            return redirect()->back();
+        }
     }
 
+
+
+
+
+    
 
     /**
      * Remove the specified resource from storage.
