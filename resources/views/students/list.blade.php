@@ -70,7 +70,7 @@
                                         <th class="ps-3">User Name</th>
                                         <th class="">Email</th>
                                         <th class="">OR Level</th>
-                                        <th class="">Interest</th>
+                                        <!--<th class="">Interest</th>-->
                                         <th class="">Date Of Birth</th>
                                         <th class="">Current Book Name</th>
                                         <th class="pe-3 text-end">Actions</th>
@@ -100,9 +100,9 @@
                                             <td class="align-middle">
                                                 <div class="text-dark fw-bold d-block">{{$user['or_level']}}</div>
                                             </td>
-                                            <td class="align-middle">
+                                            <!--<td class="align-middle">
                                                 <div class="text-dark fw-bold d-block">{{$user['interests']}}</div>
-                                            </td>
+                                            </td>-->
                                             <td class="align-middle">
                                                 <div class="text-dark fw-bold">{{$user['date_of_birth']}}</div>
                                             </td>

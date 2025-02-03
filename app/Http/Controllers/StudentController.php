@@ -163,10 +163,14 @@ class StudentController extends Controller
         $user = User::find($id);
         $usergenre = $user->genre->pluck('id');
         //dd($usergenre); // 4 and 6
-        $book = Book::whereHas('genre',function ($query) use ($usergenre){
-            $query->whereIn('genre_id',$usergenre);
-        }) -> first();
-        //dd($book);
+        // $book = Book::withCount('genre',function ($query) use ($usergenre){
+        //     $query->whereIn('genre_id',$usergenre);
+        // }) -> orderBy('genre_count', 'desc')->first();
+
+        $book = Book::withCount(['genre' => function ($query) use ($usergenre) {
+            $query->whereIn('genre_id', $usergenre);
+        }])->orderBy('genre_count', 'desc')->first();
+        
         if (empty($book)){
             $user->current_book_name = "no book found";
             $user->save();
