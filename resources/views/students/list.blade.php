@@ -123,7 +123,7 @@
                                                 </a>
                                                 <a href="{{route('viewstudentnotes',['id'=>$user['id']])}}" class="btn btn-light-info btn-icon h-35px w-35px">
                                                     <i class="fa-duotone fa-note-sticky fs-4 h-35px w-35px align-items-center justify-content-center"></i></a>
-                                                <a href="{{route('edit',['id'=>$user['id']])}} "class="btn btn-light-primary btn-icon h-35px w-35px">
+                                                <a href="{{route('edit',['id'=>$user['id']])}}" class="btn btn-light-primary btn-icon h-35px w-35px">
                                                     <i class="fa-duotone fa-pen fs-4  h-35px w-35px align-items-center justify-content-center" data-bs-toggle="tooltip" data-bs-placement="top" aria-label="Edit" data-bs-original-title="Edit" data-kt-initialized="1"></i></a>
                                                 <a href="{{route('delete',['id'=>$user['id']])}}" button type="button"
                                                                         class=" btn btn-light-danger btn-icon h-35px w-35px"

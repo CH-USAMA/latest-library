@@ -100,7 +100,7 @@
                                                     title="Profile View"></i>
                                                 </a>
                                                 <a href="{{route('editnote',['id'=>$note['id']])}}"> Edit Note </a>
-                                                <a href="{{route('deletenote',['id'=>$note['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
+                                                <a href="{{route('deletenote',['id'=>$note['id']])}}" button type="button" 
                                                                         class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                                         title="Delete">
@@ -139,13 +139,13 @@
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 title="Profile View"></i>
                                             </a>
-                                            <a href="{{route('editnote',['id'=>$note['id']])}}"> Edit Note </a>
-                                            <a href="{{route('deletenote',['id'=>$note['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
-                                                                    class=" btn btn-light-danger btn-icon h-35px w-35px"
-                                                                    data-bs-toggle="tooltip" data-bs-placement="top"
-                                                                    title="Delete">
-                                                                <i class="fa-duotone fa-trash fs-4 h-35px w-35px align-items-center justify-content-center"></i>
-                                                            </a>
+                                            <a href="{{route('editnote',['id'=>$note['id']])}}"> Edit Note</a>
+                                            <a href="{{route('deletenote',['id'=>$note['id']])}}" button type="button" 
+                                                class=" btn btn-light-danger btn-icon h-35px w-35px"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                title="Delete">
+                                            <i class="fa-duotone fa-trash fs-4 h-35px w-35px align-items-center justify-content-center"></i>
+                                            </a>
                                         </td>
                                     </tr>
                                     </tbody>

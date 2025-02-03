@@ -42,9 +42,10 @@ class NoteController extends Controller
         $note->title = $request->title;
         $note->date = $request->date;
         $note->content = $request->content;
-        $note->teacherid = $request->teacherid;
-        $note->studentid = $request->studentid;
+        $note->teacher_id = $request->teacher_id;
+        $note->student_id = $request->student_id;
         $note->save();
+        //$note->user()->attach($request->id);
         return redirect()->route('notes');
     }
 
@@ -89,7 +90,7 @@ class NoteController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function deletenote($id)
     {
         Note::destroy($id);
         return redirect()->route('notes');

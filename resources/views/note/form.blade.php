@@ -70,23 +70,23 @@
 												<div class="col-md-6 fv-row mb-5">
 													<label class="form-label">Assign To</label>
 													@if (empty($note))
-													<select name="studentid"class="form-select form-select-solid">
+													<select name="student_id"class="form-select form-select-solid">
 														<option value="1" selected="selected">Student Name</option>
 														@foreach($userslist as $user)
 														@if($user->role =='student')
-														<option value="{{$studentid = $user->id}}">{{ $user->name }}</option>
+														<option value="{{$student_id = $user->id}}">{{ $user->name }}</option>
 														@endif
 														@endforeach
 													</select>
 													@else
-													<select name="studentid"class="form-select form-select-solid">
-														<option value="{{$studentid = $note->id}}" selected="selected">Student ID</option>
+													<select name="student_id"class="form-select form-select-solid">
+														<option value="{{$student_id = $note->id}}" selected="selected">Student ID</option>
 													</select>
 													@endif
 												</div>
 												<!--end::Col-->
 												<!--begin::Col-->
-												<input hidden name="teacherid" id="teacherid"class="form-select form-select-solid"value="{{Auth::id()}}">
+												<input hidden name="teacher_id" id="teacher_id"class="form-select form-select-solid"value="{{Auth::id()}}">
 												<!--end::Col-->
 											</div>
 											<div class="mb-0 mt-1">

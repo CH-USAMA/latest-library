@@ -12,4 +12,9 @@ class Note extends Model
         'date',
         'studentId',
     ];
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
+    }
 }

@@ -68,7 +68,7 @@
                                 <div class="me-7 mb-4">
                                     <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative bg-light">
                                         <img src="assets/media/logo-1.svg" alt="image"/>
-                                        <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border border-4 border-body h-20px w-20px"></div>
+                                        <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border-4 border-body h-20px w-20px"></div>
                                     </div>
                                 </div>
                                 <!--end::Pic-->
@@ -118,7 +118,7 @@
                                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                                     <!--begin::Number-->
                                                     <div class="d-flex align-items-center">
-                                                        <i class="fa-duotone fa-users fs-4 text-primary me-2"></i>
+                                                        <i class="fa-duotone fa-book-open fs-4 text-primary me-2"></i>
                                                         <div class="fs-2 fw-bold" data-kt-countup="true"
                                                              data-kt-countup-value="1000"
                                                              data-kt-countup-prefix="">0
@@ -126,7 +126,7 @@
                                                     </div>
                                                     <!--end::Number-->
                                                     <!--begin::Label-->
-                                                    <div class="fw-semibold fs-6 text-gray-400">Books
+                                                    <div class="fw-semibold fs-6 text-gray-400">Books Read
                                                     </div>
                                                     <!--end::Label-->
                                                 </div>
@@ -135,7 +135,7 @@
                                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                                     <!--begin::Number-->
                                                     <div class="d-flex align-items-center">
-                                                        <i class="fa-duotone fa-phone-arrow-down-left fs-4 text-success me-2"></i>
+                                                        <i class="fa-duotone fa-file-lines fs-4 text-success me-2"></i>
                                                         <div class="fs-2 fw-bold" data-kt-countup="true"
                                                              data-kt-countup-value="1"
                                                              data-kt-countup-suffix=" Review">0
@@ -153,7 +153,7 @@
                                                 <div class="border border-gray-300 border-dashed rounded min-w-125px py-3 px-4 me-6 mb-3">
                                                     <!--begin::Number-->
                                                     <div class="d-flex align-items-center">
-                                                        <i class="fa-duotone fa-phone-arrow-up-right fs-4 text-danger me-2"></i>
+                                                        <i class="fa-duotone fa-book-open-reader fs-4 text-danger me-2"></i>
                                                         <div class="fs-2 fw-bold" data-kt-countup="true"
                                                              data-kt-countup-value="{{$user['or_level']}}"
                                                              data-kt-countup-suffix="">0
@@ -224,7 +224,7 @@
                                         <!--end::Label-->
                                         <!--begin::Col-->
                                         <div class="col-lg-8 d-flex align-items-center">
-                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{$user['interests']}}</span>
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{$user->genre->pluck('genre_name')->implode(', ')}}</span>
                                         </div>
                                         <!--end::Col-->
                                     </div>

@@ -49,7 +49,8 @@ class StudentController extends Controller
 
     public function teacherCreate()
     {
-        return view(view: 'teachers.form');
+        $allgenres = Genre::all();
+        return view( 'teachers.form',['genrelist'=>$allgenres]);
     }
 
     /**
@@ -89,7 +90,6 @@ class StudentController extends Controller
                  'email' => ['required'],
                  'password' => ['required'],
                  'date_of_birth'=> ['required'],
-                 'interests' => ['required']
              ]);
         $user = new User();
         $user->name = $request->name;
@@ -97,10 +97,7 @@ class StudentController extends Controller
         $user->password = $request->password;
         $user->date_of_birth = $request->date_of_birth;
         $user->role = $request->role;
-        $user->or_level = $request->or_level;
         $user->current_book_name = $request->current_book_name;
-        $user->topic = $request->topic;
-        $user->class = $request->class;
         //$user->interests = $request->interests;
         $user->save();
         $user->genre()->attach($request->interests);
@@ -120,7 +117,8 @@ class StudentController extends Controller
         //$book = Book::find($id);
         //$book->delete();
         User::destroy($id);
-        return redirect()->route('users');
+        //return redirect()->route('users');
+        return redirect()->back();
 
     }
     /**
@@ -170,8 +168,8 @@ class StudentController extends Controller
 
         $book = Book::withCount(['genre' => function ($query) use ($usergenre) {
             $query->whereIn('genre_id', $usergenre);
-        }])->orderBy('genre_count', 'desc')->first();
-        
+        }])->having('genre_count','>',0)->orderBy('genre_count', 'desc')->first();
+        //dd($book);
         if (empty($book)){
             $user->current_book_name = "no book found";
             $user->save();
