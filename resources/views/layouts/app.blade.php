@@ -308,7 +308,7 @@ if (document.documentElement) {
                                     @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
                                     <a class="menu-link" href="{{route("genres")}}">
 											<span class="menu-icon">
-												<i class="fa-regular fa-star fs-3"></i>
+												<i class="fa-regular fa-icons fs-3"></i>
 											</span>
                                         <span class="menu-title">Genre</span>
                                     </a>
@@ -324,7 +324,7 @@ if (document.documentElement) {
                             
 
                             <!--begin:Menu item-->
-                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion">
+                            <div data-kt-menu-trigger="click" class="menu-item menu-accordion d-none">
                                 <!--begin:Menu link-->
                                 <span class="menu-link">
 											<span class="menu-icon">
@@ -335,7 +335,7 @@ if (document.documentElement) {
 										</span>
                                 <!--end:Menu link-->
                                 <!--begin:Menu sub-->
-                                <div class="menu-sub menu-sub-accordion">
+                                <div hclass="menu-sub menu-sub-accordion">
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
@@ -424,6 +424,9 @@ if (document.documentElement) {
 <!--begin::Custom Javascript(used for this page only)-->
 <script src="assets/js/widgets.bundle.js"></script>
 <script src="assets/js/custom/utilities/modals/users-search.js"></script>
+<script src="https://code.highcharts.com/highcharts.js"></script>
+<script src="https://code.highcharts.com/modules/exporting.js"></script>
+<script src="https://code.highcharts.com/modules/accessibility.js"></script>
 <!--end::Custom Javascript-->
 <!--end::Javascript-->
 </body>
@@ -431,6 +434,7 @@ if (document.documentElement) {
 </html>
 
 <script>
+    @yield("footerjs")
     $("#kt_datatable_both_scrolls").DataTable({
         "scrollX": true,
     });
