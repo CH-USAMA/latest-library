@@ -127,7 +127,8 @@ class StudentController extends Controller
     public function edit($id)
     {
         $user = User::find($id);
-        return view('students.form',['user'=>$user]);
+        $allgenres = Genre::all();
+        return view('students.form',['user'=>$user,'genrelist'=>$allgenres]);
     }
 
     /**
@@ -141,6 +142,7 @@ class StudentController extends Controller
         $id = $request->id;
         $user = User::find(id: $id);
         $user->update($request->all());
+        $user->genre()->sync($request->genre);
         //User::where($id)->update($request->User);
         return redirect()->route('users');
     }
