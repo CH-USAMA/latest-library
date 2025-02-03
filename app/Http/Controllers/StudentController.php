@@ -162,6 +162,7 @@ class StudentController extends Controller
     {
         $user = User::find($id);
         $usergenre = $user->genre->pluck('id');
+        //dd($user->genre->pluck('genre_name'));
         //dd($usergenre); // 4 and 6
         // $book = Book::withCount('genre',function ($query) use ($usergenre){
         //     $query->whereIn('genre_id',$usergenre);
