@@ -208,7 +208,7 @@ if (document.documentElement) {
                 <!--begin::Logo-->
                 <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
                     <!--begin::Logo image-->
-                    <a href="index.html">
+                    <a href="{{route("dashboard")}}">
                         <img alt="Logo" src="assets/media/logos/library.png"
                              class="h-25px app-sidebar-logo-default"/>
                         <img alt="Logo" src="assets/media/logos/library.png"

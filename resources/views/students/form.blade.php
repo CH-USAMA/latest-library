@@ -24,7 +24,7 @@
 					<!--end::Item-->
 					<!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-					    <a href={{route("teacherusers")}} class="text-muted text-hover-primary">Teachers</a>
+					    <a href={{route("users")}} class="text-muted text-hover-primary">Students</a>
                     </li>
 					<!--end::Item-->
 				</ul>

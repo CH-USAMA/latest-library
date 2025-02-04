@@ -57,7 +57,7 @@
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
 													<label class="form-label">Title</label>
-													<input name="title" id="inputTitle" type="text" class="form-control form-control-solid">
+													<input name="title" id="inputTitle" value="{{$note->title ?? ''}}" type="text" class="form-control form-control-solid">
 												</div>
 												<!--end::Col-->
 												<!--begin::Col-->
@@ -91,7 +91,7 @@
 											</div>
 											<div class="mb-0 mt-1">
 												<label class="form-label">Content</label>
-												<textarea name="content" id="inputContent" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" rows="6" name="message"></textarea>
+												<textarea name="content" id="inputContent" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" rows="6" name="message">{{$note->content ?? ''}}</textarea>
 												<!--begin::Submit-->
 												<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
 												<!--end::Submit-->

@@ -99,7 +99,8 @@
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Profile View"></i>
                                                 </a>
-                                                <a href="{{route('editnote',['id'=>$note['id']])}}"> Edit Note </a>
+                                                <a href="{{route('editnote',['id'=>$note['id']])}}"class="btn btn-light-primary btn-icon h-35px w-35px">
+                                                    <i class="fa-duotone fa-pen fs-4  h-35px w-35px align-items-center justify-content-center" title="Edit" data-bs-toggle="tooltip" data-bs-placement="top"></i></a>
                                                 <a href="{{route('deletenote',['id'=>$note['id']])}}" button type="button" 
                                                                         class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                                         data-bs-toggle="tooltip" data-bs-placement="top"
@@ -112,7 +113,7 @@
                                     @endforeach
                                     @else
                                     @foreach ($noteslist as $note)
-                                    @if($note->studentId == $selectedid)
+                                    @if($note->student_id == $selectedid)
                                     <tbody>
                                     <tr>
                                         <td class="align-middle ps-3">
@@ -139,7 +140,8 @@
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 title="Profile View"></i>
                                             </a>
-                                            <a href="{{route('editnote',['id'=>$note['id']])}}"> Edit Note</a>
+                                            <a href="{{route('editnote',['id'=>$note['id']])}}"class="btn btn-light-primary btn-icon h-35px w-35px">
+                                                <i class="fa-duotone fa-pen fs-4  h-35px w-35px align-items-center justify-content-center" title="Edit" data-bs-toggle="tooltip" data-bs-placement="top"></i></a>
                                             <a href="{{route('deletenote',['id'=>$note['id']])}}" button type="button" 
                                                 class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"

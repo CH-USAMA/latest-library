@@ -156,6 +156,8 @@
                                                     </div>
                                                     <!--end::Stat-->
                                                     <!--begin::Stat-->
+                                                    <!--end::Stat-->
+                                                    <!--begin::Stat-->
                                                     <div class="border border-gray-300 border-dashed rounded min-w-100px w-100 py-2 px-4 mb-3">
                                                         <!--begin::Number-->
                                                         <span class="fs-6 text-gray-700 fw-bold">
@@ -179,7 +181,7 @@
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
                                                 </i></a>
-                                                <a href="{{route('deletebook',['id'=>$book['id']])}}" button type="button" id="kt_docs_sweetalert_state_question"
+                                                <a href="{{route('deletebook',['id'=>$book['id']])}}" button type="button" 
                                                     class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Delete">

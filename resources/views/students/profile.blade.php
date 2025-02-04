@@ -36,17 +36,6 @@
 				</ul>
 				<!--end::Breadcrumb-->
 			</div>
-			<!--end::Page title-->
-            <div class="d-flex align-items-center gap-2 gap-lg-3">
-                <!--begin:: Add New-->
-                <a href={{route("tform")}} class="btn btn-sm fw-bold btn-success" data-bs-toggle="modal" data-bs-target={{route("form")}}><i class="fa-solid fa-plus me-1 fs-4"></i>Add New</a>
-                <!--end::Primary button-->
-
-                <!--begin:: Export-->
-                <a href="#" class="btn btn-sm fw-bold btn-info"><i class="fa-duotone fa-download me-1 fs-4"></i>Export</a>
-                <!--end:: Export-->
-            </div>
-	   
 		</div>
 		<!--end::Toolbar container-->
 
@@ -67,7 +56,7 @@
                                 <!--begin: Pic-->
                                 <div class="me-7 mb-4">
                                     <div class="symbol symbol-100px symbol-lg-160px symbol-fixed position-relative bg-light">
-                                        <img src="assets/media/logo-1.svg" alt="image"/>
+                                        <img src="assets/media/svg/avatars/001-boy.svg"  alt="image"/>
                                         <div class="position-absolute translate-middle bottom-0 start-100 mb-6 bg-success rounded-circle border-4 border-body h-20px w-20px"></div>
                                     </div>
                                 </div>
