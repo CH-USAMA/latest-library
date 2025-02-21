@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('book_genres', function (Blueprint $table) {
+        Schema::create('book_genre', function (Blueprint $table) {
             $table->id();
             $table->bigInteger('book_id')->nullable()->unsigned();
             $table->foreign('book_id')->references('id')->on(table: 'books')->onDelete('cascade');

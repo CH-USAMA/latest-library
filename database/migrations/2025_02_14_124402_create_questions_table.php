@@ -15,9 +15,10 @@ return new class extends Migration
             $table->id();
             $table->string(column: 'question_text')->nullable();
             $table->string(column: 'question_type')->nullable();
-            $table->string(column: 'content')->nullable();
             $table->bigInteger('book_id')->nullable()->unsigned();
             $table->foreign('book_id')->references('id')->on(table: 'books')->onDelete('cascade');
+            $table->bigInteger('teacher_id')->nullable()->unsigned();
+            $table->foreign('teacher_id')->references('id')->on(table: 'users')->onDelete('cascade');
             $table->timestamps();
         });
     }

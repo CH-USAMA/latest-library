@@ -3,6 +3,7 @@
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\NoteController;
+use App\Http\Controllers\QuestionController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 
@@ -58,4 +59,14 @@ Route::controller(GenreController::class)->group(function (){
     Route::get('/deletegenre/{id}','deletegenre')->name('deletegenre');
     Route::get('/editgenre/{id}','editgenre')->name('editgenre');
     Route::post('/updategenre','updategenre')->name('updategenre');
+});
+
+Route::controller(QuestionController::class)->group(function (){
+    Route::get('/questionslist','viewquestions',)->name('questions');
+    Route::get('/questionslist/{id}','viewquestion',)->name('questionslist');
+    Route::get('/createquestion','createquestion')->name('questionform');
+    Route::post('/questionstore','questionstore')->name('questionstore');
+    Route::get('/deletequestion/{id}','deletequestion')->name('deletequestion');
+    Route::get('/editquestion/{id}','editquestion')->name('editquestion');
+    Route::post('/updatequestion','updatequestion')->name('updatequestion');
 });
