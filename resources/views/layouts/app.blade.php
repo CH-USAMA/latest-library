@@ -316,6 +316,16 @@ if (document.documentElement) {
                                     <!--end:Menu link-->
                                     <!--begin:Menu link-->
                                     @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
+                                    <a class="menu-link" href="{{route("assignments")}}">
+											<span class="menu-icon">
+												<i class="fa-regular fa-star fs-3"></i>
+											</span>
+                                        <span class="menu-title">Assignments</span>
+                                    </a>
+                                    @endif
+                                    <!--end:Menu link-->
+                                    <!--begin:Menu link-->
+                                    @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
                                     <a class="menu-link" href="{{route("genres")}}">
 											<span class="menu-icon">
 												<i class="fa-regular fa-icons fs-3"></i>

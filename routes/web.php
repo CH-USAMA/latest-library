@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\NoteController;
@@ -63,10 +64,20 @@ Route::controller(GenreController::class)->group(function (){
 
 Route::controller(QuestionController::class)->group(function (){
     Route::get('/questionslist','viewquestions',)->name('questions');
-    Route::get('/questionslist/{id}','viewquestion',)->name('questionslist');
+    //Route::get('/questionslist/{id}','viewquestion',)->name('questionslist');
     Route::get('/createquestion','createquestion')->name('questionform');
     Route::post('/questionstore','questionstore')->name('questionstore');
     Route::get('/deletequestion/{id}','deletequestion')->name('deletequestion');
     Route::get('/editquestion/{id}','editquestion')->name('editquestion');
     Route::post('/updatequestion','updatequestion')->name('updatequestion');
+});
+
+Route::controller(AssignmentController::class)->group(function (){
+    Route::get('/assignmentslist','index',)->name('assignments');
+    //Route::get('/questionslist/{id}','viewquestion',)->name('questionslist');
+    Route::get('/createassignmnet','createassignment')->name('assignmentform');
+    Route::post('/storeassignment','storeassignment')->name('assignmentstore');
+    Route::get('/deleteassignment/{id}','deleteassignment')->name('deleteassignment');
+    //Route::get('/editquestion/{id}','editquestion')->name('editquestion');
+    //Route::post('/updatequestion','updatequestion')->name('updatequestion');
 });
