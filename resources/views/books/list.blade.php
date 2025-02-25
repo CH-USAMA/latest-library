@@ -181,6 +181,13 @@
                                                     <span class="path1"></span>
                                                     <span class="path2"></span>
                                                 </i></a>
+                                                @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
+                                                <a href="apps/projects/project.html" class="d-flex align-items-center text-primary opacity-75-hover fs-6 fw-semibold">Assign question
+                                                    <i class="ki-duotone ki-exit-right-corner fs-4 ms-1">
+                                                        <span class="path1"></span>
+                                                        <span class="path2"></span>
+                                                    </i></a>
+                                                @endif
                                                 <a href="{{route('deletebook',['id'=>$book['id']])}}" button type="button" 
                                                     class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
