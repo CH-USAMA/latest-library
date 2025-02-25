@@ -74,8 +74,9 @@ Route::controller(QuestionController::class)->group(function (){
 
 Route::controller(AssignmentController::class)->group(function (){
     Route::get('/assignmentslist','index',)->name('assignments');
-    //Route::get('/questionslist/{id}','viewquestion',)->name('questionslist');
-    Route::get('/createassignmnet','createassignment')->name('assignmentform');
+    //Route::get('/assignmentslist/{id}','viewquestion',)->name('assignmentslist');
+    Route::get('/createassignment/{id}','createassignment')->name('assignmentform');
+    Route::get('/selectbook','selectbook')->name('selectbook');
     Route::post('/storeassignment','storeassignment')->name('assignmentstore');
     Route::get('/deleteassignment/{id}','deleteassignment')->name('deleteassignment');
     //Route::get('/editquestion/{id}','editquestion')->name('editquestion');

@@ -10,12 +10,18 @@ class Assignment extends Model
         'answer_content'
     ];
 
-    public function user()
+    public function student()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'student_id');
     }
 
-    public function book()
+    // Define the teacher relationship
+    public function teacher()
+    {
+        return $this->belongsTo(User::class, 'teacher_id');
+    }
+
+    public function question()
     {
         return $this->belongsTo(Question::class);
     }

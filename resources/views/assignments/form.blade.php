@@ -38,33 +38,27 @@
                     <div id="kt_app_content" class="app-content flex-column-fluid">
                         <!--begin::Content container-->
                         <div id="kt_app_content_container" class="">
-							@if (empty($question))
-							<form action="{{route('questionstore')}}" method="POST">
-							@else
+							{{-- @if (empty($question)) --}}
+							<form action="{{route('assignmentstore')}}" method="POST">
+							{{-- @else
 							<form action="{{route('updatequestion')}}" method="POST">
-							@endif
+							@endif --}}
 							@csrf
                             <!--begin::Row-->
                             <div class="row g-5 g-xl-10">
                                 <div class="col-xl-12">
                                     <div class="card ">
 										<div class="card-header align-items-center px-3 min-h-50px">
-											<h3 class=" mb-0">Create Question</h3>
+											<h3 class=" mb-0">Create Assignment</h3>
 										</div>
 										<div class="card-body p-3 pt-0">
-											<input hidden type="text" name="id" value="{{$question->id ?? ''}}" class="form-control form-control-solid">
+											<input hidden type="text" name="id" value="{{$assignment->id ?? ''}}" class="form-control form-control-solid">
 											<div class="row">
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
-													<label class="form-label">Type</label>
-													<input name="question_type" id="inputQuestionType" value="{{$question->question_type ?? ''}}" type="text" class="form-control form-control-solid">
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												{{-- <div class="col-md-6 fv-row mb-5">
 													<label class="form-label">Assign To</label>
 													@if (empty($question))
-													<select hidden name="student_id"class="form-select form-select-solid">
+													<select  name="student_id"class="form-select form-select-solid">
 														<option value="1" selected="selected">Student Name</option>
 														@foreach($userslist as $user)
 														@if($user->role =='student')
@@ -77,21 +71,21 @@
 														<option value="{{$student_id = $question->id}}" selected="selected">Student ID</option>
 													</select>
 													@endif
-												</div> --}}
+												</div>
 												<!--end::Col-->
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
-													<label class="form-label">Book:</label>
+													<label class="form-label">Questions List:</label>
 													@if (empty($question))
-													<select name="book_id"class="form-select form-select-solid">
-														<option value="1" selected="selected">Book Name</option>
-														@foreach($bookslist as $book)
-														<option value="{{$book_id = $book->id}}">{{ $book->title }}</option>
+													<select name="question_id"class="form-select form-select-solid">
+														<option value="1" selected="selected">Questions</option>
+														@foreach($questionslist as $question)
+														<option value="{{$question_id = $question['id']}}">{{ $question['question_text']}}</option>
 														@endforeach
 													</select>
 													@else
-													<select name="book_id"class="form-select form-select-solid">
-														<option value="{{$book_id = $question->book->id}}" selected="selected">{{ $question->book->title }}</option>
+													<select name="question_id"class="form-select form-select-solid">
+														<option value="{{$question_id = $question['id']}}" selected="selected">{{ $question['question_text'] }}</option>
 													</select>
 													@endif
 												</div>
@@ -99,14 +93,19 @@
 												<!--begin::Col-->
 												<input hidden name="teacher_id" id="teacher_id"class="form-select form-select-solid"value="{{Auth::id()}}">
 												<!--end::Col-->
+												<!--begin::Col-->
+												<input hidden name="submitted" id="submitted"class="form-select form-select-solid"value="0">
+												<!--end::Col-->
 											</div>
+											@if(Auth::user()->role == 'student')
 											<div class="mb-0 mt-1">
-												<label class="form-label">Question Text</label>
-												<textarea name="question_text" id="inputQuestionText" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" rows="6" name="message">{{$question->question_text ?? ''}}</textarea>
-												<!--begin::Submit-->
-												<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
-												<!--end::Submit-->
+												<label class="form-label">Answer Text</label>
+												<textarea name="answer_content" id="inputAnswerContent" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" rows="6" name="message">{{$assignment->answer_content ?? ''}}</textarea>
 											</div>
+											@endif
+											<!--begin::Submit-->
+											<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
+											<!--end::Submit-->
 										</div>
 									</div>
                                 </div>

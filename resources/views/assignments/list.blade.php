@@ -32,7 +32,7 @@
 			<!--end::Page title-->
             <div class="d-flex align-items-center gap-2 gap-lg-3">
                 <!--begin:: Add New-->
-                <a href={{route("assignmentform")}} class="btn btn-sm fw-bold btn-success" data-bs-toggle="modal" data-bs-target={{route("questionform")}}><i class="fa-solid fa-plus me-1 fs-4"></i>Add New</a>
+                <a href={{route("selectbook")}} class="btn btn-sm fw-bold btn-success" data-bs-toggle="modal" data-bs-target={{route("selectbook")}}><i class="fa-solid fa-plus me-1 fs-4"></i>Add New</a>
                 <!--end::Primary button-->
 
                 <!--begin:: Export-->
@@ -62,8 +62,7 @@
                                     <!--begin::Table head-->
                                     <thead class="table-light">
                                     <tr class="fw-bold text-muted">
-                                        <th class="ps-3"></th>
-                                        <th class="">Question</th>
+                                        <th class="ps-3">Question</th>
                                         <th class="">Student</th>
                                         <th class="">Teacher</th>
                                         <th class="">Answer</th>
@@ -91,16 +90,18 @@
                                                 </div>
                                             </td>
                                             <td class="align-middle">
-                                                <div class="text-dark fw-bold d-block">{{$assignment->user['name']}}</div>
+                                                <div class="text-dark fw-bold d-block">{{$assignment->student['name']}}</div>
                                             </td>
                                             <td class="align-middle">
-                                                <div class="text-dark fw-bold d-block">{{$assignment->user['name']}}</div>
+                                                <div class="text-dark fw-bold d-block">{{$assignment->teacher['name']}}</div>
                                             </td>
                                             <td class="align-middle">
-                                                <div class="text-dark fw-bold d-block">{{$assignment->book['answer']}}</div>
+                                                <div class="text-dark fw-bold d-block">{{$assignment['answer_content']}}</div>
                                             </td>
                                             <td class="align-middle">
-                                                <div class="text-dark fw-bold d-block">{{$assignment['submitted']}}</div>
+                                                <div class="text-dark fw-bold d-block">
+                                                    {{ $assignment['submitted'] == 0 ? 'Not Complete' : 'Completed' }}
+                                                </div>
                                             </td>
                                             <td class="align-middle">
                                                 <div class="text-dark fw-bold d-block">{{$assignment['feedback']}}</div>
