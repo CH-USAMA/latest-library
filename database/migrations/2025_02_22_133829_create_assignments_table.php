@@ -17,6 +17,8 @@ return new class extends Migration
             $table->foreign('question_id')->references('id')->on(table: 'questions')->onDelete('cascade');
             $table->bigInteger('student_id')->nullable()->unsigned();
             $table->foreign('student_id')->references('id')->on(table: 'users')->onDelete('cascade');
+            $table->bigInteger('teacher_id')->nullable()->unsigned();
+            $table->foreign('teacher_id')->references('id')->on(table: 'users')->onDelete('cascade');
             $table->string(column: 'answer_content')->nullable();
             $table->boolean(column: 'submitted')->nullable();
             $table->string(column: 'feedback')->nullable();

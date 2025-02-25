@@ -19,4 +19,9 @@ class Question extends Model
     {
         return $this->belongsTo(Book::class);
     }
+
+    public function assignment()
+    {
+        return $this->hasMany(Assignment::class);
+    }
 }
