@@ -56,12 +56,6 @@
 											<div class="row">
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
-													<label class="form-label">Name of Assignment</label>
-													<input name="name" id="inputName" type="text" class="form-control form-control-solid">
-												</div>
-												<!--end::Col-->
-												<!--begin::Col-->
-												<div class="col-md-6 fv-row mb-5">
 													<label class="form-label">Assign To</label>
 													@if (empty($question))
 													<select  name="student_id"class="form-select form-select-solid">
@@ -81,28 +75,34 @@
 												<!--end::Col-->
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
-													<label class="form-label">Books List:</label>
+													<label class="form-label">Questions List:</label>
 													@if (empty($question))
-													<select name="book_id"class="form-select form-select-solid">
-														<option value="1" selected="selected">Book Name</option>
-														@foreach($bookslist as $book)
-														<option value="{{$book_id = $book['id']}}">{{ $book['title']}}</option>
+													<select name="question_id"class="form-select form-select-solid">
+														<option value="1" selected="selected">Questions</option>
+														@foreach($questionslist as $question)
+														<option value="{{$question_id = $question['id']}}">{{ $question['question_text']}}</option>
 														@endforeach
 													</select>
 													@else
-													<select name="book_id"class="form-select form-select-solid">
+													<select name="question_id"class="form-select form-select-solid">
 														<option value="{{$question_id = $question['id']}}" selected="selected">{{ $question['question_text'] }}</option>
 													</select>
 													@endif
 												</div>
 												<!--end::Col-->
 												<!--begin::Col-->
-												<input hidden name="teacher_id" id="inputTeacherId"class="form-select form-select-solid"value="{{Auth::id()}}">
+												<input hidden name="teacher_id" id="teacher_id"class="form-select form-select-solid"value="{{Auth::id()}}">
 												<!--end::Col-->
 												<!--begin::Col-->
-												<input hidden name="status" id="inputStatus"class="form-select form-select-solid"value="Not Completed">
+												<input hidden name="submitted" id="submitted"class="form-select form-select-solid"value="0">
 												<!--end::Col-->
 											</div>
+											@if(Auth::user()->role == 'student')
+											<div class="mb-0 mt-1">
+												<label class="form-label">Answer Text</label>
+												<textarea name="answer_content" id="inputAnswerContent" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" rows="6" name="message">{{$assignment->answer_content ?? ''}}</textarea>
+											</div>
+											@endif
 											<!--begin::Submit-->
 											<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
 											<!--end::Submit-->

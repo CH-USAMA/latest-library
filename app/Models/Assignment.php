@@ -10,6 +10,12 @@ class Assignment extends Model
         'answer_content'
     ];
 
+
+    public function book()
+    {
+        return $this->belongsTo(Book::class);
+    }
+
     public function student()
     {
         return $this->belongsTo(User::class, 'student_id');

@@ -15,18 +15,20 @@ class AssignmentController extends Controller
      */
     public function index()
     {
-        $data = Assignment::with('student','teacher','Question')->get();
+        $data = Assignment::with('student','teacher','book')->get();
+        //dd($data);
         return view('assignments.list',['assignmentslist'=>$data]);
     }
 
     /**
      * Show the form for creating a new resource.
      */
-    public function createassignment($id)
+    public function createassignment()
     {
-        $questions = Question::with('Book')->where('book_id', $id)->get();
-        $users = User::all();             //Possible to remove as you might only need id
-        return view('assignments.form',['questionslist'=>$questions, 'userslist'=>$users]);
+        //$questions = Question::with('Book')->where('book_id', $id)->get();
+        $books = Book::all();           
+        $users = User::all();             
+        return view('assignments.form',['bookslist'=>$books, 'userslist'=>$users]);
     }
 
     public function selectbook()
@@ -43,12 +45,11 @@ class AssignmentController extends Controller
     {
         //dd(vars: $request);
         $assignment = new Assignment();
-        $assignment->question_id = $request->question_id;
+        $assignment->name = $request->name;
+        $assignment->book_id = $request->book_id;
         $assignment->student_id = $request->student_id;
         $assignment->teacher_id = $request->teacher_id;
-        $assignment->answer_content = $request->answer_content;
-        $assignment->submitted = $request->submitted;
-        $assignment->feedback = $request->feedback;
+        $assignment->status = $request->status;
         $assignment->save();
         //$note->user()->attach($request->id);
         return redirect()->route('assignments');
