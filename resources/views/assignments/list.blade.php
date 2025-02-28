@@ -101,7 +101,7 @@
                                                 <div class="text-dark fw-bold d-block">{{$assignment['status']}}</div>
                                             </td>
                                             <td class="align-middle text-end pe-3">
-                                                <a href="{{route('profile',['id'=>$assignment['id']])}}"
+                                                <a href="{{route('viewassignmentquestions',['id'=>$assignment['id']])}}"
                                                     class="btn btn-light-success btn-icon h-35px w-35px">
                                                         <i class="fa-duotone fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"

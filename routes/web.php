@@ -87,12 +87,12 @@ Route::controller(AssignmentController::class)->group(function (){
 Route::controller(AssignmentQuestionsController::class)->group(function (){
     Route::get('/createassignmentquestions/{book_id}','createassignmentquestions')->name('createassignmentquestions');
     //Route::get('/assignmentslist','index',)->name('assignments');
-    //Route::get('/assignmentslist/{id}','viewquestion',)->name('assignmentslist');
+    Route::get('/viewassignmentquestions/{id}','viewassignmentquestions',)->name('viewassignmentquestions');
     //Route::get('/selectbook','selectbook')->name('selectbook');
     Route::post('/storeassignmentquestions/{questionslist}]/{assignmentid}','storeassignmentquestions')->name('storeassignmentquestions');
     //Route::get('/deleteassignment/{id}','deleteassignment')->name('deleteassignment');
     //Route::get('/editquestion/{id}','editquestion')->name('editquestion');
-    //Route::post('/updatequestion','updatequestion')->name('updatequestion');
+    Route::post('/updateanswerquestions','updateanswerquestions')->name('updateanswerquestions');
 
     
 });

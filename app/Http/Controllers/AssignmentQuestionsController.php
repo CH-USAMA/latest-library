@@ -14,13 +14,16 @@ class AssignmentQuestionsController extends Controller
         return response()->json(['questions' => $questions]);
     }
 
-    public function storeassignmentquestions($questionslist,$assignmentid)
-    { 
-        dd($questionslist);
-        $AssignmentQuestions = new AssignmentQuestions();
-        $AssignmentQuestions->assignmentid = $assignmentid;
-        $AssignmentQuestions->question_id->attach($questionslist->question_id);
-        $AssignmentQuestions->save();
-        return redirect()->route('books');
+    public function viewassignmentquestions($id)
+    {
+        $assignmentquestions = AssignmentQuestions::where('assignment_id',$id)->with('question')->get();     
+        return view( 'assignmentquestions.form',['assignmentquestionslist'=>$assignmentquestions]);
+
+    }
+
+    public function updateanswerquestions(Request $request)
+    {
+        dd($request);
+
     }
 }
