@@ -31,4 +31,9 @@ class Assignment extends Model
     {
         return $this->belongsTo(Question::class);
     }
+
+    public function AssignmentQuestions()
+    {
+        return $this->hasMany(AssignmentQuestions::class);
+    }
 }

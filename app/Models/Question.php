@@ -24,4 +24,9 @@ class Question extends Model
     {
         return $this->hasMany(Assignment::class);
     }
+
+    public function assignmentQuestions()
+    {
+        return $this->hasMany(assignmentQuestions::class);
+    }
 }

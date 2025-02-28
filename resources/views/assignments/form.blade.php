@@ -96,6 +96,101 @@
 													@endif
 												</div>
 												<!--end::Col-->
+												{{-- <script>
+												$(document).ready(function () {
+													$('select[name="book_id"]').on('change', function () {
+														var bookId = $(this).val();
+														console.log("Book selected:", bookId); // Debugging log
+
+														if (bookId) {
+															$.ajax({
+																url: '/createassignmentquestions/' + bookId,
+																type: 'GET',
+																dataType: 'json',
+																success: function (data) {
+																	console.log("Questions:", data.questions); // Debugging log
+																	var questionsList = $('#questionsList');
+																	questionsList.empty(); // Clear previous questions
+																	if (data.questions && data.questions.length > 0) {
+																		data.questions.forEach(function (question) {
+																			questionsList.append('<li>' + question.question_text + '</li>');
+																		});
+																	} else {
+																		questionsList.append('<li>No questions available for this book.</li>');
+																	}
+																},
+
+																error: function () {
+																	$('#questionsList').html('<li>Error fetching questions. Please try again.</li>');
+																}
+															});
+														} else {
+															$('#questionsList').html('<li>Please select a book.</li>');
+														}
+													});
+												});
+																								<ul id="questionsList"></ul> 
+												</script> --}}
+												<script>
+													$(document).ready(function () {
+														$('select[name="book_id"]').on('change', function () {
+															var bookId = $(this).val();
+															console.log("Book selected:", bookId); // Debugging log
+
+															if (bookId) {
+																$.ajax({
+																	url: '/createassignmentquestions/' + bookId,
+																	type: 'GET',
+																	dataType: 'json',
+																	success: function (data) {
+																		console.log("Questions:", data.questions); // Debugging log
+
+																		var questionListSelect = $('select[name="questionlist[]"]'); // Target the multi-select dropdown
+																		questionListSelect.empty(); // Clear previous options
+
+																		// Append a default "Select a question" option
+																		questionListSelect.append('<option value="">Select a question</option>');
+
+																		if (data.questions && data.questions.length > 0) {
+																			// Loop through the questions and create an <option> for each one
+																			data.questions.forEach(function (question) {
+																				questionListSelect.append('<option value="' + question.id + '">' + question.question_text + '</option>');
+																			});
+																		} else {
+																			questionListSelect.append('<option value="">No questions available for this book.</option>');
+																		}
+																	},
+
+																	error: function () {
+																		$('select[name="questionlist[]"]').html('<option value="">Error fetching questions. Please try again.</option>');
+																	}
+																});
+															} else {
+																$('select[name="questionlist[]"]').html('<option value="">Please select a book.</option>');
+															}
+														});
+													});
+												</script>
+
+												<label class="form-label">Select Questions</label>
+												<select name="questionlist[]" class="form-select form-select-solid" data-control="select2" multiple size="4">
+													<option value="">Please select a book first</option>
+												</select>
+												
+												{{-- <div class="col-md-6 fv-row mb-5">
+													<label class="form-label">Select Questions</label>
+													<select name="questionlist[]"class="form-select form-select-solid" data-control="select2" multiple size="4">
+														<option value="1" disabled >Select Genre</option>
+														@foreach($questionsSelect as $question)
+														<option value="{{$question->id}}">{{ $question->question_text}}</option>
+														@endforeach
+													</select>
+												</div> --}}
+
+												{{-- <select id="questionsSelect">
+													<option value="">Please select a book first</option>
+												</select> --}}
+
 												<!--begin::Col-->
 												<input hidden name="teacher_id" id="inputTeacherId"class="form-select form-select-solid"value="{{Auth::id()}}">
 												<!--end::Col-->

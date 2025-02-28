@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\AssignmentController;
+use App\Http\Controllers\AssignmentQuestionsController;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\NoteController;
@@ -81,4 +82,17 @@ Route::controller(AssignmentController::class)->group(function (){
     Route::get('/deleteassignment/{id}','deleteassignment')->name('deleteassignment');
     //Route::get('/editquestion/{id}','editquestion')->name('editquestion');
     //Route::post('/updatequestion','updatequestion')->name('updatequestion');
+});
+
+Route::controller(AssignmentQuestionsController::class)->group(function (){
+    Route::get('/createassignmentquestions/{book_id}','createassignmentquestions')->name('createassignmentquestions');
+    //Route::get('/assignmentslist','index',)->name('assignments');
+    //Route::get('/assignmentslist/{id}','viewquestion',)->name('assignmentslist');
+    //Route::get('/selectbook','selectbook')->name('selectbook');
+    Route::post('/storeassignmentquestions/{questionslist}]/{assignmentid}','storeassignmentquestions')->name('storeassignmentquestions');
+    //Route::get('/deleteassignment/{id}','deleteassignment')->name('deleteassignment');
+    //Route::get('/editquestion/{id}','editquestion')->name('editquestion');
+    //Route::post('/updatequestion','updatequestion')->name('updatequestion');
+
+    
 });
