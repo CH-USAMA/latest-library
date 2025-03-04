@@ -16,14 +16,30 @@ class AssignmentQuestionsController extends Controller
 
     public function viewassignmentquestions($id)
     {
-        $assignmentquestions = AssignmentQuestions::where('assignment_id',$id)->with('question')->get();     
+        $assignmentquestions = AssignmentQuestions::where('assignment_id',$id)->with('question')->with('assignment')->get();
+        //dd($assignmentquestions);
         return view( 'assignmentquestions.form',['assignmentquestionslist'=>$assignmentquestions]);
 
     }
 
     public function updateanswerquestions(Request $request)
     {
-        dd($request);
+        //dd($request);
+        $questions = $request->input('questions'); // Retrieve all questions
+        //dd($questions);
 
+        foreach ($questions as $question) {
+            if (!empty($question['id']) && isset($question['answer_field'])) {
+                // Find the assignment question by ID
+                $assignmentQuestion = AssignmentQuestions::find($question['id']);
+                if ($assignmentQuestion) {
+                    //dd($assignmentQuestion);
+                    // Save the answer
+                    $assignmentQuestion->answer_field = $question['answer_field'];
+                    $assignmentQuestion->save();
+                }
+            }
+        }
+        return redirect()->back()->with('success', 'Answers saved successfully!');
     }
 }

@@ -460,62 +460,10 @@ if (document.documentElement) {
     @yield("footerjs")
     $("#kt_datatable_both_scrolls").DataTable({
         "scrollX": true,
+        "sortable": true,
+        "ordering": true,
+        "order": [[0, "asc"]],
     });
 
-    const button = document.getElementById('kt_docs_sweetalert_state_question');
-
-    button.addEventListener('click', e => {
-        e.preventDefault();
-
-        Swal.fire({
-            text: "Do you want to Delete item!",
-            icon: "success",
-            buttonsStyling: false,
-            showCancelButton: true,
-            confirmButtonText: "Yes",
-            cancelButtonText: 'No',
-            customClass: {
-                confirmButton: "btn btn-primary",
-                cancelButton: 'btn btn-danger'
-            }
-        });
-    });
-
-    /*====================================
-        Popover Bundle Package
-      ==================================== */
-    $(document).ready(function () {
-
-        var options = {
-            html: true,
-            title: "<b class='fs-5 w-550px'>Interests</b>",
-            //html element
-            //content: $("#popover-content")
-            content: $('[data-name="popover-bundle-content"]'),
-            //Doing below won't work. Shows title only
-            //content: $("#popover-content").html()
-
-        }
-        var exampleEl = document.getElementById('bundle_example')
-        var popover = new bootstrap.Popover(exampleEl, options)
-    })
-
-    /*====================================
-        Popover Addon Package
-      ==================================== */
-    $(document).ready(function () {
-
-        var options = {
-            html: true,
-            title: "<b class='fs-5'>Author and Book Details</b>",
-            //html element
-            //content: $("#popover-content")
-            content: $('[data-name="popover-addon-content"]'),
-            //Doing below won't work. Shows title only
-            //content: $("#popover-content").html()
-
-        }
-        var exampleEl = document.getElementById('addon_example')
-        var popover = new bootstrap.Popover(exampleEl, options)
-    })
+    
 </script>

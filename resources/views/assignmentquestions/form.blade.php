@@ -49,9 +49,11 @@
 										<div class="card-header align-items-center px-3 min-h-50px">
 											<h3 class=" mb-0">Assignment Questions</h3>
 										</div>
-										@foreach($assignmentquestionslist as $assignmentquestion)
+										@foreach($assignmentquestionslist as $index => $assignmentquestion)
 										<div class="card-body p-3 pt-0">
-											<input hidden type="text" name="id" value="{{$assignmentquestion->id ?? ''}}" class="form-control form-control-solid">
+											
+											<input type="hidden" name="questions[{{$index}}][id]" value="{{$assignmentquestion->id ?? ''}}" class="form-control form-control-solid">
+											
 											<div class="row">
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
@@ -59,20 +61,19 @@
 													<input name="title" id="inputTitle" disabled value="{{$assignmentquestion->question['question_text'] ?? ''}}" type="text" class="form-control form-control-solid">
 												</div>
 												<!--end::Col-->
-												<!--begin::Col-->
-												<input hidden name="teacher_id" id="teacher_id"class="form-select form-select-solid"value="{{Auth::id()}}">
-												<!--end::Col-->
 											</div>
 											<div class="mb-0 mt-1">
 												<label class="form-label">Answer</label>
-												<textarea name="answer_field" id="inputAnswerField" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" rows="6" name="message">{{$note->content ?? ''}}</textarea>
+												<textarea {{empty($assignmentquestion['answer_field']) ? '':'disabled'}} name="questions[{{$index}}][answer_field]" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" rows="6">{{$assignmentquestion['answer_field'] ?? ''}}</textarea>
 												<!--begin::Submit-->
 												
 												<!--end::Submit-->
 											</div>
 										</div>
 										@endforeach
+										@if ($assignmentquestion->assignment['status']=='Not Completed')
 										<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
+										@endif
 									</div>
                                 </div>
                             </div>

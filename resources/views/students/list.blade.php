@@ -73,15 +73,16 @@
                                         <th class="">Interest</th>
                                         <th class="">Date Of Birth</th>
                                         <th class="">Current Book Name</th>
-                                        <th class="pe-3 text-end">Actions</th>
+                                        <th class="pe-3 text-end" data-orderable="false">Actions</th>
                                     </tr>
                                     
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
+                                    <tbody>
                                     @foreach ($userslist as $user)
                                     @if($user->role =='student')
-                                        <tbody>
+                                        
                                         <tr>
                                             <td class="align-middle ps-3">
                                                 <div class="d-flex align-items-center">
@@ -137,10 +138,10 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        </tbody>
+                                        
                                     @endif
                                     @endforeach
-                                    
+                                    </tbody>
                                     <!--end::Table body-->
                                 </table>
                             </div>
