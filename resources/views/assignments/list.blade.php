@@ -24,7 +24,7 @@
 					<!--end::Item-->
 					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">
-						<a href={{route("notes")}} class="text-muted text-hover-primary">Assignments</a>
+						<a href={{route("assignments")}} class="text-muted text-hover-primary">Assignments</a>
 					</li>
 				</ul>
 				<!--end::Breadcrumb-->
@@ -65,7 +65,7 @@
                                         <th class="ps-3">Name</th>
                                         <th class="">Book</th> 
                                         <th class="">Student</th>
-                                        <th class="">Teacher</th>
+                                        <th class="">Date Assigned</th>
                                         <th class="">Status</th> 
                                         <th class="pe-3 text-end">Actions</th>
                                     </tr>
@@ -73,9 +73,10 @@
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
+                                    <tbody>
                                     @if (empty($selectedid))
                                     @foreach ($assignmentslist as $assignment)
-                                        <tbody>
+                                        
                                         <tr>
                                             <td class="align-middle ps-3">
                                                 <div class="d-flex align-items-center">
@@ -95,7 +96,7 @@
                                                 <div class="text-dark fw-bold d-block">{{$assignment->student['name']}}</div>
                                             </td>
                                             <td class="align-middle">
-                                                <div class="text-dark fw-bold d-block">{{$assignment->teacher['name']}}</div>
+                                                <div class="text-dark fw-bold d-block">{{$assignment['created_at']->toDateString()}}</div>
                                             </td>
                                             <td class="align-middle">
                                                 <div class="text-dark fw-bold d-block">{{$assignment['status']}}</div>
@@ -105,11 +106,9 @@
                                                     class="btn btn-light-success btn-icon h-35px w-35px">
                                                         <i class="fa-duotone fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="Profile View"></i>
-                                                    </a>
-                                                <a href="{{route('editquestion',['id'=>$assignment['id']])}}"class="btn btn-light-primary btn-icon h-35px w-35px">
-                                                    <i class="fa-duotone fa-pen fs-4  h-35px w-35px align-items-center justify-content-center" title="Edit" data-bs-toggle="tooltip" data-bs-placement="top"></i></a>
-                                                <a href="{{route('deletequestion',['id'=>$assignment['id']])}}" button type="button" 
+                                                        title="View Assignment"></i>
+                                                </a>
+                                                <a href="{{route('deleteassignment',['id'=>$assignment['id']])}}" button type="button" 
                                                     class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"
                                                     title="Delete">
@@ -117,7 +116,7 @@
                                                 </a>
                                             </td>
                                         </tr>
-                                        </tbody>
+                                        
                                     @endforeach
                                     @else
                                     {{-- @foreach ($questionslist as $question)
@@ -156,6 +155,7 @@
                                     @endif
                                     @endforeach --}}
                                     @endif
+                                    </tbody>
                                     <!--end::Table body-->
                                 </table>
                             </div>

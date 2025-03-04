@@ -40,6 +40,6 @@ class AssignmentQuestionsController extends Controller
                 }
             }
         }
-        return redirect()->back()->with('success', 'Answers saved successfully!');
+        return redirect()->route('assignments');
     }
 }

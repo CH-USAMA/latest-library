@@ -71,9 +71,10 @@
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
+                                    <tbody>
                                     @if (empty($selectedid))
                                     @foreach ($noteslist as $note)
-                                        <tbody>
+                                        
                                         <tr>
                                             <td class="align-middle ps-3">
                                                 <div class="d-flex align-items-center">
@@ -150,10 +151,11 @@
                                             </a>
                                         </td>
                                     </tr>
-                                    </tbody>
+                                    
                                     @endif
                                     @endforeach
                                     @endif
+                                    </tbody>
                                     <!--end::Table body-->
                                 </table>
                             </div>

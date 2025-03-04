@@ -94,7 +94,7 @@ class AssignmentController extends Controller
     /**
      * Remove the specified resource from storage.
      */
-    public function destroy($id)
+    public function deleteassignment($id)
     {
         Assignment::destroy($id);
         return redirect()->route('assignments');

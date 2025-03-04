@@ -75,8 +75,9 @@
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
+                                    <tbody>
                                     @foreach ($genrelist as $genre)
-                                        <tbody>
+                                        
                                         <tr>
                                             <td class="align-middle ps-3">
                                                 <div class="d-flex align-items-center">
@@ -94,7 +95,8 @@
                                             </td>
                                             
                                             <td class="align-middle text-end pe-3">
-                                                <a href="{{route('editgenre',['id'=>$genre['id']])}}">Edit</a>
+                                                <a href="{{route('editgenre',['id'=>$genre['id']])}}"class="btn btn-light-primary btn-icon h-35px w-35px">
+                                                    <i class="fa-duotone fa-pen fs-4  h-35px w-35px align-items-center justify-content-center" title="Edit" data-bs-toggle="tooltip" data-bs-placement="top"></i></a>
                                                 <a href="{{route('deletegenre',['id'=>$genre['id']])}}" button type="button"
                                                                         class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                                         data-bs-toggle="tooltip" data-bs-placement="top"
@@ -103,8 +105,9 @@
                                                                 </a>
                                             </td>
                                         </tr>
-                                        </tbody>
+                                        
                                     @endforeach
+                                    </tbody>
                                     
                                     <!--end::Table body-->
                                 </table>

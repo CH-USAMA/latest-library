@@ -8,7 +8,7 @@
 			<!--begin::Page title-->
 			<div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
 				<!--begin::Title-->
-				<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Notes</h1>
+				<h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Questions</h1>
 				<!--end::Title-->
 				<!--begin::Breadcrumb-->
 				<ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -24,7 +24,7 @@
 					<!--end::Item-->
 					<!--begin::Item-->
 					<li class="breadcrumb-item text-muted">
-						<a href={{route("notes")}} class="text-muted text-hover-primary">Notes</a>
+						<a href={{route("questions")}} class="text-muted text-hover-primary">Questions</a>
 					</li>
 				</ul>
 				<!--end::Breadcrumb-->
@@ -71,9 +71,10 @@
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
+                                    <tbody>
                                     @if (empty($selectedid))
                                     @foreach ($questionslist as $question)
-                                        <tbody>
+                                        
                                         <tr>
                                             <td class="align-middle ps-3">
                                                 <div class="d-flex align-items-center">
@@ -138,10 +139,11 @@
                                             </a>
                                         </td>
                                     </tr>
-                                    </tbody>
+                                   
                                     @endif
                                     @endforeach
                                     @endif
+                                    </tbody>
                                     <!--end::Table body-->
                                 </table>
                             </div>

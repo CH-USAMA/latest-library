@@ -73,10 +73,11 @@
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
+                                    <tbody>
                                     @foreach ($userslist as $user)
                                     @if($user->role =='teacher')
                                     
-                                        <tbody>
+                                    
                                         <tr>
                                             <td class="align-middle ps-3">
                                                 <div class="d-flex align-items-center">
@@ -125,9 +126,10 @@
                                                                 </a>
                                             </td>
                                         </tr>
-                                    </tbody>
+                                    
                                     @endif
                                     @endforeach
+                                    </tbody>
                                     <!--end::Table body-->
                                 </table>
                             </div>
