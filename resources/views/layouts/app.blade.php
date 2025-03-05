@@ -337,7 +337,14 @@ if (document.documentElement) {
                                     </a>
                                     @endif
                                     <!--end:Menu link-->
-                                    
+                                    <!--begin:Menu link-->
+                                    <a class="menu-link" href="{{ route('studentassignment', ['id' => Auth::user()->id]) }}">
+                                        <span class="menu-icon">
+                                            <i class="fa-solid fa-pencil"></i>
+                                        </span>
+                                        <span class="menu-title">Student Assignment</span>
+                                    </a>
+                                    <!--end:Menu link-->
                                 </div>
                                 <!--end:Menu item-->
                                

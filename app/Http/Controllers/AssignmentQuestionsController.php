@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\Auth;
 use App\Models\Assignment;
 use App\Models\AssignmentQuestions;
 
@@ -59,6 +60,9 @@ class AssignmentQuestionsController extends Controller
                 $assignment->save();
             }
         }
+        if ($request->user_role == 'student'){
+        return redirect()->route('studentassignment', ['id' => $request->user_id]);
+        } else
         return redirect()->route('assignments');
     }
 }

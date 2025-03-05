@@ -21,6 +21,13 @@ class AssignmentController extends Controller
         return view('assignments.list',['assignmentslist'=>$data]);
     }
 
+    public function studentassignment($id)
+{
+    $data = Assignment::with('student', 'teacher', 'book')->where('student_id', $id)->get(); 
+    //dd($data);
+    return view('student_assignment.list', ['assignmentslist' => $data]);
+}
+
     /**
      * Show the form for creating a new resource.
      */

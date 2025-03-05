@@ -53,7 +53,8 @@
 											<h3 class=" mb-0">Assignment Questions</h3>
 										</div>
 										{{-- <input type="hidden" name="assignment_id" value="{{$assignmentquestion->assignment_id['assignment_id'] ?? ''}}" class="form-control form-control-solid"> --}}
-
+										<input type="hidden" name="user_id" value="{{Auth::user()->id}}" class="form-control form-control-solid">
+										<input type="hidden" name="user_role" value="{{Auth::user()->role}}" class="form-control form-control-solid">
 										@foreach($assignmentquestionslist as $index => $assignmentquestion)
 										<div class="card-body p-3 pt-0">
 											
@@ -89,7 +90,7 @@
 												<!--end::Submit-->
 											</div>
 										</div>
-											@if ($assignmentquestion->assignment['status']=='Pending Feedback')
+											@if ($assignmentquestion->assignment['status']=='Pending Feedback' && (Auth::user()->role == 'teacher' || Auth::user()->role == 'admin'))
 											<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
 											@endif
 										@endif
