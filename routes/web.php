@@ -93,6 +93,7 @@ Route::controller(AssignmentQuestionsController::class)->group(function (){
     //Route::get('/deleteassignment/{id}','deleteassignment')->name('deleteassignment');
     //Route::get('/editquestion/{id}','editquestion')->name('editquestion');
     Route::post('/updateanswerquestions','updateanswerquestions')->name('updateanswerquestions');
+    Route::post('/updatefeedback','updatefeedback')->name('updatefeedback');
 
     
 });

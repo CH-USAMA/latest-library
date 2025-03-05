@@ -112,6 +112,14 @@
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                         title="View Assignment"></i>
                                                 </a>
+                                                @if($assignment['status']=='Pending Feedback')
+                                                <a href="{{route('viewassignmentquestions',['id'=>$assignment['id']])}}"
+                                                    class="btn btn-light-success btn-icon h-35px w-35px">
+                                                        <i class="fa-solid fa-comment fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="View Assignment"></i>
+                                                </a>
+                                                @endif
                                                 <a href="{{route('deleteassignment',['id'=>$assignment['id']])}}" button type="button" 
                                                     class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                     data-bs-toggle="tooltip" data-bs-placement="top"

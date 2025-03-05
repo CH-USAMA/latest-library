@@ -27,8 +27,13 @@ class AssignmentQuestionsController extends Controller
     {
         $questions = $request->input('questions'); // Retrieve all questions
         //dd($questions);
-
+        
         foreach ($questions as $question) {
+
+            $assignmentQuestion = AssignmentQuestions::find($question['id']);
+            $assignmentId = $assignmentQuestion->assignment_id;
+
+            
             if (!empty($question['id']) && isset($question['answer_field'])) {
                 // Find the assignment question by ID
                 $assignmentQuestion = AssignmentQuestions::find($question['id']);
@@ -39,11 +44,17 @@ class AssignmentQuestionsController extends Controller
                     $assignmentQuestion->save();
                     $assignmentId = $assignmentQuestion->assignment_id;
                 }
+                
             }
         }
         if ($assignmentId) {
             $assignment = Assignment::find($assignmentId);
-            if ($assignment) {
+            if ($assignment->status=='Pending Feedback') {
+                $assignment->feedback = $request->feedback;
+                $assignment->status = 'Completed';
+                $assignment->save();
+            }
+            elseif ($assignment) {
                 $assignment->status = 'Pending Feedback';
                 $assignment->save();
             }

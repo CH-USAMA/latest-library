@@ -38,8 +38,11 @@
                     <div id="kt_app_content" class="app-content flex-column-fluid">
                         <!--begin::Content container-->
                         <div id="kt_app_content_container" class="">
-							
-							<form action="{{route('updateanswerquestions')}}" method="POST">
+							{{-- @if ($assignmentquestion->assignment['status']=='Pending Feedback')
+								<form action="{{route('updatefeedback')}}" method="POST">
+							@else --}}
+								<form action="{{route('updateanswerquestions')}}" method="POST">
+							{{-- @endif --}}
 							@csrf
 							
                             <!--begin::Row-->
@@ -73,7 +76,23 @@
 											</div>
 										</div>
 										
+
+										
 										@endforeach
+										@if ($assignmentquestion->assignment['status']=='Pending Feedback'|| $assignmentquestion->assignment['status']=='Completed' )
+										<div class="card-body p-3 pt-0">
+											<div class="mb-0 mt-1">
+												<label class="form-label">Feedback</label>
+												<textarea {{empty($assignmentquestion->assignment['feedback']) ? '':'disabled'}} name="feedback" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" rows="6">{{$assignmentquestion->assignment['feedback'] ?? ''}}</textarea>
+												<!--begin::Submit-->
+												
+												<!--end::Submit-->
+											</div>
+										</div>
+											@if ($assignmentquestion->assignment['status']=='Pending Feedback')
+											<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
+											@endif
+										@endif
 										@if ($assignmentquestion->assignment['status']=='Not Completed')
 											<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
 										@endif
