@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Question;
+use App\Models\Assignment;
 use App\Models\AssignmentQuestions;
 
 class AssignmentQuestionsController extends Controller
@@ -24,7 +25,6 @@ class AssignmentQuestionsController extends Controller
 
     public function updateanswerquestions(Request $request)
     {
-        //dd($request);
         $questions = $request->input('questions'); // Retrieve all questions
         //dd($questions);
 
@@ -37,7 +37,15 @@ class AssignmentQuestionsController extends Controller
                     // Save the answer
                     $assignmentQuestion->answer_field = $question['answer_field'];
                     $assignmentQuestion->save();
+                    $assignmentId = $assignmentQuestion->assignment_id;
                 }
+            }
+        }
+        if ($assignmentId) {
+            $assignment = Assignment::find($assignmentId);
+            if ($assignment) {
+                $assignment->status = 'Pending Feedback';
+                $assignment->save();
             }
         }
         return redirect()->route('assignments');

@@ -67,6 +67,7 @@
                                         <th class="">Student</th>
                                         <th class="">Date Assigned</th>
                                         <th class="">Status</th> 
+                                        <th class="">Feedback</th> 
                                         <th class="pe-3 text-end">Actions</th>
                                     </tr>
                                     
@@ -100,6 +101,9 @@
                                             </td>
                                             <td class="align-middle">
                                                 <div class="text-dark fw-bold d-block">{{$assignment['status']}}</div>
+                                            </td>
+                                            <td class="align-middle">
+                                                <div class="text-dark fw-bold d-block">{{$assignment['feedback']}}</div>
                                             </td>
                                             <td class="align-middle text-end pe-3">
                                                 <a href="{{route('viewassignmentquestions',['id'=>$assignment['id']])}}"

@@ -49,6 +49,8 @@
 										<div class="card-header align-items-center px-3 min-h-50px">
 											<h3 class=" mb-0">Assignment Questions</h3>
 										</div>
+										{{-- <input type="hidden" name="assignment_id" value="{{$assignmentquestion->assignment_id['assignment_id'] ?? ''}}" class="form-control form-control-solid"> --}}
+
 										@foreach($assignmentquestionslist as $index => $assignmentquestion)
 										<div class="card-body p-3 pt-0">
 											
@@ -70,9 +72,10 @@
 												<!--end::Submit-->
 											</div>
 										</div>
+										
 										@endforeach
 										@if ($assignmentquestion->assignment['status']=='Not Completed')
-										<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
+											<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
 										@endif
 									</div>
                                 </div>
