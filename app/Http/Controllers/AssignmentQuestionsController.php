@@ -58,6 +58,7 @@ class AssignmentQuestionsController extends Controller
             elseif ($assignment) {
                 $assignment->status = 'Pending Feedback';
                 $assignment->save();
+                return redirect()->route('reviewform', ['student_id' => $assignment->student_id,'book_id' => $assignment->book_id]);
             }
         }
         if ($request->user_role == 'student'){

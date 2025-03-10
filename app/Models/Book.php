@@ -40,4 +40,9 @@ class Book extends Model
     {
         return $this->hasMany(Question::class);
     }
+
+    public function review()
+    {
+        return $this->hasMany(Review::class);
+    }
 }

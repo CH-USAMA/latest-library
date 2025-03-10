@@ -6,6 +6,7 @@ use App\Http\Controllers\BookController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\QuestionController;
+use App\Http\Controllers\ReviewController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\StudentController;
 
@@ -95,5 +96,15 @@ Route::controller(AssignmentQuestionsController::class)->group(function (){
     Route::post('/updateanswerquestions','updateanswerquestions')->name('updateanswerquestions');
     Route::post('/updatefeedback','updatefeedback')->name('updatefeedback');
 
+Route::controller(ReviewController::class)->group(function (){
+    Route::get('/reviewslist','reviewlist',)->name('reviews');
+    //Route::get('/studentassignment/{id}','studentassignment',)->name('studentassignment');
+    Route::get('/createreview/{student_id}/{book_id}','createreview')->name('reviewform');
+    //Route::get('/selectbook','selectbook')->name('selectbook');
+    Route::post('/storereview','storereview')->name('reviewstore');
+    Route::get('/deletereview/{id}','deletereview')->name('deletereview');
+    //Route::get('/editquestion/{id}','editquestion')->name('editquestion');
+    //Route::post('/updatequestion','updatequestion')->name('updatequestion');
+});
     
 });

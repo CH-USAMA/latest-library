@@ -308,14 +308,14 @@ if (document.documentElement) {
                                     @endif
                                     <!--end:Menu link-->
                                     <!--begin:Menu link-->
-                                    @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
-                                    <a class="menu-link" href="{{route("dashboard")}}">
+                                    
+                                    <a class="menu-link" href="{{route("reviews")}}">
 											<span class="menu-icon">
 												<i class="fa-regular fa-star fs-3"></i>
 											</span>
                                         <span class="menu-title">Reviews</span>
                                     </a>
-                                    @endif
+                                    
                                     <!--end:Menu link-->
                                     <!--begin:Menu link-->
                                     @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
