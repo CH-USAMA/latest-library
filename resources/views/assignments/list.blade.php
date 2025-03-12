@@ -106,18 +106,27 @@
                                                 <div class="text-dark fw-bold d-block">{{$assignment['feedback']}}</div>
                                             </td>
                                             <td class="align-middle text-end pe-3">
+                                                @if($assignment['status']=='Pending Feedback')
+                                                <a href="{{route('viewassignmentquestions',['id'=>$assignment['id']])}}"
+                                                    class="btn btn-light-success btn-icon h-35px w-35px">
+                                                        <i class="fa-solid fa-comment fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
+                                                        data-bs-toggle="tooltip" data-bs-placement="top"
+                                                        title="Add feedback"></i>
+                                                </a>
+                                                @else
                                                 <a href="{{route('viewassignmentquestions',['id'=>$assignment['id']])}}"
                                                     class="btn btn-light-success btn-icon h-35px w-35px">
                                                         <i class="fa-duotone fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
                                                         title="View Assignment"></i>
                                                 </a>
-                                                @if($assignment['status']=='Pending Feedback')
-                                                <a href="{{route('viewassignmentquestions',['id'=>$assignment['id']])}}"
+                                                @endif
+                                                @if($assignment['status']=='Completed')
+                                                <a href="{{route('reviewform',['student_id'=>$assignment->student['id'],'book_id'=>$assignment->book['id']])}}"
                                                     class="btn btn-light-success btn-icon h-35px w-35px">
-                                                        <i class="fa-solid fa-comment fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
+                                                        <i class="fa-solid fa-book-open-reader fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
                                                         data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="View Assignment"></i>
+                                                        title="Review Book"></i>
                                                 </a>
                                                 @endif
                                                 <a href="{{route('deleteassignment',['id'=>$assignment['id']])}}" button type="button" 
