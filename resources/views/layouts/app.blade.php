@@ -308,15 +308,19 @@ if (document.documentElement) {
                                     @endif
                                     <!--end:Menu link-->
                                     <!--begin:Menu link-->
-                                    
                                     <a class="menu-link" href="{{route("reviews")}}">
 											<span class="menu-icon">
 												<i class="fa-regular fa-star fs-3"></i>
 											</span>
                                         <span class="menu-title">Reviews</span>
                                     </a>
-                                    
                                     <!--end:Menu link-->
+                                    <a class="menu-link" href="{{route("formclassteacher")}}">
+											<span class="menu-icon">
+												<i class="fa-regular fa-star fs-3"></i>
+											</span>
+                                        <span class="menu-title">Form Teachers</span>
+                                    </a>
                                     <!--begin:Menu link-->
                                     @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
                                     <a class="menu-link" href="{{route("assignments")}}">

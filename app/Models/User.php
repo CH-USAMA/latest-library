@@ -83,4 +83,15 @@ class User extends Authenticatable
     {
         return $this->hasMany(Review::class);
     }
+
+    public function formClassAsTeacher()
+    {
+        return $this->hasOne(FormClass::class, 'teacher_id', 'id');
+    }
+
+    // Relationship to the form class where the user is the substitute teacher
+    public function formClassAsSubstitute()
+    {
+        return $this->hasOne(FormClass::class, 'substitute_teacher_id', 'id');
+    }
 }

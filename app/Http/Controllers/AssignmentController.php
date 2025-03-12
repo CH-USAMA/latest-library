@@ -34,8 +34,8 @@ class AssignmentController extends Controller
     public function createassignment()
     {
         //$questions = Question::with('Book')->where('book_id', $id)->get();
-        $books = Book::all();           
-        $users = User::all();             
+        $books = Book::all();
+        $users = User::all();
         return view('assignments.form',['bookslist'=>$books, 'userslist'=>$users]);
     }
 

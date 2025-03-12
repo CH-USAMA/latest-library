@@ -3,6 +3,7 @@
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\AssignmentQuestionsController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\FormClassController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\NoteController;
 use App\Http\Controllers\QuestionController;
@@ -103,6 +104,17 @@ Route::controller(ReviewController::class)->group(function (){
     //Route::get('/selectbook','selectbook')->name('selectbook');
     Route::post('/storereview','storereview')->name('reviewstore');
     Route::get('/deletereview/{id}','deletereview')->name('deletereview');
+    //Route::get('/editquestion/{id}','editquestion')->name('editquestion');
+    //Route::post('/updatequestion','updatequestion')->name('updatequestion');
+});
+
+Route::controller(FormClassController::class)->group(function (){
+    Route::get('/formclassteacherlist','formclassteacherlist',)->name('formclassteacher');
+    //Route::get('/studentassignment/{id}','studentassignment',)->name('studentassignment');
+    Route::get('/createformclass','createformclass')->name('formclasscreation');
+    Route::post('/storeformclass','storeformclass')->name('storeformclass');
+    //Route::post('/storereview','storereview')->name('reviewstore');
+    //Route::get('/deletereview/{id}','deletereview')->name('deletereview');
     //Route::get('/editquestion/{id}','editquestion')->name('editquestion');
     //Route::post('/updatequestion','updatequestion')->name('updatequestion');
 });
