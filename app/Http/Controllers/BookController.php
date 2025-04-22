@@ -5,21 +5,54 @@ namespace App\Http\Controllers;
 use App\Models\Book;
 use App\Models\User;
 use App\Models\Genre;
+use App\Models\Review;
+
 //use App\Http\Requests\StoreBooksRequest;
 use Illuminate\Http\Request;
 //use App\Http\Requests\UpdateBooksRequest;
+use Illuminate\Support\Facades\Auth;
+
 
 class BookController extends Controller
 {
+    /**
+     * Create a new controller instance.
+     *
+     * @return void
+     */
+    public function __construct()
+    {
+        $this->middleware('auth');
+    }
+    
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $data = Book::all();
+        // $data = Book::all();
+        $data = Book::withCount('review') // Get total reviews per book
+        ->withAvg('review', 'rating') // Get average rating per book
+        ->get();
         return view( 'books.list',['bookslist'=>$data]);
     }
 
+    public function assignedBook()
+    {
+        $data = Book::with('review')->where('title', Auth::user()->book_id)->get();
+        //dd(Auth::user());
+        //dd($data);
+        $totalReviews = Review::where('book_id', Auth::user()->book_id)->count();
+        $avgRating = Review::where('book_id', Auth::user()->book_id)->avg('rating');
+        $canReview = !Review::where('book_id', Auth::user()->book_id)
+        ->where('student_id', Auth::id())
+        ->exists();
+
+
+
+        // dd($data);
+        return view( 'books.studentAssignedBook',['book'=>$data, 'totalReviews'=>$totalReviews, 'avgRating'=>$avgRating, 'canReview'=>$canReview]);
+    }
     public function tindex()
     {
         $data = Book::all();
@@ -56,7 +89,7 @@ class BookController extends Controller
             $book->image = $filename;
         }
         $book->save();
-        $book->genre()->attach($request->genre);
+        $book->genres()->attach($request->genre);
         return redirect()->route('books');
     }
 
@@ -111,4 +144,9 @@ class BookController extends Controller
         return redirect()->route('books');
 
     }
+
+
+
+
+   
 }

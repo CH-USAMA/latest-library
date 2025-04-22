@@ -57,9 +57,12 @@
 											<div class="row">
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
-													<label class="form-label">Books List:</label>
-													<select readonly="readonly" name="book_id"class="form-select form-select-solid">
-														<option value="{{$book['id']}}" selected="selected">{{ $book['title']}}</option>
+													<label class="form-label">Book:</label>
+													<select name="book_id"class="form-select form-select-solid">
+														<option value="1" selected="selected">Book Name</option>
+														@foreach($bookslist as $book)
+														<option value="{{$book_id = $book->id}}">{{ $book->title }}</option>
+														@endforeach
 													</select>
 												</div>
 												<!--end::Col-->

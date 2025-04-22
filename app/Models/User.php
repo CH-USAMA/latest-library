@@ -27,7 +27,8 @@ class User extends Authenticatable
         'current_book_name',
         'interests',
         'topic',
-        'class'
+        'class',
+        'book_id'
     ];
 
     /**
@@ -93,5 +94,10 @@ class User extends Authenticatable
     public function formClassAsSubstitute()
     {
         return $this->hasOne(FormClass::class, 'substitute_teacher_id', 'id');
+    }
+
+    public function class()
+    {
+        return $this->belongsTo(FormClass::class, 'assigned_class','id');
     }
 }

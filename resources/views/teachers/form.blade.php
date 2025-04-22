@@ -88,28 +88,6 @@
 																		@enderror
 																	</div>
 																@endif
-
-																<!--begin::Col-->
-																<div class="col-md-6 fv-row mb-5">
-																	<label class="form-label">Current Book Name</label>
-																	<input type="text" name="current_book_name" value="{{$user->current_book_name ?? ''}}"  id="inputCurrentBookName" class="form-control form-control-solid @error('current_book_name') is-invalid @enderror">
-																	@error('current_book_name')
-																		<span class="invalid-feedback" role="alert">
-																			<strong>{{ $message }}</strong>
-																		</span>
-																	@enderror
-																</div>
-																<!--end::Col-->
-																<!--begin::Col-->
-																<div class="col-md-6 fv-row mb-5">
-																	<label class="form-label">Interests</label>
-																	<select name="genre[]"class="form-select form-select-solid" data-control="select2" multiple size="4">
-																		<option value="1" disabled >Select Interests</option>
-																		@foreach($genrelist as $genre)
-																		<option value="{{$genre->id}}">{{ $genre->genre_name}}</option>
-																		@endforeach
-																	</select>
-																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
 																<div class="col-md-6 fv-row mb-5">
@@ -123,9 +101,7 @@
 																</div>
 																<!--end::Col-->
 																<!--begin::Col-->
-																	<select hidden name="role" class="form-select form-select-solid">
-																		<option value="teacher" selected="selected">Teacher</option>
-																	</select>
+																	<input type="hidden" name="role" value="{{ $user->role ?? 'teacher' }}">
 																<!--end::Col-->
 															</div>
 															<div class="mb-0 mt-1">

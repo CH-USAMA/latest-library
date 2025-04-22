@@ -8,7 +8,7 @@
             <!--begin::Page title-->
             <div class="page-title d-flex flex-column justify-content-center flex-wrap me-3">
                 <!--begin::Title-->
-                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">View Library</h1>
+                <h1 class="page-heading d-flex text-dark fw-bold fs-3 flex-column justify-content-center my-0">Assigned Book</h1>
                 <!--end::Title-->
                 <!--begin::Breadcrumb-->
                 <ul class="breadcrumb breadcrumb-separatorless fw-semibold fs-7 my-0 pt-1">
@@ -24,7 +24,7 @@
                     <!--end::Item-->
                     <!--begin::Item-->
                     <li class="breadcrumb-item text-muted">
-                        <a href={{route("books")}} class="text-muted text-hover-primary">Books</a>
+                        <a href={{route("books")}} class="text-muted text-hover-primary">Assigned Books</a>
                     </li>
                     <!--end::Item-->
                 </ul>
@@ -38,6 +38,10 @@
                 <a href={{route("createbook")}} class="btn btn-sm fw-bold btn-success"><i class="fa-solid fa-plus me-1 fs-4"></i>Add New</a>
 
                 @endif
+                <!--end::Primary button-->
+
+                <!--begin:: Add New-->
+                <a href="{{ route('reviewform', ['student_id' => Auth::user()->id])}}" class="btn btn-sm fw-bold btn-success"><i class="fa-solid fa-plus me-1 fs-4"></i>Add Review</a>
                 <!--end::Primary button-->
 
 
@@ -56,7 +60,28 @@
             <!--begin::Row-->
             <div class="row g-5 g-xl-10 mb-5 mb-xl-10">
                 <!--begin::Col-->
-                @foreach ($bookslist as $book)
+                @if($book->isEmpty())
+                <div class="col-xxl-6">
+                    <!--begin::Card widget 18-->
+                    <div class="card card-flush h-xl-100">
+                        <!--begin::Body-->
+                        <div class="card-body py-9">
+                            <div class="d-flex flex-column h-100">
+                                <div class="d-flex flex-stack mb-6">
+                                    <div class="flex-shrink-0 me-5">
+                                        <span class="text-gray-800 fs-1 fw-bold">No Books Available</span>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <!--end::Body-->
+                    </div>
+                    <!--end::Card widget 18-->
+                </div>
+                @endif
+                <!--end::Col-->
+
+                @foreach ($book as $book)
                 <div class="col-xxl-6">
                     <!--begin::Card widget 18-->
                     <div class="card card-flush h-xl-100">
@@ -126,7 +151,7 @@
                                                     <!--begin::Info-->
                                                     <div class="m-0">
                                                         <span class="fw-semibold text-gray-500 d-block fs-8">Ratings </span>
-                                                        <span class="fw-bold text-gray-800 fs-7">{{ (int) $book->review_avg_rating }}/5</span>
+                                                        <span class="fw-bold text-gray-800 fs-7">{{ (int) $avgRating ?? 0}}/5</span>
                                                     </div>
                                                     <!--end::Info-->
                                                 </div>
@@ -145,12 +170,10 @@
                                                 <!--begin::Stat-->
                                                 <div class="border border-gray-300 border-dashed rounded min-w-100px w-100 py-2 px-4 me-6 mb-3">
                                                     <!--begin::Date-->
-                                                    {{-- <span class="fs-6 text-gray-700 fw-bold">{{$book['category']}}</span> --}}
-                                                    <span class="fs-6 text-gray-700 fw-bold">{{ $book->genres ? $book->genres->pluck('genre_name')->implode(', ') : 'N/A'}}</span>
+                                                    <span class="fs-6 text-gray-700 fw-bold">{{$book['category']}}</span>
                                                     <!--end::Date-->
                                                     <!--begin::Label-->
-                                                    {{-- <div class="fw-semibold text-gray-500">Category</div> --}}
-                                                    <div class="fw-semibold text-gray-500">Genre</div>
+                                                    <div class="fw-semibold text-gray-500">Category</div>
                                                     <!--end::Label-->
                                                 </div>
                                                 <!--end::Stat-->
@@ -160,7 +183,7 @@
                                                 <div class="border border-gray-300 border-dashed rounded min-w-100px w-100 py-2 px-4 mb-3">
                                                     <!--begin::Number-->
                                                     <span class="fs-6 text-gray-700 fw-bold">
-                                                        <span class="ms-n1" data-kt-countup="true" data-kt-countup-value="{{ $book->review_count ?? 0}}">0</span></span>
+                                                        <span class="ms-n1" data-kt-countup="true" data-kt-countup-value="{{$totalReviews ?? 0}}">0</span></span>
                                                     <!--end::Number-->
                                                     <!--begin::Label-->
                                                     <div class="fw-semibold text-gray-500">Reviews</div>
@@ -173,21 +196,34 @@
                                         <!--end::Body-->
                                         <!--begin::Footer-->
                                         <div class="d-flex flex-stack mt-auto bd-highlight">
+
+
+                                            @if(Auth::user()->book_id == $book['id'])
+                                            @if($canReview)
+
+
+                                            <a href="{{route('reviewform',['student_id'=>Auth::user()->id,'book_id'=>$book['id']])}}" button type="button"
+                                                class=" min-w-100px w-100 py-2 px-4 mb-3"
+                                                data-bs-toggle="tooltip" data-bs-placement="top"
+                                                title="Review">
+                                                <i class="badge badge-light-primary flex-shrink-0 align-self-center py-3 px-4 fs-7">Add Review</i>
+                                            </a>
+
+                                            @endif
+                                            @endif
+
+
                                             <a href="{{route('showBookReview',['id'=>$book['id']])}}" button type="button"
                                                 class=" min-w-100px w-100 py-2 px-4 mb-3"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 title="Review">
                                                 <i class="badge badge-light-primary flex-shrink-0 align-self-center py-3 px-4 fs-7">View Reviews</i>
                                             </a>
-                                        </div>
 
-                                        {{-- <a href="apps/projects/project.html" class="d-flex align-items-center text-primary opacity-75-hover fs-6 fw-semibold">Assign question
-                                                    <i class="ki-duotone ki-exit-right-corner fs-4 ms-1">
-                                                        <span class="path1"></span>
-                                                        <span class="path2"></span>
-                                                    </i></a> --}}
-                                        <div class="d-flex flex-stack mt-auto bd-highlight">
-                                        @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
+
+
+                                            @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
+
                                             <a href="{{route('editbook',['id'=>$book['id']])}}" button type="button"
                                                 class=" btn  btn-icon h-35px w-35px"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
@@ -195,15 +231,23 @@
                                                 <i class="badge badge-light-primary flex-shrink-0 align-self-center py-3 px-4 fs-7">Edit</i>
                                             </a>
 
+
+                                            <a href="apps/projects/project.html" class="d-flex align-items-center text-primary opacity-75-hover fs-6 fw-semibold">Assign question
+                                                <i class="ki-duotone ki-exit-right-corner fs-4 ms-1">
+                                                    <span class="path1"></span>
+                                                    <span class="path2"></span>
+                                                </i></a>
+
                                             <a href="{{route('deletebook',['id'=>$book['id']])}}" button type="button"
                                                 class=" btn btn-light-danger btn-icon h-35px w-35px"
                                                 data-bs-toggle="tooltip" data-bs-placement="top"
                                                 title="Delete">
                                                 <i class="fa-duotone fa-trash fs-4 h-35px w-35px align-items-center justify-content-center"></i>
                                             </a>
-                                        @endif
-                                        </div>
+                                            @endif
+
                                             <!--end::Actions-->
+                                        </div>
                                         <!--end::Footer-->
                                     </div>
                                     <!--end::Wrapper-->
@@ -211,6 +255,8 @@
                                 <!--end::Col-->
 
                             </div>
+
+
 
                             <!--end::Row-->
 
