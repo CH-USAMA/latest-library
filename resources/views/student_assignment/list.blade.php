@@ -63,7 +63,6 @@
                             <thead class="table-light">
                                 <tr class="fw-bold text-muted">
                                     <th class="ps-3">Name</th>
-                                    <th class="">Book</th>
                                     <th class="">Student</th>
                                     <th class="">Date Assigned</th>
                                     <th class="">Status</th>
@@ -89,9 +88,6 @@
                                                 <div class="text-dark fw-bold d-block">{{$assignment['name']}}</div>
                                             </div>
                                         </div>
-                                    </td>
-                                    <td class="align-middle">
-                                        <div class="text-dark fw-bold d-block">{{$assignment->book['title']}}</div>
                                     </td>
                                     <td class="align-middle">
                                         <div class="text-dark fw-bold d-block">{{$assignment->student['name']}}</div>

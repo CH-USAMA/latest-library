@@ -62,7 +62,8 @@ class QuestionController extends Controller
     public function updatequestion(Request $request)
     {
         $request->validate([
-            'question_text' => ['nullable']
+            'question_text' => ['nullable'],
+            'question_type' => ['nullable']
         ]);
         $id = $request->id;
         $question = Question::find(id: $id);

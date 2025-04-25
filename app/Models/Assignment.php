@@ -16,6 +16,11 @@ class Assignment extends Model
         return $this->belongsTo(Book::class);
     }
 
+    public function note()
+    {
+        return $this->belongsTo(Note::class);
+    }
+
     public function student()
     {
         return $this->belongsTo(User::class, 'student_id');

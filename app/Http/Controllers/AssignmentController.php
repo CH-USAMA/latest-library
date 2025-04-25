@@ -5,7 +5,7 @@ namespace App\Http\Controllers;
 use App\Models\Assignment;
 use App\Models\AssignmentQuestions;
 use App\Models\User;
-
+use App\Models\FormClass;
 
 
 use App\Models\Book;
@@ -51,11 +51,10 @@ class AssignmentController extends Controller
     public function createassignment()
     {
         //$questions = Question::with('Book')->where('book_id', $id)->get();
-        $books = Book::all();
-        $users = User::where('role', 'student')->get();
+        $form_class_id = FormClass::where('teacher_id', Auth::user()->id)->value('id');
+        $users = User::where('role', 'student')->where('assigned_class', $form_class_id)->get();
         $questionslist =  Question::all();
-
-        return view('assignments.form', ['bookslist' => $books, 'userslist' => $users, 'questionslist' => $questionslist]);
+        return view('assignments.form', [ 'userslist' => $users, 'questionslist' => $questionslist]);
     }
 
     public function selectbook()

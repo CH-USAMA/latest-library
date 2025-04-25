@@ -59,7 +59,7 @@
 												<div class="col-md-6 fv-row mb-5">
 													<label class="form-label">Book:</label>
 													<select name="book_id"class="form-select form-select-solid">
-														<option value="1" selected="selected">Book Name</option>
+														<option value="{{$student->book->id}}" selected="selected">{{$student->book->title}}</option>
 														@foreach($bookslist as $book)
 														<option value="{{$book_id = $book->id}}">{{ $book->title }}</option>
 														@endforeach

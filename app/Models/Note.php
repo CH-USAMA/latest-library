@@ -8,13 +8,31 @@ class Note extends Model
 {
     protected $fillable = [
         'title',
-        'content',
         'date',
+        'objectives_comments',
+        'reading_ability_progress',
+        'vipers_progress',
+        'class_objectives',
         'studentId',
     ];
 
-    public function user()
+    // public function user()
+    // {
+    //     return $this->belongsTo(User::class);
+    // }
+
+    public function student()
     {
-        return $this->belongsTo(User::class);
+        return $this->belongsTo(User::class, 'student_id');
+    }
+
+    public function assignment()
+    {
+        return $this->hasOne(Assignment::class);
+    }
+
+    public function classnote()
+    {
+        return $this->hasOne(ClassNote::class);
     }
 }

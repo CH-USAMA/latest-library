@@ -80,7 +80,7 @@
 													</select>
 													@else
 													<select name="student_id"class="form-select form-select-solid">
-														<option value="{{$student_id = $note->id}}" selected="selected">Student ID</option>
+														<option value="{{$student_id = $note->student_id}}" selected="selected">{{$note->student->name}}</option>
 													</select>
 													@endif
 												</div>
@@ -90,8 +90,46 @@
 												<!--end::Col-->
 											</div>
 											<div class="mb-0 mt-1">
-												<label class="form-label">Content</label>
-												<textarea name="content" id="inputContent" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" rows="6" name="message">{{$note->content ?? ''}}</textarea>
+												<label class="form-label">Objective Comments</label>
+												<textarea name="objectives_comments" id="inputObjectivesComments" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" required rows="6" name="message">{{$note->objectives_comments ?? ''}}</textarea>
+											</div>
+											<div class="mb-0 mt-1">
+												<label class="form-label">Reading Ability</label>
+												<textarea name="reading_ability_progress" id="inputReadingAbilityProgress" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" required rows="6" name="message">{{$note->reading_ability_progress ?? ''}}</textarea>
+											</div>
+											<div class="mb-0 mt-1">
+												<label class="form-label">Reading Comprehension</label>
+												<textarea name="vipers_progress" id="inputVipersProgress" class="form-control form-control-solid placeholder-gray-600 fw-bold fs-4 ps-9 pt-7" required rows="6" name="message">{{$note->vipers_progress ?? ''}}</textarea>
+											</div>
+												<div class="mb-0 mt-1">
+													<label class="form-label">Recommendation</label>
+													<select name="class_objectives" id="inputClassObjectives"
+														class="form-select form-select-solid @error('vocabulary') is-invalid @enderror"
+														{{ !(Auth::user()->role === 'teacher' || Auth::user()->role === 'admin') ? 'disabled' : '' }}
+														required
+														oninvalid="this.setCustomValidity('Please select a score')"
+														oninput="this.setCustomValidity('')">
+
+														<!-- Default "Select Option" -->
+														<option value="" disabled {{ !($note->class_objectives ?? '') ? 'selected' : '' }}>Select Option</option>
+
+														<!-- Option for 'Move up' -->
+														<option value="move_up" {{ ($note->class_objectives ?? '') == 'move_up' ? 'selected' : '' }}>Move up</option>
+
+														<!-- Option for 'Move down' -->
+														<option value="move_down" {{ ($note->class_objectives ?? '') == 'move_down' ? 'selected' : '' }}>Move down</option>
+
+														<!-- Option for 'Maintain' -->
+														<option value="maintain" {{ ($note->class_objectives ?? '') == 'maintain' ? 'selected' : '' }}>Maintain</option>
+
+													</select>
+										
+													@error('vocabulary')
+														<span class="invalid-feedback" role="alert">
+															<strong>{{ $message }}</strong>
+														</span>
+													@enderror
+												</div>
 												<!--begin::Submit-->
 												<button type="submit" class="btn btn-primary float-end mt-5">Submit</button>
 												<!--end::Submit-->

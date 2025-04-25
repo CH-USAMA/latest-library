@@ -64,7 +64,6 @@
                                 <tr class="fw-bold text-muted">
                                     <th class="ps-3">Class Name</th>
                                     <th class="">Teacher Name</th>
-                                    <th class="">Substitute Teacher Name</th>
                                     <th class="pe-3 text-end">Actions</th>
                                 </tr>
 
@@ -90,13 +89,10 @@
                                     <td class="align-middle">
                                         <div class="text-dark fw-bold d-block">{{ $formclass->teacher ? $formclass->teacher->name : 'No Teacher Assigned' }}</div>
                                     </td>
-                                    <td class="align-middle">
-                                        <div class="text-dark fw-bold d-block">{{ $formclass->substituteTeacher ? $formclass->substituteTeacher->name : 'No  Sub Teacher Assigned' }}</div>
-                                    </td>
                                     <td class="align-middle text-end pe-3">
-                                        <a href="{{route('editgenre',['id'=>$formclass['id']])}}" class="btn btn-light-primary btn-icon h-35px w-35px">
+                                        <a href="{{route('editformclass',['id'=>$formclass['id']])}}" class="btn btn-light-primary btn-icon h-35px w-35px">
                                             <i class="fa-duotone fa-pen fs-4  h-35px w-35px align-items-center justify-content-center" title="Edit" data-bs-toggle="tooltip" data-bs-placement="top"></i></a>
-                                        <a href="{{route('deletegenre',['id'=>$formclass['id']])}}" button type="button"
+                                        <a href="{{route('deleteformclass',['id'=>$formclass['id']])}}" button type="button"
                                             class=" btn btn-light-danger btn-icon h-35px w-35px"
                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                             title="Delete">

@@ -82,7 +82,8 @@
                     id="kt_app_header_container">
                     <!--begin::Sidebar mobile toggle-->
                     <div class="d-flex align-items-center d-lg-none ms-n3 me-1 me-md-2" title="Show sidebar menu">
-                        <div class="btn btn-icon btn-active-color-primary w-35px h-35px" id="kt_app_sidebar_mobile_toggle">
+                        <div class="btn btn-icon btn-active-color-primary w-35px h-35px"
+                            id="kt_app_sidebar_mobile_toggle">
                             <i class="fa-duotone fa-bars fs-3 fs-md-1"></i>
                         </div>
                     </div>
@@ -95,7 +96,8 @@
                     </div>
                     <!--end::Mobile logo-->
                     <!--begin::Header wrapper-->
-                    <div class="d-flex align-items-stretch justify-content-end flex-lg-grow-1" id="kt_app_header_wrapper">
+                    <div class="d-flex align-items-stretch justify-content-end flex-lg-grow-1"
+                        id="kt_app_header_wrapper">
                         <!--begin::Navbar-->
                         <div class="app-navbar flex-shrink-0">
                             <!--begin::Theme mode-->
@@ -125,7 +127,8 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-3 my-0">
-                                        <a href="#" class="menu-link px-3 py-2" data-kt-element="mode" data-kt-value="dark">
+                                        <a href="#" class="menu-link px-3 py-2" data-kt-element="mode"
+                                            data-kt-value="dark">
                                             <span class="menu-icon" data-kt-element="icon">
                                                 <i class="fa-duotone fa-moon fs-3"></i>
                                             </span>
@@ -152,8 +155,8 @@
                             <div class="app-navbar-item ms-1 ms-md-3" id="kt_header_user_menu_toggle">
                                 <!--begin::Menu wrapper-->
                                 <div class="cursor-pointer symbol symbol-30px symbol-md-40px"
-                                    data-kt-menu-trigger="{default: 'click', lg: 'hover'}" data-kt-menu-attach="parent"
-                                    data-kt-menu-placement="bottom-end">
+                                    data-kt-menu-trigger="{default: 'click', lg: 'hover'}"
+                                    data-kt-menu-attach="parent" data-kt-menu-placement="bottom-end">
                                     <img src="assets/media/svg/avatars/001-boy.svg" alt="user" />
                                 </div>
                                 <!--begin::User account menu-->
@@ -169,10 +172,13 @@
                                             <!--end::Avatar-->
                                             <!--begin::Username-->
                                             <div class="d-flex flex-column">
-                                                @if(Auth::check())
-                                                <div class="fw-bold d-flex align-items-center fs-5"> {{ Auth::user()->name }}
-                                                </div>
-                                                <a href="#" class="fw-semibold text-muted text-hover-primary fs-7"> {{ Auth::user()->email }}</a>
+                                                @if (Auth::check())
+                                                    <div class="fw-bold d-flex align-items-center fs-5">
+                                                        {{ Auth::user()->name }}
+                                                    </div>
+                                                    <a href="#"
+                                                        class="fw-semibold text-muted text-hover-primary fs-7">
+                                                        {{ Auth::user()->email }}</a>
                                                 @endif
                                             </div>
                                             <!--end::Username-->
@@ -181,8 +187,9 @@
                                     <!--end::Menu item-->
                                     <!--begin::Menu item-->
                                     <div class="menu-item px-5 my-1">
-                                        @if(Auth::check())
-                                        <a href="{{route('profile-student',['id'=>Auth::id()])}}" class="menu-link px-5">My profile</a>
+                                        @if (Auth::check())
+                                            <a href="{{ route('profile-student', ['id' => Auth::id()]) }}"
+                                                class="menu-link px-5">My profile</a>
                                         @endif
 
                                     </div>
@@ -192,7 +199,8 @@
                                         <a class="menu-link px-5" href="{{ route('logout') }}"
                                             onclick="event.preventDefault();
                                                      document.getElementById('logout-form').submit();">Logout</a>
-                                        <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
+                                        <form id="logout-form" action="{{ route('logout') }}" method="POST"
+                                            class="d-none">
                                             @csrf
                                         </form>
                                     </div>
@@ -220,7 +228,7 @@
                     <!--begin::Logo-->
                     <div class="app-sidebar-logo px-6" id="kt_app_sidebar_logo">
                         <!--begin::Logo image-->
-                        <a href="{{route("dashboard")}}">
+                        <a href="{{ route('dashboard') }}">
                             <img alt="Logo" src="assets/media/logos/library.png"
                                 class="h-25px app-sidebar-logo-default" />
                             <img alt="Logo" src="assets/media/logos/library.png"
@@ -244,14 +252,14 @@
                             data-kt-scroll-wrappers="#kt_app_sidebar_menu" data-kt-scroll-offset="5px"
                             data-kt-scroll-save-state="true">
                             <!--begin::Menu-->
-                            <div class="menu menu-column menu-rounded menu-sub-indention px-3" id="#kt_app_sidebar_menu"
-                                data-kt-menu="true" data-kt-menu-expand="false">
+                            <div class="menu menu-column menu-rounded menu-sub-indention px-3"
+                                id="#kt_app_sidebar_menu" data-kt-menu="true" data-kt-menu-expand="false">
                                 <!--begin:Menu item-->
                                 <div data-kt-menu-trigger="click" class="menu-item here show menu-accordion">
                                     <!--begin:Menu item-->
                                     <div class="menu-item">
                                         <!--begin:Menu link-->
-                                        <a class="menu-link" href="{{route("dashboard")}}">
+                                        <a class="menu-link" href="{{ route('dashboard') }}">
                                             <span class="menu-icon">
                                                 <i class="fa-solid fa-house fs-3"></i>
                                             </span>
@@ -259,162 +267,147 @@
                                         </a>
                                         <!--end:Menu link-->
                                         <!--begin:Menu link-->
-                                        @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
-                                        <a class="menu-link" href="{{route("users")}}">
-                                            <span class="menu-icon">
-                                                <i class="fa-duotone fa-user fs-3"></i>
-                                            </span>
-                                            <span class="menu-title">Students</span>
-                                        </a>
+                                        @if (Auth::user()->role == 'teacher' or Auth::user()->role == 'admin')
+                                            <a class="menu-link" href="{{ route('users') }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-duotone fa-user fs-3"></i>
+                                                </span>
+                                                <span class="menu-title">Students</span>
+                                            </a>
                                         @endif
                                         <!--end:Menu link-->
                                         <!--begin:Menu link-->
-                                        @if(Auth::user()->role =='admin')
-                                        <a class="menu-link" href="{{route(name: "teacherusers")}}">
-                                            <span class="menu-icon">
-                                                <i class="fa-solid fa-person-chalkboard fs-3"></i>
-                                            </span>
-                                            <span class="menu-title">Teachers</span>
-                                        </a>
+                                        @if (Auth::user()->role == 'teacher')
+                                            <a class="menu-link"
+                                                href="{{ route('formclassstudents', ['teacher_id' => Auth::user()->id]) }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-solid fa-person-chalkboard fs-3"></i>
+                                                </span>
+                                                <span class="menu-title">Teaching Class</span>
+                                            </a>
+                                        @endif
+                                        <!--end:Menu link-->
+
+                                        <!--begin:Menu link-->
+                                        @if (Auth::user()->role == 'admin')
+                                            <a class="menu-link" href="{{ route(name: 'teacherusers') }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-solid fa-person-chalkboard fs-3"></i>
+                                                </span>
+                                                <span class="menu-title">Teachers</span>
+                                            </a>
                                         @endif
                                         <!--end:Menu link-->
                                         <!--begin:Menu link-->
-
-
-                                        @if(Auth::user()->role =='student')
-                                        <a class="menu-link" href="{{route("assignedBook")}}">
-                                            <span class="menu-icon">
-                                                <i class="fa-solid fa-user-gear fs-3"></i>
-                                            </span>
-                                            <span class="menu-title">Assigned Book</span>
-                                        </a>
+                                        @if (Auth::user()->role == 'admin')
+                                            <a class="menu-link" hidden href="{{ route('dashboard') }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-solid fa-user-gear fs-3"></i>
+                                                </span>
+                                                <span class="menu-title">Admins</span>
+                                            </a>
                                         @endif
-
                                         <!--end:Menu link-->
                                         <!--begin:Menu link-->
-                                        <a class="menu-link" href="{{route("books")}}">
+                                        <a class="menu-link" href="{{ route('books') }}">
                                             <span class="menu-icon">
                                                 <i class="fa-solid fa-book fs-3"></i>
                                             </span>
-                                            <span class="menu-title">Books Library</span>
+                                            <span class="menu-title">Books</span>
                                         </a>
                                         <!--end:Menu link-->
                                         <!--begin:Menu link-->
-                                        @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
-                                        <a class="menu-link" href="{{route(name: "notes")}}">
-                                            <span class="menu-icon">
-                                                <i class="fa-regular fa-note-sticky fs-3"></i>
-                                            </span>
-                                            <span class="menu-title">Notes</span>
-                                        </a>
+
+
+                                        @if (Auth::user()->role == 'student')
+                                            <a class="menu-link" href="{{ route('assignedBook') }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-solid fa-user-gear fs-3"></i>
+                                                </span>
+                                                <span class="menu-title">Assigned Book</span>
+                                            </a>
+                                        @endif
+
+                                        <!--end:Menu link-->
+                                        <!--begin:Menu link-->
+                                        @if (Auth::user()->role == 'teacher' or Auth::user()->role == 'admin')
+                                            <a class="menu-link" href="{{ route(name: 'notes') }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-regular fa-note-sticky fs-3"></i>
+                                                </span>
+                                                <span class="menu-title">Student Report</span>
+                                            </a>
                                         @endif
                                         <!--end:Menu link-->
                                         <!--begin:Menu link-->
-                                        @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
-                                        <a class="menu-link" href="{{route(name: "questions")}}">
-                                            <span class="menu-icon">
-                                                <i class="fa-regular fa-certificate fs-3"></i>
-                                            </span>
-                                            <span class="menu-title">Questions</span>
-                                        </a>
+                                        {{-- @if (Auth::user()->role == 'teacher' or Auth::user()->role == 'student' or Auth::user()->role == 'admin') --}}
+                                            <a class="menu-link" href="{{ route('classnotesindex', ['user_id' => Auth::user()->id]) }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-regular fa-note-sticky fs-3"></i>
+                                                </span>
+                                                <span class="menu-title">Weekly Topic</span>
+                                            </a>
+                                        {{-- @endif --}}
+                                        <!--end:Menu link-->
+                                        <!--begin:Menu link-->
+                                        @if (Auth::user()->role == 'teacher' or Auth::user()->role == 'admin')
+                                            <a class="menu-link" href="{{ route(name: 'questions') }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-regular fa-note-sticky fs-3"></i>
+                                                </span>
+                                                <span class="menu-title">Questions</span>
+                                            </a>
                                         @endif
                                         <!--end:Menu link-->
                                         <!--begin:Menu link-->
-                                        <a class="menu-link" href="{{route("reviews")}}">
+                                        <a class="menu-link" href="{{ route('reviews') }}">
                                             <span class="menu-icon">
                                                 <i class="fa-regular fa-star fs-3"></i>
                                             </span>
                                             <span class="menu-title">Reviews</span>
                                         </a>
                                         <!--end:Menu link-->
-                                        @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
-                                        <a class="menu-link" href="{{route("formclassteacher")}}">
+                                        <a class="menu-link" href="{{ route('formclassteacher') }}">
                                             <span class="menu-icon">
-                                                <i class="fa-regular fa-circle fs-3"></i>
+                                                <i class="fa-regular fa-star fs-3"></i>
                                             </span>
-                                            <span class="menu-title">Classes</span>
+                                            <span class="menu-title">Form Teachers</span>
                                         </a>
-                                        @endif
                                         <!--begin:Menu link-->
-
-                                        <a class="menu-link" href="{{route("assignments")}}">
-                                            <span class="menu-icon">
-                                                <i class="fa-regular fa-square fs-3"></i>
-                                            </span>
-                                            <span class="menu-title">Assignments</span>
-                                        </a>
-
-                                        <!--end:Menu link-->
-                                        <!--begin:Menu link-->
-                                        @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
-                                        <a class="menu-link" href="{{route("genres")}}">
-                                            <span class="menu-icon">
-                                                <i class="fa-regular fa-icons fs-3"></i>
-                                            </span>
-                                            <span class="menu-title">Genre</span>
-                                        </a>
+                                        @if (Auth::user()->role == 'teacher' or Auth::user()->role == 'admin')
+                                            <a class="menu-link" href="{{ route('assignments') }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-regular fa-star fs-3"></i>
+                                                </span>
+                                                <span class="menu-title">Assignments</span>
+                                            </a>
                                         @endif
                                         <!--end:Menu link-->
+
                                         <!--begin:Menu link-->
-                                        <a class="menu-link d-none" href="{{ route('studentassignment', ['id' => Auth::user()->id]) }}">
-                                            <span class="menu-icon">
-                                                <i class="fa-solid fa-pencil"></i>
-                                            </span>
-                                            <span class="menu-title">Student Assignment</span>
-                                        </a>
+                                        @if (Auth::user()->role == 'teacher' or Auth::user()->role == 'admin')
+                                            <a class="menu-link" href="{{ route('genres') }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-regular fa-icons fs-3"></i>
+                                                </span>
+                                                <span class="menu-title">Genre</span>
+                                            </a>
+                                        @endif
+                                        <!--end:Menu link-->
+                                        <!--begin:Menu link-->
+                                        @if (Auth::user()->role == 'student')
+                                            <a class="menu-link"
+                                                href="{{ route('studentassignment', ['id' => Auth::user()->id]) }}">
+                                                <span class="menu-icon">
+                                                    <i class="fa-solid fa-pencil"></i>
+                                                </span>
+                                                <span class="menu-title">Student Assignment</span>
+                                            </a>
+                                        @endif
                                         <!--end:Menu link-->
                                     </div>
                                     <!--end:Menu item-->
 
-                                </div>
-                                <!--end:Menu item-->
-
-
-
-                                <!--begin:Menu item-->
-                                <div data-kt-menu-trigger="click" class="menu-item menu-accordion d-none">
-                                    <!--begin:Menu link-->
-                                    <span class="menu-link">
-                                        <span class="menu-icon">
-                                            <i class="fa-duotone fa-file-invoice-dollar fs-3"></i>
-                                        </span>
-                                        <span class="menu-title">Student Reports</span>
-                                        <span class="menu-arrow"></span>
-                                    </span>
-                                    <!--end:Menu link-->
-                                    <!--begin:Menu sub-->
-                                    <div hclass="menu-sub menu-sub-accordion">
-                                        <!--begin:Menu item-->
-                                        <div class="menu-item">
-                                            <!--begin:Menu link-->
-                                            <a class="menu-link" href="over-base-stats.html">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Most Studied Subject</span>
-                                            </a>
-                                            <!--end:Menu link-->
-                                            <!--begin:Menu link-->
-                                            <a class="menu-link" href="posting-monthwise.html">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Top Active Students</span>
-                                            </a>
-                                            <!--end:Menu link-->
-                                            <!--begin:Menu link-->
-                                            <a class="menu-link" href="monthly-revenue-report.html">
-                                                <span class="menu-bullet">
-                                                    <span class="bullet bullet-dot"></span>
-                                                </span>
-                                                <span class="menu-title">Old Students</span>
-                                            </a>
-                                            <!--end:Menu link-->
-
-                                        </div>
-                                        <!--end:Menu item-->
-                                    </div>
-                                    <!--end:Menu sub-->
                                 </div>
                                 <!--end:Menu item-->
 
@@ -431,7 +424,7 @@
                     <!--begin::Content wrapper-->
 
 
-                    @yield("content")
+                    @yield('content')
 
 
 
@@ -440,11 +433,13 @@
                     <!--begin::Footer-->
                     <div id="kt_app_footer" class="app-footer">
                         <!--begin::Footer container-->
-                        <div class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
+                        <div
+                            class="app-container container-fluid d-flex flex-column flex-md-row flex-center flex-md-stack py-3">
                             <!--begin::Copyright-->
                             <div class="text-dark order-2 order-md-1">
                                 <span class="text-muted fw-semibold me-1">2025&copy;</span>
-                                <a href="#" target="_blank" class="text-gray-800 text-hover-primary">Library</a>
+                                <a href="#" target="_blank"
+                                    class="text-gray-800 text-hover-primary">Library</a>
                             </div>
                             <!--end::Copyright-->
                         </div>
@@ -489,9 +484,9 @@
 <!--end::Body-->
 
 </html>
-@yield("scripts")
+@yield('scripts')
 <script>
-    @yield("footerjs")
+    @yield('footerjs')
 
     let table = $("#kt_datatable_both_scrolls").DataTable({
         "scrollX": true,

@@ -63,11 +63,10 @@
                                     <thead class="table-light">
                                     <tr class="fw-bold text-muted">
                                         <th class="ps-3">Title</th>
+                                        <th class="">Student</th>
                                         <th class="">Date</th>
-                                        <th class="">Content</th>
                                         <th class="pe-3 text-end">Actions</th>
                                     </tr>
-                                    
                                     </thead>
                                     <!--end::Table head-->
                                     <!--begin::Table body-->
@@ -87,10 +86,10 @@
                                                         </div>
                                                     </td>
                                                     <td class="align-middle">
-                                                        <div class="text-dark fw-bold d-block">{{$note['date']}}</div>
+                                                        <div class="text-dark fw-bold d-block">{{$note->student->name}}</div>
                                                     </td>
                                                     <td class="align-middle">
-                                                        <div class="text-dark fw-bold d-block">{{$note['content']}}</div>
+                                                        <div class="text-dark fw-bold d-block">{{$note['date']}}</div>
                                                     </td>
                                                     <td class="align-middle text-end pe-3">
                                                         {{-- <a href="{{route('profile',['id'=>$note['id']])}}"
@@ -109,7 +108,7 @@
                                                                         </a>
                                                     </td>
                                                 </tr>
-                                                </tbody>
+                                                
                                             @endforeach
                                         @else
                                             @foreach ($noteslist as $note)

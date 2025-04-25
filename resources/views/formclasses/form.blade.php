@@ -38,11 +38,11 @@
                     <div id="kt_app_content" class="app-content flex-column-fluid">
                         <!--begin::Content container-->
                         <div id="kt_app_content_container" class="">
-							{{-- @if (empty($question)) --}}
+							@if (empty($formclass))
 							<form action="{{route('storeformclass')}}" method="POST">
-							{{-- @else
-							<form action="{{route('updatequestion')}}" method="POST">
-							@endif --}}
+							@else
+							<form action="{{route('updateformclass')}}" method="POST">
+							@endif
 							@csrf
                             <!--begin::Row-->
                             <div class="row g-5 g-xl-10">
@@ -52,50 +52,41 @@
 											<h3 class=" mb-0">Create Form Class</h3>
 										</div>
 										<div class="card-body p-3 pt-0">
-											<input hidden type="text" name="id" value="{{$assignment->id ?? ''}}" class="form-control form-control-solid">
+											<input hidden type="text" name="id" value="{{$formclass->id ?? ''}}" class="form-control form-control-solid">
 											<div class="row">
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
 													<label class="form-label">Name of Class</label>
-													<input name="class_name" id="inputClassName" type="text" class="form-control form-control-solid">
+													<input placeholder="Type name of class"  value="{{ $formclass->class_name ?? '' }}" name="class_name" id="inputClassName" type="text" class="form-control form-control-solid">
+													@error('class_name')
+													<span class="invalid-feedback" role="alert">
+														<strong>{{ $message }}</strong>
+													</span>
+													@enderror
 												</div>
 												<!--end::Col-->
 												<!--begin::Col-->
-												@if (!empty($class))
 													<div class="col-md-6 fv-row mb-5">
 														<label class="form-label">Assign Teacher</label>
-														@if (empty($class['teacher_id']))
+
 														<select  name="teacher_id"class="form-select form-select-solid">
-															<option value="1" selected="selected">Teacher Name</option>
+															<option disabled >{{$formclass->teacher_name ?? 'Select a teacher' }}</option>
 															@foreach($teacherslist as $teacher)
 															<option value="{{$teacher['id']}}">{{ $teacher['name'] }}</option>
 															@endforeach
 														</select>
-														@else
-														<select name="teacher_id"class="form-select form-select-solid">
-															<option value="{{$student_id = $question->id}}" selected="selected">Student ID</option>
-														</select>
-														@endif
+														
+
+														@error('teacher_id')
+														<span class="invalid-feedback" role="alert">
+															<strong>{{ $message }}</strong>
+														</span>
+														@enderror
 														
 													</div>
-													<div class="col-md-6 fv-row mb-5">
-														<label class="form-label">Assign Substitute teacher</label>
-														@if (empty($class['substitute_teacher_id']))
-														<select  name="teacher_id"class="form-select form-select-solid">
-															<option value="1" selected="selected">Substitute Teacher Name</option>
-															@foreach($teacherslist as $teacher)
-															<option value="{{$teacher['id']}}">{{ $teacher['name'] }}</option>
-															@endforeach
-														</select>
-														@else
-														<select name="teacher_id"class="form-select form-select-solid">
-															<option value="{{$student_id = $question->id}}" selected="selected">Student ID</option>
-														</select>
-														@endif
-													</div>
 													
-												@else
-												@endif
+													
+											
 												<!--end::Col-->
 											</div>
 											<!--begin::Submit-->

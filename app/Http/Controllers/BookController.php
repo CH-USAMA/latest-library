@@ -39,7 +39,7 @@ class BookController extends Controller
 
     public function assignedBook()
     {
-        $data = Book::with('review')->where('title', Auth::user()->book_id)->get();
+        $data = Book::with('review')->where('id', Auth::user()->book_id)->get();
         //dd(Auth::user());
         //dd($data);
         $totalReviews = Review::where('book_id', Auth::user()->book_id)->count();
@@ -116,12 +116,16 @@ class BookController extends Controller
      */
     public function updatebook(Request $request)
     {
+
         $request->validate([
             'title' => ['nullable']
         ]);
         $id = $request->id;
         $book = Book::find(id: $id);
         $book->update($request->all());
+        $book->genres()->sync($request->genre);
+        // dd($request->all());
+
         //dd($note);
         //$note->update($request->all());
         //$book->update($request->only('title', 'content'));

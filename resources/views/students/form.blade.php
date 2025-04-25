@@ -148,8 +148,11 @@
 													<label class="form-label">Interests</label>
 													<select name="genre[]" class="form-select form-select-solid" data-control="select2" multiple size="4">
 														<option value="1" disabled>Select Interests</option>
-														@foreach($genrelist as $genre)
-														<option value="{{$genre->id}}">{{ $genre->genre_name}}</option>
+														@foreach ($genrelist as $genre)
+															<option value="{{ $genre->id }}"
+																@if (isset($user) && $user->genre->pluck('id')->contains($genre->id)) selected @endif>
+																{{ $genre->genre_name }}
+															</option>
 														@endforeach
 													</select>
 												</div>

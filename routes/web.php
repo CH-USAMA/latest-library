@@ -3,6 +3,7 @@
 use App\Http\Controllers\AssignmentController;
 use App\Http\Controllers\AssignmentQuestionsController;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\ClassNoteController;
 use App\Http\Controllers\FormClassController;
 use App\Http\Controllers\GenreController;
 use App\Http\Controllers\NoteController;
@@ -33,6 +34,7 @@ Route::get('/chart-data-book', [App\Http\Controllers\DashboardController::class,
 
 Route::controller(StudentController::class)->group(function () {
     Route::get('/studentslist', 'index',)->name('users');
+    Route::get('/formclasslist/{teacher_id}', 'formclassindex',)->name('formclassstudents');
     Route::get('/studentregister', 'studentCreate')->name('form');
     Route::get('/teacherregister', 'teacherCreate')->name('tform');
     Route::get('/teacherslist', 'teacherindex',)->name('teacherusers');
@@ -56,6 +58,15 @@ Route::controller(NoteController::class)->group(function () {
     Route::get('/deletenote/{id}', 'deletenote')->name('deletenote');
     Route::get('/editnote/{id}', 'editnote')->name('editnote');
     Route::post('/updatenote', 'updatenote')->name('updatenote');
+});
+
+Route::controller(ClassNoteController::class)->group(function () {
+    Route::get('/classnotesindex/{user_id}', 'classnotesindex',)->name('classnotesindex');
+    Route::get('/classnotecreate/{user_id}', 'classnotecreate')->name('classnotecreate');
+    Route::post('/classnotestore', 'classnotestore')->name('classnotestore');
+    Route::get('/classnotedelete/{id}/{user_id}', 'classnotedelete')->name('classnotedelete');
+    Route::get('/classnoteedit/{id}', 'classnoteedit')->name('classnoteedit');
+    Route::post('/classnoteupdate', 'classnoteupdate')->name('classnoteupdate');
 });
 
 Route::controller(BookController::class)->group(function () {
@@ -105,7 +116,7 @@ Route::controller(AssignmentQuestionsController::class)->group(function () {
     //Route::get('/assignmentslist','index',)->name('assignments');
     Route::get('/viewassignmentquestions/{id}', 'viewassignmentquestions',)->name('viewassignmentquestions');
     //Route::get('/selectbook','selectbook')->name('selectbook');
-    Route::post('/storeassignmentquestions/{questionslist}]/{assignmentid}', 'storeassignmentquestions')->name('storeassignmentquestions');
+    Route::post('/storeassignmentquestions/{questionslist}/{assignmentid}', 'storeassignmentquestions')->name('storeassignmentquestions');
     //Route::get('/deleteassignment/{id}','deleteassignment')->name('deleteassignment');
     //Route::get('/editquestion/{id}','editquestion')->name('editquestion');
     Route::post('/updateanswerquestions', 'updateanswerquestions')->name('updateanswerquestions');
@@ -115,7 +126,6 @@ Route::controller(AssignmentQuestionsController::class)->group(function () {
 Route::controller(ReviewController::class)->group(function () {
     Route::get('/reviewslist', 'reviewlist',)->name('reviews');
     Route::get('/showBookReview/{id}', 'showBookReview',)->name('showBookReview');
-
     //Route::get('/studentassignment/{id}','studentassignment',)->name('studentassignment');
     Route::get('/createreview/{student_id}', 'createreview')->name('reviewform');
     //Route::get('/selectbook','selectbook')->name('selectbook');
@@ -130,7 +140,12 @@ Route::controller(FormClassController::class)->group(function () {
     //Route::get('/studentassignment/{id}','studentassignment',)->name('studentassignment');
     Route::get('/createformclass', 'createformclass')->name('formclasscreation');
     Route::post('/storeformclass', 'storeformclass')->name('storeformclass');
+    Route::get('/editformclass/{id}','editformclass')->name('editformclass');
+    Route::get('/deleteformclass/{id}','deleteformclass')->name('deleteformclass');
+    Route::post('/updateformclass', 'updateformclass')->name('updateformclass');
     Route::post('/assign-students', 'assignStudents')->name('assignStudents');
+    Route::post('/assign-students-book', 'assignStudentsBook')->name('assignStudentsBook');
+    
 
     //Route::post('/storereview','storereview')->name('reviewstore');
     //Route::get('/deletereview/{id}','deletereview')->name('deletereview');

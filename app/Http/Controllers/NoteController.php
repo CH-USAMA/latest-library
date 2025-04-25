@@ -51,7 +51,10 @@ class NoteController extends Controller
         $note = new Note();
         $note->title = $request->title;
         $note->date = $request->date;
-        $note->content = $request->content;
+        $note->objectives_comments = $request->objectives_comments;
+        $note->reading_ability_progress = $request->reading_ability_progress;
+        $note->vipers_progress = $request->vipers_progress;
+        $note->class_objectives = $request->class_objectives;
         $note->teacher_id = $request->teacher_id;
         $note->student_id = $request->student_id;
         $note->save();

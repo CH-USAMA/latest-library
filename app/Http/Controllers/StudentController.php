@@ -28,11 +28,48 @@ class StudentController extends Controller
     {
         // dd("here");
         // $data = User::where('role', 'student')->get();
-        $data = User::where('role', 'student')->with('class')->get();
+        // $classes = FormClass::where('teacher_id', 62)
+        // ->with('students')
+        // ->get();
+
+        // dd($classes);
+        
+        //$data = User::where('role', operator: 'student')->with('class')->get();
+        $data = User::where('role', 'student')->with('class','book')->get();
         $classes = FormClass::all();
 
         // dd($data[0]->class->class_name);
         return view('students.list', ['userslist' => $data, 'classes' => $classes]);
+    }
+
+    public function formclassindex($teacher_id)
+    {
+        // dd("here");
+        // $data = User::where('role', 'student')->get();
+        // $classes = FormClass::where('teacher_id', 62)
+        // ->with('students')
+        // ->get();
+
+        // dd($classes);
+        
+        //$data = User::where('role', operator: 'student')->with('class')->get();
+        // $data = User::where('role', 'student')->with('class','book')->get();
+        // $classes = FormClass::where('teacher_id',$teacher_id)->with('students')->get();
+
+        $class = FormClass::where('teacher_id', $teacher_id)->first();
+
+        $data = User::where('role', 'student')
+            ->where('assigned_class', $class->id)
+            ->with('class', 'book')
+            ->get();
+        // if (!$data->hasClass()) {
+        //     return redirect()->back()->withErrors(['msg' => 'You do not have an assigned class']);
+        // }
+        //else
+        $classes = FormClass::where('teacher_id', $teacher_id)->with('students')->get();
+        
+        return view('students.formclassstudents', ['userslist' => $data, 'classes' => $classes]);
+        
     }
 
     public function profile($id)
@@ -96,7 +133,12 @@ class StudentController extends Controller
         //$user->interests = $request->interests;
         $user->save();
         $user->genre()->attach($request->genre);
-        return redirect()->route('users');
+        if (Auth::user()->role == 'teacher'){
+            return redirect()->route('formclassstudents',['teacher_id'=>$user->class->teacher_id]);}
+        elseif (Auth::user()->role == 'admin'){
+            return redirect()->route('users');
+        }
+        
     }
 
     public function teacherstore(Request $request)
@@ -190,66 +232,62 @@ class StudentController extends Controller
     public function assign($id)
     {
         $user = User::find($id);
-        $preferredGenreIds = $user->genre->pluck('id')->toArray();;
+        $preferredGenreIds = $user->genre->pluck('id')->toArray();
+        $studentOrLevel = $user->or_level;
 
-        $matchingBookIds = DB::table('book_genre')
-            ->whereIn('genre_id', $preferredGenreIds)
-            ->pluck('book_id')
-            ->unique() // Remove duplicates
-            ->toArray();
         $reviewedBookIds = Review::where('student_id', $user->id)
             ->pluck('book_id')
             ->toArray();
 
-        $unreviewedBooks = array_diff($matchingBookIds, $reviewedBookIds); // Remove reviewed books
+        $assignedBookId = null;
 
-        if (!empty($unreviewedBooks)) {
-            $assignedBookId = reset($unreviewedBooks); // Get the first book ID
-        } else {
-            $assignedBookId = Book::whereNotIn('id', $reviewedBookIds)->inRandomOrder()->value('id');
+        // Step 1: Preferred genres + OR level
+        $assignedBookId = DB::table('book_genre')
+            ->join('books', 'book_genre.book_id', '=', 'books.id')
+            ->whereIn('book_genre.genre_id', $preferredGenreIds)
+            ->where('books.or_level', $studentOrLevel)
+            ->whereNotIn('books.id', $reviewedBookIds)
+            ->inRandomOrder()
+            ->value('book_genre.book_id');
+        dd($assignedBookId,$studentOrLevel,$preferredGenreIds,$reviewedBookIds);
+        // Step 2: Preferred genres + OR level +1
+        if (!$assignedBookId) {
+            $assignedBookId = DB::table('book_genre')
+                ->join('books', 'book_genre.book_id', '=', 'books.id')
+                ->whereIn('book_genre.genre_id', $preferredGenreIds)
+                ->where('books.or_level', $studentOrLevel + 1)
+                ->whereNotIn('books.id', $reviewedBookIds)
+                ->inRandomOrder()
+                ->value('book_genre.book_id');
         }
-        //dd($assignedBookId);
-        //dd($user->book_id);
-        $user->update(['book_id' => $assignedBookId, 'current_book_name' => Book::find($assignedBookId)->title]);
+
+        // Step 3: Any book + OR level
+        if (!$assignedBookId) {
+            $assignedBookId = Book::where('or_level', $studentOrLevel)
+                ->whereNotIn('id', $reviewedBookIds)
+                ->inRandomOrder()
+                ->value('id');
+        }
+
+        // Step 4: Any book + OR level +1
+        if (!$assignedBookId) {
+            $assignedBookId = Book::where('or_level', $studentOrLevel + 1)
+                ->whereNotIn('id', $reviewedBookIds)
+                ->inRandomOrder()
+                ->value('id');
+        }
+
+        // Step 5: Still nothing
+        if (!$assignedBookId) {
+            $assignedBookId = null; // or return 'N/A';
+            $book_name = 'N/A';
+        }else{
+            $book_name = Book::find($assignedBookId)->title;
+        }
+
+        $user->update(['book_id' => $assignedBookId, 'current_book_name' => $book_name]);
 
         return redirect()->back();
-        dd($user, $assignedBookId, Book::find($assignedBookId)->title);
-
-        //dd($user->genre->pluck('genre_name'));
-        // dd($usergenre); // 4 and 6
-        // $book = Book::withCount('genre',function ($query) use ($usergenre){
-        //     $query->whereIn('genre_id',$usergenre);
-        // }) -> orderBy('genre_count', 'desc')->first();
-        // dd($user->id);
-
-        // Get books from that genre, excluding those the user has reviewed
-        $book = Book::whereIn('category', $usergenre)
-            ->whereNotIn('id', function ($query) use ($user) {
-                $query->select('book_id')
-                    ->from('reviews')
-                    ->where('student_id', $user->id);
-            })
-            ->inRandomOrder()
-            ->first();
-
-        dd($book);
-
-
-
-        $book = Book::withCount(['genre' => function ($query) use ($usergenre) {
-            $query->whereIn('genre_id', $usergenre);
-        }])->having('genre_count', '>', 0)->orderBy('genre_count', 'desc')->first();
-        //dd($book);
-        if (empty($book)) {
-            $user->current_book_name = "no book found";
-            $user->save();
-            return redirect()->back();
-        } else {
-            $user->book_id = $book->id;
-            $user->current_book_name = $book->title;
-            $user->save();
-            return redirect()->back();
-        }
     }
 
 
