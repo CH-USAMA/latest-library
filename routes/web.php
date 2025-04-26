@@ -50,6 +50,8 @@ Route::controller(StudentController::class)->group(function () {
     Route::post('/update-password', 'updatePassword')->name('update.password');
 });
 
+
+
 Route::controller(NoteController::class)->group(function () {
     Route::get('/noteslist', 'index',)->name('notes');
     Route::get('/viewstudentnotes/{id}', 'viewstudentnotes',)->name('viewstudentnotes');
@@ -58,6 +60,10 @@ Route::controller(NoteController::class)->group(function () {
     Route::get('/deletenote/{id}', 'deletenote')->name('deletenote');
     Route::get('/editnote/{id}', 'editnote')->name('editnote');
     Route::post('/updatenote', 'updatenote')->name('updatenote');
+    Route::get('/notes/{classId}', 'getNotes');
+    Route::get('/assignments/{studentId}', 'getAssignments');
+    Route::get('/note-detail/{noteId}', 'getNoteDetails');
+    Route::get('/assignment-detail/{assignmentId}', 'getAssignmentDetails');
 });
 
 Route::controller(ClassNoteController::class)->group(function () {
