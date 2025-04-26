@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\Book;
 use App\Models\Genre;
 use App\Models\Review;
+use App\Models\Assignment;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\DB;
@@ -79,9 +80,24 @@ class StudentController extends Controller
         $reviewsCount = Review::where('student_id', $id)->count();
         // get average rating
         // $averageRating = Review::where('student_id',$id)->avg('rating');
+        $columns = ['vocabulary', 'inference', 'prediction', 'explanation', 'retrieval', 'summarise'];
+
+        // Fetch last 4 assignments for the student, but only needed columns
+        $assignments = Assignment::where('student_id', $id)
+            ->orderBy('created_at', 'desc')
+            ->take(4)
+            ->get($columns);
+
+        // Now calculate averages without hitting the database again
+        $averages = [];
+
+        foreach ($columns as $column) {
+            $averages[$column] = $assignments->avg($column);
+        }
+        
 
         //return view('students.list',['userslist'=>$data]);
-        return view('students.profile', ['user' => $user, 'reviewsCount' => $reviewsCount]);
+        return view('students.profile', ['user' => $user, 'reviewsCount' => $reviewsCount, 'averages'=> $averages]);
     }
 
     public function teacherindex()

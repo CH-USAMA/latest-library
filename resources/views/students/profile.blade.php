@@ -207,11 +207,89 @@
                                         <!--end::Label-->
                                         <!--begin::Col-->
                                         <div class="col-lg-8 d-flex align-items-center">
-                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{$user->genre->pluck('genre_name')->implode(', ')}}</span>
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{ $user->genre ? $user->genre->pluck('genre_name')->implode(', ') : 'N/A'}}</span>
                                         </div>
                                         <!--end::Col-->
                                     </div>
                                     <!--end::Input group-->
+                                    <!--begin::row-->
+                                    <div class="row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="col-lg-4 fw-semibold text-muted required">Vocabulary Average</label>
+                                        <!--end::Label-->
+                                        <!--begin::Col-->
+                                        <div class="col-lg-8 d-flex align-items-center">
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{ !empty($averages['vocabulary']) ? number_format($averages['vocabulary'], 2) : 'N/A' }}
+                                            </span>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+                                    <!--end::row-->
+                                    <!--begin::row-->
+                                    <div class="row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="col-lg-4 fw-semibold text-muted required">Inference Average</label>
+                                        <!--end::Label-->
+                                        <!--begin::Col-->
+                                        <div class="col-lg-8 d-flex align-items-center">
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{ !empty($averages['vocabulary']) ? number_format($averages['vocabulary'], 2) : 'N/A' }}
+                                            </span>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+                                    <!--end::row-->
+                                    <!--begin::row-->
+                                    <div class="row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="col-lg-4 fw-semibold text-muted required">Prediction Average</label>
+                                        <!--end::Label-->
+                                        <!--begin::Col-->
+                                        <div class="col-lg-8 d-flex align-items-center">
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{ !empty($averages['prediction']) ? number_format($averages['prediction'], 2) : 'N/A' }}
+                                            </span>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+                                    <!--end::row-->
+                                    <!--begin::row-->
+                                    <div class="row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="col-lg-4 fw-semibold text-muted required">Explanation Average</label>
+                                        <!--end::Label-->
+                                        <!--begin::Col-->
+                                        <div class="col-lg-8 d-flex align-items-center">
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{ !empty($averages['explanation']) ? number_format($averages['explanation'], 2) : 'N/A' }}
+                                            </span>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+                                    <!--end::row-->
+                                    <!--begin::row-->
+                                    <div class="row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="col-lg-4 fw-semibold text-muted required">Retrieval Average</label>
+                                        <!--end::Label-->
+                                        <!--begin::Col-->
+                                        <div class="col-lg-8 d-flex align-items-center">
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{ !empty($averages['retrieval']) ? number_format($averages['retrieval'], 2) : 'N/A' }}
+                                            </span>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+                                    <!--end::row-->
+                                    <!--begin::row-->
+                                    <div class="row mb-7">
+                                        <!--begin::Label-->
+                                        <label class="col-lg-4 fw-semibold text-muted required">Summarise Average</label>
+                                        <!--end::Label-->
+                                        <!--begin::Col-->
+                                        <div class="col-lg-8 d-flex align-items-center">
+                                            <span class="fw-bold fs-6 text-gray-800 me-2">{{ !empty($averages['summarise']) ? number_format($averages['summarise'], 2) : 'N/A' }}
+                                            </span>
+                                        </div>
+                                        <!--end::Col-->
+                                    </div>
+                                    <!--end::row-->
                                     <!--begin::Input group-->
                                     <div class="row mb-7">
                                         <!--begin::Label-->
