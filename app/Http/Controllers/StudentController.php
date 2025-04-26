@@ -221,9 +221,11 @@ class StudentController extends Controller
         $request->validate([
             'name' => ['required'],
         ]);
+        //dd($request);
         $id = $request->id;
         $user = User::find(id: $id);
         $user->update($request->all());
+        //dd($request);
         $user->genre()->sync($request->genre);
         //User::where($id)->update($request->User);
         if ($user->role === 'teacher') {
@@ -265,7 +267,7 @@ class StudentController extends Controller
             ->whereNotIn('books.id', $reviewedBookIds)
             ->inRandomOrder()
             ->value('book_genre.book_id');
-        dd($assignedBookId,$studentOrLevel,$preferredGenreIds,$reviewedBookIds);
+
         // Step 2: Preferred genres + OR level +1
         if (!$assignedBookId) {
             $assignedBookId = DB::table('book_genre')

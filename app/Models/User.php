@@ -28,7 +28,8 @@ class User extends Authenticatable
         'interests',
         'topic',
         'class',
-        'book_id'
+        'book_id',
+        'assigned_class'
     ];
 
     /**

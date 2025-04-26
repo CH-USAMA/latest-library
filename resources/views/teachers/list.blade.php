@@ -64,7 +64,6 @@
                                 <tr class="fw-bold text-muted">
                                     <th class="ps-3">User Name</th>
                                     <th class="">Email</th>
-                                    <th class="">Interest</th>
                                     <th class="">Date Of Birth</th>
                                     <th class="pe-3 text-center">Actions</th>
                                 </tr>
@@ -91,9 +90,6 @@
                                     </td>
                                     <td class="align-middle">
                                         <div class="text-dark fw-bold d-block">{{$user['email']}}</div>
-                                    </td>
-                                    <td class="align-middle">
-                                        <div class="text-dark fw-bold d-block">{{$user['interests']}}</div>
                                     </td>
                                     <td class="align-middle">
                                         <div class="text-dark fw-bold">{{$user['date_of_birth']}}</div>

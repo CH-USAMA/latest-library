@@ -201,6 +201,7 @@
                                     </div>
                                     <!--end::Input group-->
                                     <!--begin::Input group-->
+                                    @if ($user->role == 'student')
                                     <div class="row mb-7">
                                         <!--begin::Label-->
                                         <label class="col-lg-4 fw-semibold text-muted required">Interests</label>
@@ -213,6 +214,7 @@
                                     </div>
                                     <!--end::Input group-->
                                     <!--begin::row-->
+                                    
                                     <div class="row mb-7">
                                         <!--begin::Label-->
                                         <label class="col-lg-4 fw-semibold text-muted required">Vocabulary Average</label>
@@ -289,6 +291,7 @@
                                         </div>
                                         <!--end::Col-->
                                     </div>
+                                    @endif
                                     <!--end::row-->
                                     <!--begin::Input group-->
                                     <div class="row mb-7">

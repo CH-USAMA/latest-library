@@ -13,7 +13,7 @@ class Note extends Model
         'reading_ability_progress',
         'vipers_progress',
         'class_objectives',
-        'studentId',
+        'student_id',
     ];
 
     // public function user()
