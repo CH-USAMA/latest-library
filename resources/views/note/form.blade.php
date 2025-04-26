@@ -84,7 +84,7 @@
 											</select>
 											@endif
 										</div>
-										<input type="hidden" id="class_id" name="class_id" value="{{ $note->student_class_id }}"/>
+										<input type="hidden" id="class_id" name="class_id" value="{{ $note->student_class_id ?? '' }}"/>
 
 										<div class="col-md-6 fv-row mb-5">
 											<label class="form-label">Class Notes</label>
