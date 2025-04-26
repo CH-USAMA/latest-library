@@ -93,11 +93,27 @@
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
 													<label class="form-label">OR Level</label>
-													<input type="number" name="or_level" value="{{$user->or_level ?? ''}}" id="inputOrLevel" class="form-control form-control-solid @error('or_level') is-invalid @enderror">
+													<select name="or_level" id="inputOrLevel"
+														class="form-select form-select-solid @error('or_level') is-invalid @enderror"
+														required
+														oninvalid="this.setCustomValidity('Please select an OR level')"
+														oninput="this.setCustomValidity('')">
+
+														<option value="" disabled {{ empty($user->or_level) ? 'selected' : '' }}>
+															Select OR Level
+														</option>
+
+														@for ($i = 1; $i <= 20; $i++)
+															<option value="{{ $i }}"
+																{{ (isset($user->or_level) && $user->or_level == $i) ? 'selected' : '' }}>
+																{{ $i }}
+															</option>
+														@endfor
+													</select>
 													@error('or_level')
-													<span class="invalid-feedback" role="alert">
-														<strong>{{ $message }}</strong>
-													</span>
+														<span class="invalid-feedback" role="alert">
+															<strong>{{ $message }}</strong>
+														</span>
 													@enderror
 												</div>
 												<!--end::Col-->

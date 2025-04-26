@@ -38,11 +38,11 @@
                     <div id="kt_app_content" class="app-content flex-column-fluid">
                         <!--begin::Content container-->
                         <div id="kt_app_content_container" class="">
-							{{-- @if (empty($question)) --}}
+							@if (empty($review))
 							<form action="{{route('reviewstore')}}" method="POST">
-							{{-- @else
-							<form action="{{route('updatequestion')}}" method="POST">
-							@endif --}}
+							@else
+							<form action="{{route('updatereview')}}" method="POST">
+							@endif
 							@csrf
                             <!--begin::Row-->
                             <div class="row g-5 g-xl-10">
@@ -53,23 +53,46 @@
 										</div>
 										<div class="card-body p-3 pt-0">
 											<input hidden type="text" name="id" value="{{$review->id ?? ''}}" class="form-control form-control-solid">
-											<input hidden type="text" name="student_id" value="{{$student['id']}}" class="form-control form-control-solid">
+											<input hidden type="text" name="student_id" value="{{ isset($review) ? $review->student_id : $student['id'] }}" class="form-control form-control-solid">
 											<div class="row">
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
 													<label class="form-label">Book:</label>
 													<select name="book_id"class="form-select form-select-solid">
-														<option value="{{$student->book->id}}" selected="selected">{{$student->book->title}}</option>
+														<option value="{{ isset($review) ? $review->book_id :$student->book->id}}" selected="selected">{{ isset($review) ? $review->book->title :$student->book->title}}</option>
+														@if (empty($review))
 														@foreach($bookslist as $book)
 														<option value="{{$book_id = $book->id}}">{{ $book->title }}</option>
 														@endforeach
+														@endif
 													</select>
 												</div>
 												<!--end::Col-->
 												<!--begin::Col-->
 												<div class="col-md-6 fv-row mb-5">
 													<label class="form-label">Rating</label>
-													<input name="rating" id="inputRating" value="{{$review->rating ?? ''}}" type="text" class="form-control form-control-solid">
+													<select name="rating" id="inputRating"
+														class="form-select form-select-solid @error('rating') is-invalid @enderror"
+														required
+														oninvalid="this.setCustomValidity('Please select a rating')"
+														oninput="this.setCustomValidity('')">
+														
+														<option value="" disabled {{ empty($review->rating) ? 'selected' : '' }}>
+															Select Score
+														</option>
+
+														@for ($i = 1; $i <= 5; $i++)
+															<option value="{{ $i }}" 
+																{{ (isset($review->rating) && $review->rating == $i) ? 'selected' : '' }}>
+																{{ $i }}
+															</option>
+														@endfor
+													</select>
+													@error('rating')
+														<span class="invalid-feedback" role="alert">
+															<strong>{{ $message }}</strong>
+														</span>
+													@enderror
 												</div>
 												<!--end::Col-->
 												<div class="mb-0 mt-1">

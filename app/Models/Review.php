@@ -11,7 +11,8 @@ class Review extends Model
     use HasFactory;
 
     protected $fillable = [
-        'comment_text'
+        'comment_text',
+        'rating'
     ];
 
     public function book()

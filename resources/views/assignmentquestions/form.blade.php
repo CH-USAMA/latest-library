@@ -100,7 +100,7 @@
                                                     required
                                                     oninvalid="this.setCustomValidity('Please select a score')"
                                                     oninput="this.setCustomValidity('')">
-                                                    
+                                                    <option value="" disabled {{ empty($assignmentquestion->assignment->vocabulary) ? 'selected' : '' }}>Select Score</option>
                                                     <!-- Display the selected value for both teachers/admins and students -->
                                                     @for ($i = 1; $i <= 5; $i++)
                                                         <option value="{{ $i }}" 
@@ -125,7 +125,7 @@
                                                     required
                                                     oninvalid="this.setCustomValidity('Please select a score')"
                                                     oninput="this.setCustomValidity('')">
-                                                    
+                                                    <option value="" disabled {{ empty($assignmentquestion->assignment->vocabulary) ? 'selected' : '' }}>Select Score</option>
                                                     <!-- Display the selected value for both teachers/admins and students -->
                                                     @for ($i = 1; $i <= 5; $i++)
                                                         <option value="{{ $i }}" 
@@ -150,7 +150,7 @@
                                                     required
                                                     oninvalid="this.setCustomValidity('Please select a score')"
                                                     oninput="this.setCustomValidity('')">
-                                                    
+                                                    <option value="" disabled {{ empty($assignmentquestion->assignment->vocabulary) ? 'selected' : '' }}>Select Score</option>
                                                     <!-- Display the selected value for both teachers/admins and students -->
                                                     @for ($i = 1; $i <= 5; $i++)
                                                         <option value="{{ $i }}" 
@@ -175,7 +175,7 @@
                                                     required
                                                     oninvalid="this.setCustomValidity('Please select a score')"
                                                     oninput="this.setCustomValidity('')">
-                                                    
+                                                    <option value="" disabled {{ empty($assignmentquestion->assignment->vocabulary) ? 'selected' : '' }}>Select Score</option>
                                                     <!-- Display the selected value for both teachers/admins and students -->
                                                     @for ($i = 1; $i <= 5; $i++)
                                                         <option value="{{ $i }}" 
@@ -200,7 +200,7 @@
                                                     required
                                                     oninvalid="this.setCustomValidity('Please select a score')"
                                                     oninput="this.setCustomValidity('')">
-                                                    
+                                                    <option value="" disabled {{ empty($assignmentquestion->assignment->vocabulary) ? 'selected' : '' }}>Select Score</option>
                                                     <!-- Display the selected value for both teachers/admins and students -->
                                                     @for ($i = 1; $i <= 5; $i++)
                                                         <option value="{{ $i }}" 
@@ -225,7 +225,7 @@
                                                     required
                                                     oninvalid="this.setCustomValidity('Please select a score')"
                                                     oninput="this.setCustomValidity('')">
-                                                    
+                                                    <option value="" disabled {{ empty($assignmentquestion->assignment->vocabulary) ? 'selected' : '' }}>Select Score</option>
                                                     <!-- Display the selected value for both teachers/admins and students -->
                                                     @for ($i = 1; $i <= 5; $i++)
                                                         <option value="{{ $i }}" 

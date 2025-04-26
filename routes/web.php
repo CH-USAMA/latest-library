@@ -131,8 +131,8 @@ Route::controller(ReviewController::class)->group(function () {
     //Route::get('/selectbook','selectbook')->name('selectbook');
     Route::post('/storereview', 'storereview')->name('reviewstore');
     Route::get('/deletereview/{id}', 'deletereview')->name('deletereview');
-    //Route::get('/editquestion/{id}','editquestion')->name('editquestion');
-    //Route::post('/updatequestion','updatequestion')->name('updatequestion');
+    Route::get('/editreview/{id}','editreview')->name('editreview');
+    Route::post('/updatereview','updatereview')->name('updatereview');
 });
 
 Route::controller(FormClassController::class)->group(function () {

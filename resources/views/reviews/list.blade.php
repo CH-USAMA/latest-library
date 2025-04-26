@@ -58,9 +58,7 @@
                                     <th class="">Rating</th>
                                     <th class="">Review</th>
                                     <th class="">Date</th>
-                                    @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
                                     <th class="pe-3 text-end">Actions</th>
-                                    @endif
                                 </tr>
 
                             </thead>
@@ -95,35 +93,24 @@
                                         <div class="text-dark fw-bold d-block">{{$review['created_at']->toDateString()}}</div>
                                     </td>
 
-                                    @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
+                                    
                                     <td class="align-middle text-end pe-3">
-                                        <!-- <a href="{{route('viewassignmentquestions',['id'=>$review['id']])}}"
-                                                    class="btn btn-light-success btn-icon h-35px w-35px">
-                                                        <i class="fa-duotone fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="View Assignment"></i>
-                                                </a> -->
-                                        @if($review['status']=='Pending Feedback')
-                                        <!-- <a href="{{route('viewassignmentquestions',['id'=>$review['id']])}}"
-                                                    class="btn btn-light-success btn-icon h-35px w-35px">
-                                                        <i class="fa-solid fa-comment fa-eye fs-4  h-35px w-35px align-items-center justify-content-center"
-                                                        data-bs-toggle="tooltip" data-bs-placement="top"
-                                                        title="View Assignment"></i>
-                                                </a> -->
+
+                                        @if (Auth::user()->id == $review->student_id || Auth::user()->role == 'teacher'||Auth::user()->role == 'admin' )
+                                        <a href="{{route('editreview',['id'=>$review['id']])}}"class="btn btn-light-primary btn-icon h-35px w-35px">
+                                            <i class="fa-duotone fa-pen fs-4  h-35px w-35px align-items-center justify-content-center" title="Edit" data-bs-toggle="tooltip" data-bs-placement="top"></i></a>
                                         @endif
-
-
-
-                                        <a href="{{route('deletereview',['id'=>$review['id']])}}" button type="button"
+                                        @if(Auth::user()->role == 'teacher' OR Auth::user()->role =='admin')
+                                            <a href="{{route('deletereview',['id'=>$review['id']])}}" button type="button"
                                             class=" btn btn-light-danger btn-icon h-35px w-35px"
                                             data-bs-toggle="tooltip" data-bs-placement="top"
                                             title="Delete">
                                             <i class="fa-duotone fa-trash fs-4 h-35px w-35px align-items-center justify-content-center"></i>
                                         </a>
+                                        @endif
 
 
                                     </td>
-                                    @endif
                                 </tr>
 
                                 @endforeach

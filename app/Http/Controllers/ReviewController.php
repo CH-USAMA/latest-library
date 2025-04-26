@@ -88,17 +88,32 @@ class ReviewController extends Controller
     /**
      * Show the form for editing the specified resource.
      */
-    public function edit(Review $review)
+    public function editreview($id)
     {
-        //
+        $review = Review::find($id);
+        return view('reviews.form', compact( 'review'));
     }
 
     /**
      * Update the specified resource in storage.
      */
-    public function update($request, Review $review)
+    public function updatereview (Request $request)
     {
-        //
+        $request->validate([
+            'comment_text' => ['nullable']
+        ]);
+        $id = $request->id;
+        $note = Review::find(id: $id);
+        //$note->update($request->all());
+        //dd($note);
+        //$note->update($request->all());
+        $note->update($request->only('rating', 'comment_text'));
+        //$note->update($request->all()->except(['title', 'content']));
+        //$note->update($request->title);
+        //$note->update($request->all());
+        //User::where($id)->update($request->User);
+        return redirect()->route('reviews');
+
     }
 
     /**
